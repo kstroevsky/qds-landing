@@ -4,7 +4,7 @@
 	background-image: url('../../assets/bannerBlock/background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 885px;
+	height: 900px;
 	width: 100%;
 	display: flex;
 	position: relative;
@@ -13,8 +13,7 @@
 .leftBlock {
 	background-image: url('../../assets/bannerBlock/leftsSde.png');
 	width: 100%;
-	height: 100%;
-	background-size: contain;
+	background-size: 70% 100%;
 	background-repeat: no-repeat;
 }
 
@@ -28,12 +27,11 @@
 
 .rightBlock {
 	background-image: url('../../assets/bannerBlock/rightSide.png');
-	width: 57%;
 	height: 100%;
-	background-size: cover;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	position: absolute;
-	left: 42.9%;
+	right: 0;
 }
 
 .title {
@@ -78,7 +76,7 @@
 		transition: color 0.5s ease;
 
 		&:hover {
-			color: black;
+			color: #950000;
 		}
 	}
 }

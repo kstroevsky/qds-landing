@@ -2,6 +2,7 @@
 
 .wrapper {
   height: 1750px;
+  padding: 0 35px;
 }
 
 .blockTwo {
@@ -12,7 +13,7 @@
 
 .top {
   background-image: url("../../assets/block2/up.png");
-  background-size: contain;
+  background-size: 100% 80%;
   background-repeat: no-repeat;
   height: 1005px;
   width: 100%;
@@ -27,19 +28,20 @@
 
 .bottom {
   background-image: url("../../assets/block2/down.png");
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
+  height: 1005px;
   width: 100%;
   position: absolute;
   bottom: 0;
 }
 
 .titleList {
-  padding: 24% 11% 0;
+  padding: 26% 11% 175px;
 
   &__item {
     @include title;
-    font-size: 80px;
+    font-size: 70px;
 
     &_first {
       color: #950000;
@@ -60,5 +62,6 @@
 .titleBottom {
   @include title;
   text-align: end;
-  margin: 182px 81px 15px 0;
+  font-size: 70px;
+  padding-right: 100px;
 }
