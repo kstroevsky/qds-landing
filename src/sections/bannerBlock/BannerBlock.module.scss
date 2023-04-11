@@ -1,0 +1,89 @@
+@import '../../styles/vars';
+
+.background {
+	background-image: url('../../assets/bannerBlock/background.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 885px;
+	width: 100%;
+	display: flex;
+	position: relative;
+}
+
+.bgImages {
+	height: 100%;
+	position: absolute;
+	display: flex;
+	width: 100%;
+}
+
+.rightImg {
+	top: 27px;
+    position: absolute;
+    left: 27.9%;
+    height: 97%;
+    width: 72%;
+}
+
+.lefttBlock {
+	height: 860px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px 0 100px 61px;
+}
+
+.leftBlock {
+	position: absolute;
+    padding: 100px 0 100px 55px;
+    height: 865px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+	@include title;
+	width: 360px;
+}
+
+.button {
+	width: 330px;
+    height: 40px;
+    border: none;
+    border-radius: 92px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+	cursor: pointer;
+	background-color: $bgColor;
+	color: #D6DFEA;
+}
+
+.nav {
+	position: absolute;
+    left: 45%;
+	top: 50px;
+}
+
+.menu {
+	display: flex;
+
+	&__item {
+		font-weight: 700;
+		color: white;
+		margin-right: 50px;
+		font-size: 30px;
+		cursor: pointer;
+	}
+}
+
+
+
+
+
+
+
