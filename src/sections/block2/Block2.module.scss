@@ -1,0 +1,64 @@
+@import "../../styles/vars";
+
+.wrapper {
+  height: 1750px;
+}
+
+.blockTwo {
+  padding-top: 50px;
+  height: inherit;
+  position: relative;
+}
+
+.top {
+  background-image: url("../../assets/block2/up.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 1005px;
+  width: 100%;
+}
+
+.titleTop {
+  @include title;
+  text-align: end;
+  padding-right: 80px;
+  padding-top: 20px;
+}
+
+.bottom {
+  background-image: url("../../assets/block2/down.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.titleList {
+  padding: 24% 11% 0;
+
+  &__item {
+    @include title;
+    font-size: 80px;
+
+    &_first {
+      color: #950000;
+      margin-left: 200px;
+    }
+
+    &_second {
+      color: #02740D;
+      margin-left: 110px;
+    }
+
+    &_third {
+      color: #00288E;
+    }
+  }
+}
+
+.titleBottom {
+  @include title;
+  text-align: end;
+  margin: 182px 81px 15px 0;
+}
