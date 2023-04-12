@@ -82,6 +82,41 @@
 }
 
 
+.backgroundContainer {
+	height: 100vh;
+	position: relative;
+}
+
+.leftBackground {
+	background-image: url('../../assets/bannerBlock/leftSide.svg');
+	width: 100%;
+	height: 100%;
+	background-size: 70% 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 10;
+}
+
+.rightBackground {
+	background-image: url('../../assets/bannerBlock/rightSide.png');
+	height: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 0;
+}
+
+.mainBackground {
+	background-image: url('../../assets/bannerBlock/background.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	position: relative;
+}
+
+
 
 
 

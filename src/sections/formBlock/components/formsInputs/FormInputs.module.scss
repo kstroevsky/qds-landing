@@ -1,0 +1,32 @@
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+
+  &__item {
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid rgba(46, 2, 73, 0.3);
+    outline: none;
+    color: rgba(46, 2, 73, 0.3);
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: transparent;
+  }
+
+  &__item:focus {
+    border-bottom: 1px solid #A91079;
+    color: #A91079;
+  }
+
+  &__item:focus::placeholder {
+    color: #A91079;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px #eeeeee inset !important;
+}

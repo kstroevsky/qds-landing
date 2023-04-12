@@ -1,0 +1,44 @@
+.userChoice {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__buttons {
+    height: 40px;
+    border: 1px solid rgba(46, 2, 73, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: rgba(46, 2, 73, 0.3);
+    padding: 0 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: inherit;
+    transition: background-color 0.5s ease;
+    margin: 0 5px 10px 0;
+    outline: none;
+
+    &:hover {
+      background-color: #2e02498f;
+      color: white;
+      transition: background-color 0.5s ease, transform 0.5s ease;
+    }
+
+    &:active {
+      transition: background-color 0.5s ease, transform 0.5s ease;
+    }
+  }
+
+  .active {
+    background-color: #2E0249;
+    color: white;
+  }
+}
