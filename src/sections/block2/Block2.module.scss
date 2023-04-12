@@ -21,9 +21,8 @@
 
 .titleTop {
   @include title;
-  text-align: end;
-  padding-right: 80px;
-  padding-top: 20px;
+  padding-left: 80px;
+  font-size: 80px;
 }
 
 .bottom {
@@ -62,6 +61,6 @@
 .titleBottom {
   @include title;
   text-align: end;
-  font-size: 70px;
+  font-size: 80px;
   padding-right: 100px;
 }
