@@ -8,7 +8,7 @@ const UserChoice = () => {
     return (
         <div className={s.userChoice}>
             {items.map(el =>
-                <UserChoiceButtons title={el}/>
+                <UserChoiceButtons key={el} title={el}/>
             )}
         </div>
     );

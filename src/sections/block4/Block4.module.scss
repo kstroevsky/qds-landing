@@ -1,0 +1,64 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.table {
+  width: 80%;
+  height: 500px;
+  background: linear-gradient(180deg, #F5616D 0%, rgba(245, 97, 109, 0.515625) 35.94%, rgba(245, 97, 109, 0.339558) 47.92%, rgba(245, 97, 109, 0) 100%);
+  border: 1px solid #000000;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
+  position: absolute;
+  width: calc(260px * 39);
+  top: 147px;
+  animation: scroll 40s linear infinite;
+  animation-iteration-count: infinite;
+  animation-delay: -3s;
+}
+
+.slide {
+  width: 260px;
+  height: 260px;
+  margin-right: 50px;
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-260px * 13);
+  }
+}
+
+
+
+
+
+

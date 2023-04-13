@@ -37,16 +37,14 @@
 .span {
   color: #2E0249;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 1.4rem;
 }
 
 .downBlock{
-  position: absolute;
   height: 60px;
   background-color: #8c528c;
   border-radius: 0 0 80px 80px;
   width: 100%;
-  bottom: -54px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +52,7 @@
   &__link {
     text-decoration: underline;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.1rem;
     color: white;
   }
 }
