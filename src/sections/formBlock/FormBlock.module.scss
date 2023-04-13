@@ -43,7 +43,6 @@
 .span {
   color: #2E0249;
   font-weight: 500;
-<<<<<<< HEAD
   font-size: 1.4rem;
 }
 
@@ -52,20 +51,17 @@
   background-color: #8c528c;
   border-radius: 0 0 80px 80px;
   width: 100%;
-=======
   font-size: 2vw;
   padding-top: 1vw;
 }
 
 .downBlock {
-  position: relative;
+  //position: relative;
   height: 5vw;
-  background-color: rgb(168, 122, 252);
   background: linear-gradient(90deg, rgb(168, 122, 252) 0%, rgb(111, 67, 191) 100%);
   border-radius: 0 0 80px 80px;
   width: 100%;
   bottom: 7px;
->>>>>>> 087b01f (refactor/form-block)
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,11 +69,7 @@
   &__link {
     text-decoration: underline;
     font-weight: 500;
-<<<<<<< HEAD
-    font-size: 1.1rem;
-=======
     font-size: 2.5vw;
->>>>>>> 087b01f (refactor/form-block)
     color: white;
   }
 }
