@@ -1,6 +1,8 @@
 @mixin title {
 	font-weight: 700;
-	font-size: 60px;
+	font-size: 5.5vw;
+	z-index: 1;
+	position: relative;
 }
 
 $bgColor: #14192B;
