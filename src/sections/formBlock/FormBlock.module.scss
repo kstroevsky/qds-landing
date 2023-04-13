@@ -1,42 +1,49 @@
 @import '../../styles/vars';
 
 .wrapper {
-  padding: 35px;
+  padding: 4vw;
+  position: relative;
 }
 
 .background {
   background-image: url("../../assets/formBlock/bgForm.png");
-  background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
   height: 930px;
+  width: 100vw;
   padding: 65px 30px;
+  position: absolute;
+  bottom: 0;
 }
 
 .title {
   @include title;
   color: #D6DFEA;
+  bottom: 6vw;
 }
 
 .formWrapper {
-  width: 31%;
-  height: 480px;
-  margin-left: 25px;
+  width: 41%;
+  margin-left: 4vw;
   position: relative;
-  margin-top: 60px;
+  margin-top: 1vw;
+  z-index: 1;
 }
 
 .form {
   background-color: #eeeeee;
-  height: 401px;
-  border-radius: 80px 80px 0 0;
+  border-radius: 6vw 6vw 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 30px;
+  padding: 0 1vw;
 }
 
 .span {
   color: #2E0249;
   font-weight: 500;
+<<<<<<< HEAD
   font-size: 1.4rem;
 }
 
@@ -45,6 +52,20 @@
   background-color: #8c528c;
   border-radius: 0 0 80px 80px;
   width: 100%;
+=======
+  font-size: 2vw;
+  padding-top: 1vw;
+}
+
+.downBlock {
+  position: relative;
+  height: 5vw;
+  background-color: rgb(168, 122, 252);
+  background: linear-gradient(90deg, rgb(168, 122, 252) 0%, rgb(111, 67, 191) 100%);
+  border-radius: 0 0 80px 80px;
+  width: 100%;
+  bottom: 7px;
+>>>>>>> 087b01f (refactor/form-block)
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +73,11 @@
   &__link {
     text-decoration: underline;
     font-weight: 500;
+<<<<<<< HEAD
     font-size: 1.1rem;
+=======
+    font-size: 2.5vw;
+>>>>>>> 087b01f (refactor/form-block)
     color: white;
   }
 }
