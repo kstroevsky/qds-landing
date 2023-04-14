@@ -1,9 +1,9 @@
 @import "../../styles/vars";
 
 .wrapper {
-  height: 1750px;
-  padding: 0 35px;
   position: relative;
+  width: 80%;
+  margin: auto;
 }
 
 .blockTwo {
@@ -11,8 +11,13 @@
   height: inherit;
   position: relative;
 
-  &>* {
+  &>div {
     position: relative;
+    width: 100%;
+
+    &:nth-child(2) {
+      bottom: 12vw;
+    }
   }
 }
 
@@ -20,14 +25,15 @@
   background-image: url("../../assets/block2/half-block.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 554px;
+  height: 44vw;
   width: 100%;
+  position: relative;
 }
 
 .titleTop {
   @include title;
-  padding-left: 80px;
-  font-size: 80px;
+  position: absolute;
+  padding-left: 3vw;
 }
 
 .bottom {
@@ -35,31 +41,35 @@
   transform: scale(-1, -1);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 554px;
+  height: 44vw;
   width: 100%;
+  position: relative;
 }
 
 .titleList {
   position: absolute;
-  bottom: 9vw;
-  left: 17vw;
+  bottom: 8vw;
+  right: 2vw;
 
   &__item {
     @include title;
-    font-size: 4.5vw;
+    font-size: 4vw;
+    position: relative;
 
     &_first {
       color: #950000;
-      margin-left: 200px;
+
     }
 
     &_second {
       color: #02740D;
-      margin-left: 110px;
+      left: -7.5vw;
+
     }
 
     &_third {
       color: #00288E;
+      left: -16vw;
     }
   }
 }

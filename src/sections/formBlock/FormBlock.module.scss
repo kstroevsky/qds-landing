@@ -20,14 +20,13 @@
 .title {
   @include title;
   color: #D6DFEA;
-  //bottom: 6vw;
 }
 
 .formWrapper {
   width: 41%;
   margin-left: 4vw;
   position: relative;
-  margin-top: 1vw;
+  margin-top: 6vw;
   z-index: 1;
 }
 
@@ -43,7 +42,8 @@
 .span {
   color: #2E0249;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 2vw;
+  padding-top: 1vw;
 }
 
 .downBlock {

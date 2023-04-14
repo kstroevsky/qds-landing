@@ -1,49 +1,102 @@
 @import "../../styles/vars";
 
 .block {
-  height: 1500px;
   padding: 35px;
   position: relative;
-}
+  bottom: 17vw;
 
-.background {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  right: 0;
-  bottom: 115px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.4;
-}
+  .background {
+    bottom: 0;
+    position: absolute;
+    opacity: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vw;
+    width: 100vw;
+    background-image: none;
+    transition: background-image 0.4s ease;
+    background-position: bottom;
+    z-index: 1;
+  }
 
-.section {
-  width: 80%;
-  height: 350px;
-  border-radius: 130px;
-  padding: 0 35px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  margin: 30px auto;
-
-  &_first, &_third {
+  .section {
+    width: 100%;
+    height: 28vw;
+    border-radius: 130px;
+    padding: 0 35px;
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 30px auto;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
+    align-items: end;
+    position: relative;
+    z-index: 10;
 
-  &_first {
-    background: linear-gradient(90deg, #69B7D8 0%, rgba(105, 183, 216, 0) 93.75%, rgba(105, 183, 216, 0) 100%);
-  }
+    &:nth-child(1):hover~.background {
+      opacity: 0.4;
+      transition: background-image 0.4s ease, opacity 0.4s ease;
+      ;
+      background-image: url("../../assets/block3/first.png");
+    }
 
-  &_second {
-    background: linear-gradient(90deg, #7B88BC 0%, rgba(123, 136, 188, 0) 100%);
-  }
+    &:nth-child(2):hover~.background {
+      opacity: 0.4;
+      transition: background-image 0.4s ease, opacity 0.4s ease;
+      ;
+      transform: scale(-1, 1);
+      background-image: url("../../assets/block3/second.png");
+    }
 
-  &_third {
-    background: linear-gradient(90deg, #CBCACE 0%, #D9D7D7 60.42%, #D9D8D9 68.23%, rgba(216, 214, 216, 0) 100%);
-  }
+    &:nth-child(3):hover~.background {
+      opacity: 0.4;
+      transition: background-image 0.4s ease, opacity 0.4s ease;
+      ;
+      background-image: url("../../assets/block3/third.png");
+    }
 
-  &__right, &__left {
-    height: 95%;
+    // &:not(:hover) ~.background{
+    //   opacity: 0;
+    //   // transition: background-image 0.4s ease, opacity 0.4s ease;
+    //   // background-image: none;
+    // }
+
+    &_first {
+      background: linear-gradient(90deg, #69B7D8 0%, rgba(105, 183, 216, 0) 93.75%, rgba(105, 183, 216, 0) 100%);
+
+      &>div {
+        background-image: url("../../assets/block3/first.png");
+      }
+    }
+
+    &_second {
+      background: linear-gradient(90deg, rgba(123, 136, 188, 0) 0%, #7B88BC 100%);
+
+      &>div {
+        background-image: url("../../assets/block3/second.png");
+      }
+    }
+
+    &_third {
+      background: linear-gradient(90deg, #CBCACE 0%, #D9D7D7 60.42%, #D9D8D9 68.23%, rgba(216, 214, 216, 0) 100%);
+
+      &>div {
+        background-image: url("../../assets/block3/third.png");
+      }
+    }
+
+    &>div {
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 80%;
+      width: 100%;
+    }
+
+    &__left {
+      background-position: left;
+    }
+
+    &__right {
+      background-position: right;
+    }
   }
 }
