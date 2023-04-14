@@ -57,18 +57,18 @@
     position: relative;
 
     &_first {
-      color: #950000;
+      color: $red;
 
     }
 
     &_second {
-      color: #02740D;
+      color: $green;
       left: -7.5vw;
 
     }
 
     &_third {
-      color: #00288E;
+      color: $blue;
       left: -16vw;
     }
   }

@@ -1,3 +1,5 @@
+@import "../../../../styles/vars";
+
 @mixin gradientAnimation($start, $end, $transTime, $exclude: null, $include: null) {
   background-size: 100%;
   background-image: '';
@@ -62,7 +64,7 @@
   }
 
   &__buttons {
-    @include gradientAnimation(rgba(168, 122, 252, 0.4), rgba(111, 67, 191, 0.3), .4s, null, '.active');
+    @include gradientAnimation($hoverPurpleLite, $hoverPurpleDark, .4s, null, '.active');
 
     border: 1px solid rgba(46, 2, 73, 0.3);
     border-radius: 10px;
@@ -89,7 +91,7 @@
   }
 
   .active {
-    background-image: linear-gradient(90deg, rgba(168, 122, 252, 0.4) 0%, rgba(111, 67, 191, 0.4) 100%);
+    background-image: $activePurpleGradient;
     color: white;
   }
 }

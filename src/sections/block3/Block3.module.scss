@@ -1,9 +1,8 @@
 @import "../../styles/vars";
 
 .block {
-  padding: 35px;
+  padding: 0 35px;
   position: relative;
-  bottom: 17vw;
 
   .background {
     bottom: 0;
@@ -17,6 +16,10 @@
     transition: background-image 0.4s ease;
     background-position: bottom;
     z-index: 1;
+
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      right: 10px;
+    }
   }
 
   .section {
@@ -31,6 +34,11 @@
     align-items: end;
     position: relative;
     z-index: 10;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      height: 45vh;
+      padding: 0;
+    }
 
     &:nth-child(1):hover~.background {
       opacity: 0.4;
@@ -54,13 +62,8 @@
       background-image: url("../../assets/block3/third.png");
     }
 
-    // &:not(:hover) ~.background{
-    //   opacity: 0;
-    //   // transition: background-image 0.4s ease, opacity 0.4s ease;
-    //   // background-image: none;
-    // }
-
     &_first {
+      margin-top: 0;
       background: linear-gradient(90deg, #69B7D8 0%, rgba(105, 183, 216, 0) 93.75%, rgba(105, 183, 216, 0) 100%);
 
       &>div {
@@ -89,6 +92,15 @@
       background-repeat: no-repeat;
       height: 80%;
       width: 100%;
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 42vh;
+        width: 51vw;
+        opacity: 0.6;
+        margin: 0 auto;
+      }
     }
 
     &__left {

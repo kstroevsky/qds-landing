@@ -1,3 +1,5 @@
+@import "../../styles/vars";
+
 .block {
   display: flex;
   flex-direction: column;
@@ -74,3 +76,4 @@
     transform: translateX(-260px * 13);
   }
 }
+

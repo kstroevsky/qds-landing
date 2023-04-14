@@ -9,7 +9,7 @@ function Block2() {
 					<div className={s.top}></div>
 				</div>
 				<div>
-					<div>
+					<>
 						<div className={s.titleList}>
 							<h2 className={`${s.titleList__item} ${s.titleList__item_first}`}>
 								SPEED UP DEVELOPMENT
@@ -24,7 +24,7 @@ function Block2() {
 							</h2>
 						</div>
 						<h1 className={s.titleBottom}>WHAT WE DO</h1>
-					</div>
+					</>
 					<div className={s.bottom}></div>
 				</div>
 			</div>

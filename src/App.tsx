@@ -15,7 +15,7 @@ function App() {
         <BannerBlock/>
         <Block2/>
         <Block3/>
-        <Block4/>
+        {/*<Block4/>*/}
         <FormBlock/>
     </div>
   );
