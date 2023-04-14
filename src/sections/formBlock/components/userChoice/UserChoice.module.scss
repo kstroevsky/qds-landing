@@ -1,3 +1,54 @@
+@mixin gradientAnimation($start, $end, $transTime, $exclude: null, $include: null) {
+  background-size: 100%;
+  background-image: '';
+  position: relative;
+  z-index: 100;
+
+  &:before {
+    background-image: linear-gradient($start, $end);
+    border-radius: 9px;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: opacity $transTime ease;
+  }
+
+
+  @if $exclude {
+
+    &:not(#{$exclude}):hover,
+    &:not(#{$exclude}):active {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  @else {
+
+    &:hover,
+    &:active {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  @if $include {
+
+    // Add the linear-gradient to specified selectors
+    & #{$include}:before {
+      opacity: 1;
+    }
+  }
+}
+
 .userChoice {
   width: 90%;
   margin-top: 1vw;
@@ -11,6 +62,8 @@
   }
 
   &__buttons {
+    @include gradientAnimation(rgba(168, 122, 252, 0.4), rgba(111, 67, 191, 0.3), .4s, null, '.active');
+
     border: 1px solid rgba(46, 2, 73, 0.3);
     border-radius: 10px;
     display: flex;
@@ -21,23 +74,22 @@
     font-size: 1.5vw;
     cursor: pointer;
     background-color: inherit;
-    transition: background-color 0.5s ease;
     margin: 0.2vw;
     outline: none;
+    transition: color 0.3s ease;
 
     &:hover {
-      background-color: #2e02498f;
       color: white;
-      transition: background-color 0.5s ease, transform 0.5s ease;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     &:active {
-      transition: background-color 0.5s ease, transform 0.5s ease;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
   }
 
   .active {
-    background-color: #2E0249;
+    background-image: linear-gradient(90deg, rgba(168, 122, 252, 0.4) 0%, rgba(111, 67, 191, 0.4) 100%);
     color: white;
   }
 }

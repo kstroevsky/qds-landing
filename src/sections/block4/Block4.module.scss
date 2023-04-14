@@ -7,7 +7,7 @@
 
 .table {
   width: 80%;
-  height: 500px;
+  height: 30vw;
   background: linear-gradient(180deg, #F5616D 0%, rgba(245, 97, 109, 0.515625) 35.94%, rgba(245, 97, 109, 0.339558) 47.92%, rgba(245, 97, 109, 0) 100%);
   border: 1px solid #000000;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -16,15 +16,23 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+
+  h2 {
+    position: absolute;
+    top: 1vw;
+  }
 }
 
 .sliderTrack {
   display: flex;
-  position: absolute;
+  align-items: center;
   width: calc(260px * 39);
   top: 147px;
+  -webkit-animation: scroll 40s linear infinite;
   animation: scroll 40s linear infinite;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+  -webkit-animation-delay: -3s;
   animation-delay: -3s;
 }
 
@@ -47,10 +55,21 @@
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+@-webkit-keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-260px * 13);
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-260px * 13);
   }

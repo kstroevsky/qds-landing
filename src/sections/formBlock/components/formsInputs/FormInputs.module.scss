@@ -13,31 +13,23 @@
     margin-top: 0.5vw;
     font-size: 1.5vw;
     background-color: transparent;
-  }
 
-  &__item:focus {
-    border-bottom: 1px solid #A91079;
-    color: #A91079;
-  }
+    &:focus {
+      border-bottom: 1px solid #A91079;
+      color: #A91079;
 
-  &__item:focus::-webkit-input-placeholder {
-    color: #A91079;
-  }
+      &::-webkit-input-placeholder {
+        color: #A91079;
+      }
 
-  &__item:focus::-moz-placeholder {
-    color: #A91079;
-  }
-
-  &__item:focus:-ms-input-placeholder {
-    color: #A91079;
-  }
-
-  &__item:focus::-ms-input-placeholder {
-    color: #A91079;
-  }
-
-  &__item:focus::placeholder {
-    color: #A91079;
+      &::-webkit-input-placeholder,
+      &::-moz-placeholder,
+      &::-ms-input-placeholder,
+      &::-ms-input-placeholder,
+      &::placeholder {
+        color: #A91079;
+      }
+    }
   }
 }
 

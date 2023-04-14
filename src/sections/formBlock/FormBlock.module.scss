@@ -46,17 +46,17 @@
   font-size: 1.4rem;
 }
 
-.downBlock{
+.downBlock {
   height: 60px;
   background-color: #8c528c;
   border-radius: 0 0 80px 80px;
   width: 100%;
   font-size: 2vw;
   padding-top: 1vw;
+  position: relative;
 }
 
 .downBlock {
-  //position: relative;
   height: 5vw;
   background: linear-gradient(90deg, rgb(168, 122, 252) 0%, rgb(111, 67, 191) 100%);
   border-radius: 0 0 80px 80px;

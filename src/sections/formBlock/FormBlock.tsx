@@ -1,8 +1,8 @@
 import UserChoice from './components/userChoice/UserChoice';
 import FormContainer from './components/formsInputs/FormContainer';
 
-import topForm from '../../assets/formBlock/topForm.png';
-import downForm from '../../assets/formBlock/downForm.png';
+import topForm from '../../assets/formBlock/topForm.svg';
+import downForm from '../../assets/formBlock/downForm.svg';
 
 import s from './FormBlock.module.scss';
 

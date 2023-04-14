@@ -1,7 +1,7 @@
 @import '../../styles/vars';
 
 .background {
-	background-image: url('../../assets/bannerBlock/background.png');
+	background-image: url('../../assets/bannerBlock/background.svg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 900px;
@@ -11,7 +11,7 @@
 }
 
 .leftBlock {
-	background-image: url('../../assets/bannerBlock/leftsSde.png');
+	background-image: url('../../assets/bannerBlock/leftSide.svg');
 	width: 100%;
 	background-size: 70% 100%;
 	background-repeat: no-repeat;
@@ -41,14 +41,14 @@
 
 .button {
 	width: 330px;
-    height: 40px;
-    border: none;
-    border-radius: 92px;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
+	height: 40px;
+	border: none;
+	border-radius: 92px;
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
 	cursor: pointer;
 	background-color: $bgColor;
 	color: #D6DFEA;
@@ -88,37 +88,35 @@
 }
 
 .leftBackground {
-	background-image: url('../../assets/bannerBlock/leftSide.svg');
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-size: 70% 100%;
+	background-image: url('../../assets/bannerBlock/leftSide.svg');
+	background-size: contain;
+	background-position: left;
 	background-repeat: no-repeat;
-	position: absolute;
 	z-index: 10;
 }
 
 .rightBackground {
-	background-image: url('../../assets/bannerBlock/rightSide.png');
-	height: 100%;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
 	position: absolute;
 	right: 0;
+	height: 100%;
+	width: 100%;
+	background-image: url('../../assets/bannerBlock/rightSide.png');
+	background-size: contain;
+	background-position: right;
+	background-repeat: no-repeat;
+	z-index: 100;
 }
 
 .mainBackground {
-	background-image: url('../../assets/bannerBlock/background.png');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	height: 100%;
-	width: 100%;
 	display: flex;
 	position: relative;
+	height: 100%;
+	width: 95%;
+	margin: auto;
+	background-image: url('../../assets/bannerBlock/background.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
 }
-
-
-
-
-
-
-

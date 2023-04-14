@@ -1,4 +1,4 @@
-import s from "./BannerBlock.module.scss";
+import s from './BannerBlock.module.scss';
 
 function BannerBlock() {
 	const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
@@ -23,9 +23,10 @@ function BannerBlock() {
 		// </div>
 		<>
 			<div className={s.backgroundContainer}>
-				<div className={s.leftBackground}></div>
-				<div className={s.rightBackground}></div>
-				<div className={s.mainBackground}></div>
+				<div className={s.mainBackground}>
+					<div className={s.leftBackground}></div>
+					<div className={s.rightBackground}></div>
+				</div>
 			</div>
 		</>
 	);

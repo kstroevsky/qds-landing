@@ -10,13 +10,17 @@
   padding-top: 50px;
   height: inherit;
   position: relative;
+
+  &>* {
+    position: relative;
+  }
 }
 
 .top {
-  background-image: url("../../assets/block2/up.png");
-  background-size: 100% 80%;
+  background-image: url("../../assets/block2/half-block.svg");
+  background-size: contain;
   background-repeat: no-repeat;
-  height: 1005px;
+  height: 554px;
   width: 100%;
 }
 
@@ -27,21 +31,22 @@
 }
 
 .bottom {
-  background-image: url("../../assets/block2/down.png");
-  background-size: 100%;
+  background-image: url("../../assets/block2/half-block.svg");
+  transform: scale(-1, -1);
+  background-size: contain;
   background-repeat: no-repeat;
-  height: 1005px;
+  height: 554px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
 }
 
 .titleList {
-  padding: 26% 11% 175px;
+  position: absolute;
+  bottom: 9vw;
+  left: 17vw;
 
   &__item {
     @include title;
-    font-size: 70px;
+    font-size: 4.5vw;
 
     &_first {
       color: #950000;
@@ -59,9 +64,12 @@
   }
 }
 
+
 .titleBottom {
   @include title;
   text-align: end;
-  font-size: 80px;
-  padding-right: 100px;
+  padding-right: 4vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
