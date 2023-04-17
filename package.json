@@ -25,11 +25,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-scripts": "5.0.1",
     "sass": "^1.61.0",
-<<<<<<< HEAD
-    "typescript": "^4.9.5",
-=======
     "typescript": "^5.0.4",
->>>>>>> c16ee3d (refactor/heights)
     "web-vitals": "^2.1.4"
   },
   "scripts": {
