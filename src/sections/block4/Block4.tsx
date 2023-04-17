@@ -20,51 +20,72 @@ import webpack from '../../assets/slides/webpack.svg';
 import s from './Block4.module.scss';
 
 const Block4 = () => {
-	const [currentIco, setCurrentIco] = useState(8);
-
-	const imgArr = [
-		graphQl,
-		mobx,
-		mongo,
-		nestJS,
-		nodeJS,
-		postgre,
-		react,
-		recoil,
-		redux,
-		reduxsaga,
-		three,
-		vue,
-		webpack,
-	];
-	const imgArrExtended = [...imgArr, ...imgArr, ...imgArr];
-
-	const currentIcoName = imgArrExtended
-		.find((_, idx) => idx === currentIco)
-		?.match(/\/media\/(.+?)\..+/)?.[1];
-	const icoName = currentIcoName ? currentIcoName.toUpperCase() : '';
+	const [slides, setSlides] = useState<JSX.Element[]>([]);
 
 	useEffect(() => {
-		const intervalId = setInterval(() => {
-			setCurrentIco((currIco) =>
-				currentIco + 1 >= imgArrExtended.length ? 0 : currIco + 1
-			);
-		}, 3150);
-		return () => clearInterval(intervalId);
-	}, [currentIco, imgArrExtended.length]);
+		setSlides([
+			<div key={1}>
+				<img src={graphQl} alt="graphQL" />
+			</div>,
+			<div key={2}>
+				<img src={mobx} alt="mobx" />
+			</div>,
+			<div key={3}>
+				<img src={mongo} alt="mongo" />
+			</div>,
+			<div key={4}>
+				<img src={nestJS} alt="nestJS" />
+			</div>,
+			<div key={5}>
+				<img src={nodeJS} alt="nodeJS" />
+			</div>,
+			<div key={6}>
+				<img src={postgre} alt="postgre" />
+			</div>,
+			<div key={7}>
+				<img src={react} alt="react" />
+			</div>,
+			<div key={8}>
+				<img src={recoil} alt="recoil" />
+			</div>,
+			<div key={9}>
+				<img src={redux} alt="redux" />
+			</div>,
+			<div key={10}>
+				<img src={reduxsaga} alt="reduxsaga" />
+			</div>,
+			<div key={11}>
+				<img src={three} alt="three" />
+			</div>,
+			<div key={12}>
+				<img src={vue} alt="vue" />
+			</div>,
+			<div key={13}>
+				<img src={webpack} alt="webpack" />
+			</div>,
+		]);
+	}, []);
 
 	return (
 		<div className={s.block}>
 			<h1 className={s.title}>TECHNOLOGY</h1>
 			<div className={s.table}>
-				<h2 className={s.nameIcon}>{icoName}</h2>
-				<div className={s.sliderTrack}>
-					{imgArrExtended.map((img, idx) => (
-						<div className={s.slide} key={idx}>
-							<img className={s.slide__icon} src={img} alt={img} />
-						</div>
-					))}
-				</div>
+				<Carousel
+					infiniteLoop={true}
+					autoPlay={true}
+					centerMode={true}
+					showThumbs={false}
+					showArrows={false}
+					showStatus={false}
+					showIndicators={false}
+					swipeable={true}
+					stopOnHover={true}
+					transitionTime={500}
+					interval={1000}
+					useKeyboardArrows={true}
+				>
+					{slides}
+				</Carousel>
 			</div>
 		</div>
 	);

@@ -10,16 +10,32 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
-  height: 930px;
+  height: 150vh;
   width: 100vw;
   padding: 65px 30px;
   position: absolute;
   bottom: 0;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    background-image: none;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    background-image: none;
+  }
 }
 
 .title {
   @include title;
   color: #D6DFEA;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    text-align: center;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    text-align: center;
+  }
 }
 
 .formWrapper {
@@ -34,7 +50,13 @@
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
-    width: 51%;
+    width: 90%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    background-image: none;
+    width: 100%;
+    margin: 2vh 0 0;
   }
 }
 
@@ -45,6 +67,10 @@
   flex-direction: column;
   align-items: center;
   padding: 0 1vw;
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    height: 55vh;
+  }
 }
 
 .span {
@@ -52,6 +78,14 @@
   font-weight: 500;
   font-size: 2vw;
   padding-top: 1vw;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    font-size: 4vw;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    font-size: 5vw;
+  }
 }
 
 .downBlock {
@@ -69,15 +103,31 @@
   background: $downBlockPurpleGradient;
   border-radius: 0 0 80px 80px;
   width: 100%;
-  bottom: 7px;
+  bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    height: 10vh;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    height: 12vw;
+  }
 
   &__link {
     text-decoration: underline;
     font-weight: 500;
     font-size: 2.5vw;
     color: white;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      font-size: 5vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      font-size: 4.5vw;
+    }
   }
 }

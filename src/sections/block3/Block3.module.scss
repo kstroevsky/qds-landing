@@ -20,6 +20,14 @@
     @media all and (min-width: 1024px) and (max-width: 1280px) {
       right: 10px;
     }
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      width: 0;
+    }
   }
 
   .section {
@@ -36,8 +44,13 @@
     z-index: 10;
 
     @media all and (min-width: 768px) and (max-width: 1024px) {
-      height: 45vh;
+      height: 75vh;
       padding: 0;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      height: 70vh;
+      border-radius: 10px;
     }
 
     &:nth-child(1):hover~.background {
@@ -61,7 +74,7 @@
 
     &_first {
       margin-top: 0;
-      background: linear-gradient(90deg, #69B7D8 0%, rgba(105, 183, 216, 0) 93.75%, rgba(105, 183, 216, 0) 100%);
+      background: $block3FirstGradient;
 
       &>div {
         background-image: url("../../assets/block3/first.png");
@@ -69,7 +82,7 @@
     }
 
     &_second {
-      background: linear-gradient(90deg, rgba(123, 136, 188, 0) 0%, #7B88BC 100%);
+      background: $block3SecondGradient;
 
       &>div {
         background-image: url("../../assets/block3/second.png");
@@ -77,7 +90,7 @@
     }
 
     &_third {
-      background: linear-gradient(90deg, #CBCACE 0%, #D9D7D7 60.42%, #D9D8D9 68.23%, rgba(216, 214, 216, 0) 100%);
+      background: $block3ThirdGradient;
 
       &>div {
         background-image: url("../../assets/block3/third.png");
@@ -93,10 +106,9 @@
       @media all and (min-width: 768px) and (max-width: 1024px) {
         background-size: cover;
         background-repeat: no-repeat;
-        height: 42vh;
-        width: 51vw;
+        height: 32vh;
+        width: 47vw;
         opacity: 0.6;
-        margin: 0 auto;
       }
     }
 
@@ -106,6 +118,10 @@
 
     &__right {
       background-position: right;
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        margin-left: 38vw;
+      }
     }
   }
 }

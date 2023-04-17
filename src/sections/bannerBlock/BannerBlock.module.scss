@@ -1,5 +1,14 @@
 @import '../../styles/vars';
 
+.bannerWrapper {
+	position: relative;
+
+	@media all and (max-width: 480px) {
+		height: 100vh;
+		padding-top: 5px;
+	}
+}
+
 .background {
 	background-image: url('../../assets/bannerBlock/background.svg');
 	background-size: cover;
@@ -10,19 +19,20 @@
 	position: relative;
 }
 
-.leftBlock {
-	background-image: url('../../assets/bannerBlock/leftSide.svg');
-	width: 100%;
-	background-size: 70% 100%;
-	background-repeat: no-repeat;
-}
-
 .info {
-	padding: 100px 0 100px 65px;
+	padding: 5% 0 10% 6%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	z-index: 200;
+	position: absolute;
+
+	@media all and (max-width: 480px) {
+		width: 100%;
+		justify-content: space-between;
+		padding: 40px 2% 80px;
+	}
 }
 
 .rightBlock {
@@ -36,42 +46,67 @@
 
 .title {
 	@include title;
-	width: 360px;
+	width: 10%;
+
+	@media all and (max-width: 480px) {
+		width: 100%;
+		font-size: 12.5vw;
+		color: white;
+		text-align: center;
+	}
 }
 
 .button {
-	width: 330px;
-	height: 40px;
+	width: 21vw;
+	height: 50px;
 	border: none;
 	border-radius: 92px;
-	font-size: 30px;
+	font-size: 1.9vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-weight: 700;
 	cursor: pointer;
-	background-color: $bgColor;
+	background-color: #14192B;
 	color: #D6DFEA;
 	transition: transform 0.2s ease-in-out;
 
 	&:hover {
 		transform: scale(1.1);
 	}
+
+	@media all and (max-width: 480px) {
+		width: 79vw;
+		font-size: 7vw;
+		margin: 0 auto;
+		background-color: white;
+		color: black;
+	}
 }
 
 .nav {
-	padding-top: 50px;
+	padding-top: 3%;
+	position: absolute;
+	right: 6vw;
+	z-index: 200;
+
+	&_mobile {
+		height: 80vh;
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .menu {
 	display: flex;
-	justify-content: space-around;
 
 	&__item {
 		font-weight: 700;
 		color: white;
-		margin-right: 50px;
-		font-size: calc(7px + 16 * (100vw / 1280));
+		margin-right: 2vw;
+		font-size: 1.5vw;
 		cursor: pointer;
 		transition: color 0.5s ease;
 
@@ -79,11 +114,26 @@
 			color: $red;
 		}
 	}
+
+	@media all and (max-width: 480px) {
+		display: none;
+	}
+
+	&_mobile {
+		height: 75%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+
+		&__item {
+			font-size: 9.5vw;
+		}
+	}
 }
 
 
 .backgroundContainer {
-	height: 100vh;
 	position: relative;
 	height: 54vw;
 }
@@ -97,6 +147,10 @@
 	background-position: left;
 	background-repeat: no-repeat;
 	z-index: 10;
+
+	@media all and (max-width: 480px) {
+		background-image: none;
+	}
 }
 
 .rightBackground {
@@ -109,6 +163,12 @@
 	background-position: right;
 	background-repeat: no-repeat;
 	z-index: 100;
+
+	@media all and (max-width: 480px) {
+		background-image: url('../../assets/bannerBlock/modile/bootomImg.svg');
+		background-position: bottom;
+		bottom: 70px;
+	}
 }
 
 .mainBackground {
@@ -120,4 +180,65 @@
 	background-image: url('../../assets/bannerBlock/background.svg');
 	background-size: contain;
 	background-repeat: no-repeat;
+
+	@media all and (max-width: 480px) {
+		background-image: url('../../assets/bannerBlock/modile/backgroundMobile.svg');
+		background-size: 100%;
+		background-repeat: no-repeat;
+		height: 100vh;
+	}
+}
+
+.burger {
+	display: none;
+	position: absolute;
+	z-index: 250;
+	align-items: center;
+	justify-content: flex-end;
+	width: 30px;
+	height: 18px;
+	top: 25px;
+	right: 40px;
+
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		background-color: #faf6f2;
+		transition: all 0.3s ease 0s;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	&_active {
+		.line {
+			transform: scale(0);
+		}
+		&::before {
+			top: 50%;
+			transform: rotate(-45deg) translate(0, -50%);
+		}
+		&::after {
+			bottom: 50%;
+			transform: rotate(45deg) translate(0, 50%);
+		}
+	}
+
+	span {
+		height: 2px;
+		width: 80%;
+		transform: scale(1);
+		background-color: #faf6f2;
+	}
+
+	@media all and (max-width: 480px) {
+		display: flex;
+	}
 }

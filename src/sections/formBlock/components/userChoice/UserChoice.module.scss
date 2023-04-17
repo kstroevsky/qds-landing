@@ -58,6 +58,10 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 2.5vh;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -79,6 +83,17 @@
     margin: 0.2vw;
     outline: none;
     transition: color 0.3s ease;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      font-size: 3.5vw;
+      margin: 0.6vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      padding: 2.8vw;
+      font-size: 3.5vw;
+      margin: 0.6vw;
+    }
 
     &:hover {
       color: white;

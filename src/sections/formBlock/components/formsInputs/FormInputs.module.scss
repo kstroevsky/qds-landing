@@ -6,6 +6,10 @@
   width: 90%;
   margin: 0.2vw;
 
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 61px;
+  }
+
   &__item {
     height: 3vw;
     border: none;
@@ -15,6 +19,16 @@
     margin-top: 0.5vw;
     font-size: 1.5vw;
     background-color: transparent;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      height: 9vh;
+      font-size: 3.5vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      height: 10vw;
+      font-size: 3.5vw;
+    }
 
     &:focus {
       border-bottom: 1px solid $inputsColor;
