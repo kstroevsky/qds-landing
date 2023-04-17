@@ -43,14 +43,12 @@
     &:nth-child(1):hover~.background {
       opacity: 0.4;
       transition: background-image 0.4s ease, opacity 0.4s ease;
-      ;
       background-image: url("../../assets/block3/first.png");
     }
 
     &:nth-child(2):hover~.background {
       opacity: 0.4;
       transition: background-image 0.4s ease, opacity 0.4s ease;
-      ;
       transform: scale(-1, 1);
       background-image: url("../../assets/block3/second.png");
     }
@@ -58,7 +56,6 @@
     &:nth-child(3):hover~.background {
       opacity: 0.4;
       transition: background-image 0.4s ease, opacity 0.4s ease;
-      ;
       background-image: url("../../assets/block3/third.png");
     }
 
