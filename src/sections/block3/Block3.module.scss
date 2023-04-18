@@ -11,7 +11,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100vw;
-    width: 100vw;
+    width: 100%;
     background-image: none;
     transition: background-image 0.4s ease;
     background-position: bottom;
@@ -51,6 +51,11 @@
     @media all and (min-width: 480px) and (max-width: 768px) {
       height: 70vh;
       border-radius: 10px;
+    }
+
+    @media all and (max-width: 480px) {
+      height: 60vh;
+      border-radius: 40px;
     }
 
     &:nth-child(1):hover~.background {
@@ -109,6 +114,16 @@
         height: 32vh;
         width: 47vw;
         opacity: 0.6;
+      }
+
+      @media all and (max-width: 480px) {
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 44%;
+        width: 90%;
+        position: absolute;
+        right: 0;
+        opacity: 0.7;
       }
     }
 

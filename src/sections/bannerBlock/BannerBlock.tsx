@@ -15,7 +15,7 @@ function BannerBlock() {
 			<nav className={`${s.nav} ${activeBurger && s.nav_mobile}`}>
 				<ul className={`${s.menu} ${activeBurger && s.menu_mobile}`}>
 					{navArray.map(el =>
-						<li className={`${s.menu__item} ${s.menu_mobile__item}`} key={el}><a href="">{el}</a></li>
+						<li className={`${s.menu__item} ${activeBurger && s.menu_mobile__item}`} key={el}><a href="">{el}</a></li>
 					)}
 				</ul>
 			</nav>
