@@ -3,15 +3,19 @@
 .wrapper {
   padding: 4vw;
   position: relative;
+
+  @media all and (min-width: 300px) and (max-width: 768px) {
+    height: 60vh;
+  }
 }
 
 .background {
   background-image: url("../../assets/formBlock/bgForm.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  height: 150vh;
-  width: 100%;
+  height: 96%;
+  width: 95%;
   padding: 65px 30px;
   position: absolute;
   bottom: 0;
@@ -20,7 +24,7 @@
     background-image: none;
   }
 
-  @media all and (min-width: 480px) and (max-width: 768px) {
+  @media all and (min-width: 300px) and (max-width: 768px) {
     background-image: none;
   }
 }
@@ -33,7 +37,7 @@
     text-align: center;
   }
 
-  @media all and (min-width: 480px) and (max-width: 768px) {
+  @media all and (min-width: 300px) and (max-width: 768px) {
     text-align: center;
   }
 }
@@ -53,7 +57,7 @@
     width: 90%;
   }
 
-  @media all and (min-width: 480px) and (max-width: 768px) {
+  @media all and (min-width: 300px) and (max-width: 768px) {
     background-image: none;
     width: 100%;
     margin: 2vh 0 0;
@@ -68,8 +72,8 @@
   align-items: center;
   padding: 0 1vw;
 
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    height: 55vh;
+  @media all and (min-width: 300px) and (max-width: 768px) {
+    height: 60vh;
   }
 }
 
@@ -83,7 +87,7 @@
     font-size: 4vw;
   }
 
-  @media all and (min-width: 480px) and (max-width: 768px) {
+  @media all and (min-width: 300px) and (max-width: 768px) {
     font-size: 5vw;
   }
 }
@@ -109,11 +113,12 @@
   align-items: center;
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
-    height: 10vh;
+    height: 20vh;
   }
 
-  @media all and (min-width: 480px) and (max-width: 768px) {
+  @media all and (min-width: 300px) and (max-width: 768px) {
     height: 12vw;
+    bottom: 3px;
   }
 
   &__link {
@@ -126,7 +131,7 @@
       font-size: 5vw;
     }
 
-    @media all and (min-width: 480px) and (max-width: 768px) {
+    @media all and (min-width: 300px) and (max-width: 768px) {
       font-size: 4.5vw;
     }
   }

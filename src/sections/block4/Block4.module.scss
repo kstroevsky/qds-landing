@@ -5,14 +5,16 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: 100vh;
+  justify-content: center;
 }
 
 .table {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  height: 80vh;
+  height: 60vh;
   width: 90%;
   border-radius: 300px;
   padding: 0 5%;
@@ -20,6 +22,33 @@
 
   &__title {
     color: $titlePurple;
+    font-size: 2.5vw;
+
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      font-size: 4.5vw;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      font-size: 6.5vw;
+    }
+
+    @media all and (max-width: 480px) {
+      font-size: 10.5vw;
+    }
+  }
+
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+    height: 65vh;
+    border-radius: 130px;
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    border-radius: 100px;
+  }
+
+  @media all and (max-width: 480px) {
+    border-radius: 50px;
+    font-size: 10.5vw;
   }
 }
 
@@ -27,15 +56,19 @@
 .slide_img {
   height: 100%;
   object-fit: contain;
-  max-height: 300px;
+  max-height: 25vh;
   max-width: 100%;
+
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+    max-height: 35vh;
+  }
 }
 
 
 
 .title {
+  @include title;
   color: white;
-  font-size: 36px;
   margin-bottom: 30px;
   text-align: center;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

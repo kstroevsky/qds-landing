@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -18,6 +18,7 @@ import vue from '../../assets/slides/vue.svg';
 import webpack from '../../assets/slides/webpack.svg';
 
 import s from './Block4.module.scss';
+import {logDOM} from "@testing-library/react";
 
 
 const slides = [
@@ -30,7 +31,7 @@ const slides = [
 	{ key: 7, src: react, alt: 'React' },
 	{ key: 8, src: recoil, alt: 'Recoil' },
 	{ key: 9, src: redux, alt: 'Redux' },
-	{ key: 10, src: reduxSaga, alt: 'Reduxsaga' },
+	{ key: 10, src: reduxSaga, alt: 'ReduxSaga' },
 	{ key: 11, src: threeJS, alt: 'ThreeJS' },
 	{ key: 12, src: vue, alt: 'Vue' },
 	{ key: 13, src: webpack, alt: 'Webpack' },
@@ -44,25 +45,38 @@ const renderSlides = () => {
 	));
 };
 
-const CustomSlide = ({ index, ...props }: any) => {
-	console.log(index, props.isSelected)
-	const selectedStyle = props.isSelected === true ? {
-		paddingBottom: "30px",
-		borderBottom: "10px solid #a171e9",
-		width: "90%",
-		margin: "0 auto",
-		borderRadius: "6px"
-	} : {};
-
-	return (
-		<div {...props} style={{ ...props.style, ...selectedStyle }}>
-			{props.children}
-		</div>
-	);
-};
-
 const Block4 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+	const handleResize = useCallback(() => {
+		setWindowWidth(window.innerWidth);
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, [handleResize]);
+
+	const checkMobileDevice = windowWidth <= 1280;
+
+	const CustomSlide = ({ index, ...props }: any) => {
+		const selectedStyle = props.isSelected === true && !checkMobileDevice ? {
+			paddingBottom: "30px",
+			borderBottom: "10px solid #a171e9",
+			width: "90%",
+			margin: "0 auto",
+			borderRadius: "6px"
+		} : {};
+
+		return (
+			<div {...props} style={{ ...props.style, ...selectedStyle }}>
+				{props.children}
+			</div>
+		);
+	};
 
 	return (
 		<div className={s.block}>
@@ -73,7 +87,7 @@ const Block4 = () => {
 					infiniteLoop
 					autoPlay
 					centerMode
-					centerSlidePercentage={33.3}
+					centerSlidePercentage={checkMobileDevice ? 100 : 33.3}
 					showThumbs={false}
 					showArrows={false}
 					showStatus={false}

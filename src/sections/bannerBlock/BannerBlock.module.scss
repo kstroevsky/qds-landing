@@ -3,7 +3,7 @@
 .bannerWrapper {
 	position: relative;
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		height: 100vh;
 		padding-top: 5px;
 	}
@@ -28,7 +28,7 @@
 	z-index: 200;
 	position: absolute;
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		width: 100%;
 		justify-content: space-between;
 		padding: 40px 2% 80px;
@@ -48,7 +48,7 @@
 	@include title;
 	width: 10%;
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		width: 100%;
 		font-size: 12.5vw;
 		color: white;
@@ -75,12 +75,13 @@
 		transform: scale(1.1);
 	}
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		width: 79vw;
 		font-size: 7vw;
 		margin: 0 auto;
 		background-color: white;
 		color: black;
+		height: 10vh;
 	}
 }
 
@@ -116,7 +117,7 @@
 		}
 	}
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		display: none;
 	}
 
@@ -149,7 +150,7 @@
 	background-repeat: no-repeat;
 	z-index: 10;
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		background-image: none;
 	}
 }
@@ -165,7 +166,7 @@
 	background-repeat: no-repeat;
 	z-index: 100;
 
-	@media all and (max-width: 480px) {
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		background-image: url('../../assets/bannerBlock/modile/bootomImg.svg');
 		background-position: bottom;
 		bottom: 70px;
@@ -182,11 +183,10 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 
-	@media all and (max-width: 480px) {
-		background-image: url('../../assets/bannerBlock/modile/backgroundMobile.svg');
-		background-size: 100%;
-		background-repeat: no-repeat;
-		height: 100vh;
+	@media all and (min-width: 300px) and (max-width: 1024px) {
+		background-color: #14192b;
+		border-radius: 10px;
+		height: 94vh;
 	}
 }
 
@@ -196,10 +196,10 @@
 	z-index: 250;
 	align-items: center;
 	justify-content: flex-end;
-	width: 30px;
-	height: 18px;
-	top: 25px;
-	right: 40px;
+	width: 7vw;
+	height: 3vh;
+	top: 4%;
+	right: 8%;
 
 	&::before, &::after {
 		content: '';
@@ -239,7 +239,12 @@
 		background-color: #faf6f2;
 	}
 
-	@media all and (max-width: 480px) {
+
+	@media all and (min-width: 300px) and (max-width: 1024px) {
 		display: flex;
 	}
 }
+
+//@media all and (min-width: 768px) and (max-width: 1024px) {
+//	border-radius: 100px;
+//}
