@@ -92,7 +92,7 @@
 	z-index: 200;
 
 	&_mobile {
-		height: 80vh;
+		height: 84vh;
 		width: 100vw;
 		display: flex;
 		align-items: center;
@@ -129,7 +129,7 @@
 		justify-content: space-evenly;
 
 		&__item {
-			font-size: 9.5vw;
+			font-size: 8.5vw;
 		}
 	}
 }
@@ -196,8 +196,8 @@
 	align-items: center;
 	justify-content: flex-end;
 	width: 7vw;
-	height: 20px;
-	top: 4%;
+	height: 26px;
+	top: 4.5%;
 	right: 8%;
 
 	&::before, &::after {
