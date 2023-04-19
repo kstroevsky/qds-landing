@@ -94,7 +94,7 @@ const Block4 = () => {
 					showIndicators={false}
 					swipeable
 					transitionTime={500}
-					interval={1000}
+					interval={3000}
 					onChange={index => setActiveIndex(index)}
 					renderItem={(item, props: any) => (
 						<CustomSlide {...props} index={props.index}>

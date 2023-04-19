@@ -1,5 +1,6 @@
-import s from './BannerBlock.module.scss';
 import {useState} from "react";
+
+import s from './BannerBlock.module.scss';
 
 function BannerBlock() {
 	const [activeBurger, setActiveBurger] = useState(false);

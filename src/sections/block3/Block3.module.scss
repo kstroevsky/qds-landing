@@ -44,8 +44,8 @@
     z-index: 10;
 
     @media all and (min-width: 768px) and (max-width: 1024px) {
-      height: 75vh;
-      padding: 0;
+      height: 550px;
+      padding: 15px;
     }
 
     @media all and (min-width: 480px) and (max-width: 768px) {
@@ -111,8 +111,8 @@
       @media all and (min-width: 768px) and (max-width: 1024px) {
         background-size: cover;
         background-repeat: no-repeat;
-        height: 32vh;
-        width: 47vw;
+        height: 45%;
+        width: 58%;
         opacity: 0.6;
       }
 
@@ -129,13 +129,17 @@
 
     &__left {
       background-position: left;
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        margin-left: 6vw;
+      }
     }
 
     &__right {
       background-position: right;
 
       @media all and (min-width: 768px) and (max-width: 1024px) {
-        margin-left: 46vw;
+        margin-left: 55vw;
       }
     }
   }
