@@ -18,7 +18,6 @@ import vue from '../../assets/slides/vue.svg';
 import webpack from '../../assets/slides/webpack.svg';
 
 import s from './Block4.module.scss';
-import {logDOM} from "@testing-library/react";
 
 
 const slides = [
