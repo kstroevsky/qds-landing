@@ -1,56 +1,5 @@
 @import "../../../../styles/vars";
 
-@mixin gradientAnimation($start, $end, $transTime, $exclude: null, $include: null) {
-  background-size: 100%;
-  background-image: '';
-  position: relative;
-  z-index: 100;
-
-  &:before {
-    background-image: linear-gradient($start, $end);
-    border-radius: 9px;
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    z-index: -100;
-    transition: opacity $transTime ease;
-  }
-
-
-  @if $exclude {
-
-    &:not(#{$exclude}):hover,
-    &:not(#{$exclude}):active {
-      &:before {
-        opacity: 1;
-      }
-    }
-  }
-
-  @else {
-
-    &:hover,
-    &:active {
-      &:before {
-        opacity: 1;
-      }
-    }
-  }
-
-  @if $include {
-
-    // Add the linear-gradient to specified selectors
-    & #{$include}:before {
-      opacity: 1;
-    }
-  }
-}
-
 .userChoice {
   width: 90%;
   margin-top: 1vw;
@@ -68,8 +17,10 @@
   }
 
   &__buttons {
-    @include gradientAnimation($hoverPurpleLite, $hoverPurpleDark, .4s, null, '.active');
-
+    background-size: 100%;
+    background-image: '';
+    position: relative;
+    z-index: 100;
     border: 1px solid rgba(46, 2, 73, 0.3);
     border-radius: 10px;
     display: flex;
@@ -83,6 +34,44 @@
     margin: 0.2vw;
     outline: none;
     transition: color 0.3s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:before {
+      cursor: pointer;
+      background-image: linear-gradient($hoverPurpleLite, $hoverPurpleDark);
+      border-radius: 9px;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 100%;
+      z-index: -100;
+      transition: opacity .4s ease;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+    }
+
+    &:hover {
+      color: white;
+    }
+
+    &:active,
+    &:hover {
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:before {
+        opacity: 1;
+      }
+    }
 
     @media all and (min-width: 768px) and (max-width: 1024px) {
       font-size: 5.5vw;
@@ -93,15 +82,14 @@
       padding: 2.8vw;
       font-size: 22px;
       margin: 0.6vw;
-    }
 
-    &:hover {
-      color: white;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
+      &:focus {
+        color: rgba(46, 2, 73, 0.3);
 
-    &:active {
-      transition: transform 0.3s ease, color 0.3s ease;
+        &:before {
+          opacity: 0;
+        }
+      }
     }
   }
 

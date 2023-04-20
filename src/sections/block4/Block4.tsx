@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import { useCallback, useEffect, useState } from 'react';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -19,7 +19,6 @@ import webpack from '../../assets/slides/webpack.svg';
 
 import s from './Block4.module.scss';
 
-
 const slides = [
 	{ key: 1, src: graphQL, alt: 'GraphQL' },
 	{ key: 2, src: mobx, alt: 'Mobx' },
@@ -34,18 +33,18 @@ const slides = [
 	{ key: 11, src: threeJS, alt: 'ThreeJS' },
 	{ key: 12, src: vue, alt: 'Vue' },
 	{ key: 13, src: webpack, alt: 'Webpack' },
-]
+];
 
 const renderSlides = () => {
 	return slides.map((slide) => (
-		<div key={slide.key} style={{ minWidth: "auto" }}>
+		<div key={slide.key} style={{ minWidth: 'auto' }}>
 			<img className={s.slide_img} src={slide.src} alt={slide.alt} />
 		</div>
 	));
 };
 
 const Block4 = () => {
-	const [activeIndex, setActiveIndex] = useState(0);
+	const [activeIndex, setActiveIndex] = useState(1);
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 	const checkMobileDevice = windowWidth <= 1280;
@@ -62,13 +61,16 @@ const Block4 = () => {
 	}, [handleResize]);
 
 	const CustomSlide = ({ index, ...props }: any) => {
-		const selectedStyle = props.isSelected === true && !checkMobileDevice ? {
-			paddingBottom: "30px",
-			borderBottom: "10px solid #a171e9",
-			width: "90%",
-			margin: "0 auto",
-			borderRadius: "6px"
-		} : {};
+		const selectedStyle =
+			props.isSelected === true && !checkMobileDevice
+				? {
+						paddingBottom: '30px',
+						borderBottom: '10px solid #a171e9',
+						width: '90%',
+						margin: '0 auto',
+						borderRadius: '6px',
+				  }
+				: {};
 
 		return (
 			<div {...props} style={{ ...props.style, ...selectedStyle }}>
@@ -81,20 +83,27 @@ const Block4 = () => {
 		<div className={s.block} id={"technologies"}>
 			<h1 className={s.title}>TECHNOLOGY</h1>
 			<div className={s.table}>
-				<h1 className={s.table__title}>{slides.find(el => el.key - 1 === activeIndex)?.alt}</h1>
+				<h1 className={s.table__title}>
+					{slides.find((el) => el.key - 1 === activeIndex)?.alt}
+				</h1>
 				<Carousel
-					infiniteLoop
-					autoPlay
-					centerMode
+					infiniteLoop={true}
+					autoPlay={true}
+					emulateTouch={true}
+					centerMode={true}
 					centerSlidePercentage={checkMobileDevice ? 100 : 33.3}
 					showThumbs={false}
 					showArrows={false}
 					showStatus={false}
 					showIndicators={false}
-					swipeable
+					swipeable={true}
 					transitionTime={500}
 					interval={3000}
+<<<<<<< HEAD
 					onChange={ index => setActiveIndex(index)}
+=======
+					onChange={(index) => setActiveIndex(index)}
+>>>>>>> bd9d4b5 (bugfix/form-buttons-mobile-focus)
 					renderItem={(item, props: any) => (
 						<CustomSlide {...props} index={props.index}>
 							{item}
