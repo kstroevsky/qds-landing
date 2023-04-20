@@ -68,3 +68,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+html[data-theme='light'] {
+  --mainBg: #D6DFEA;
+}
+
+html[data-theme='dark'] {
+  --mainBg: #080A14
+}

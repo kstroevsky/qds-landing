@@ -1,0 +1,40 @@
+.theme {
+  position: fixed;
+  display: flex;
+  z-index: 500;
+  height: 120px;
+  width: 120px;
+  right: 5%;
+  bottom: 0;
+
+  .dark, .light {
+    width: 80%;
+    height: 43%;
+    position: absolute;
+    cursor: pointer;
+    z-index: 600;
+  }
+
+  .dark {
+    top: -45px;
+    left: -30px;
+    background: linear-gradient(225deg, #7763E7 0%, #FC686E 100%);
+    border-radius: 0 0 100px 100px;
+    transform: rotate(-225deg);
+  }
+
+  .light {
+    background: linear-gradient(225deg, #67D7D3 0%, #84C5F7 100%);
+    border-radius: 0 0 100px 100px;
+    transform: rotate(-45deg);
+    z-index: 500;
+  }
+
+  .line {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    top: -67px;
+    left: -27px;
+  }
+}

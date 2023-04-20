@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState } from "react";
 
-export const useIsMobile = () => {
+export const useIsMobile = (): boolean => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const handleResize = useCallback(() => {

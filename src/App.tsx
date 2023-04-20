@@ -5,6 +5,7 @@ import Block2 from "./sections/block2/Block2";
 import Block3 from "./sections/block3/Block3";
 import Block4 from "./sections/block4/Block4";
 import FormBlock from "./sections/formBlock/FormBlock";
+import ThemesToggle from "./components/thema/ThemesToggle";
 
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
         <Block3/>
         <Block4/>
         <FormBlock/>
+        <ThemesToggle/>
     </div>
   );
 }

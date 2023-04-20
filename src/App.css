@@ -1,5 +1,5 @@
 .App {
-	background-color: black;
+	background-color: var(--mainBg);
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
