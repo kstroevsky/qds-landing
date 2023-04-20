@@ -1,7 +1,9 @@
-import {useCallback, useEffect, useState} from "react";
+import {useState} from "react";
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+
+import {useIsMobile} from "../../hooks/UseIsMobile";
 
 import graphQL from '../../assets/slides/graphQL.svg';
 import mobx from '../../assets/slides/mobx.svg';
@@ -52,23 +54,10 @@ const renderSlides = () => {
 
 const Block4 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-	const checkMobileDevice = windowWidth <= 1280;
-
-	const handleResize = useCallback(() => {
-		setWindowWidth(window.innerWidth);
-	}, []);
-
-	useEffect(() => {
-		window.addEventListener('resize', handleResize);
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, [handleResize]);
+	const isMobile = useIsMobile();
 
 	const CustomSlide = ({style, isSelected, children }: CustomSlideProps) => {
-		const selectedStyle = isSelected && !checkMobileDevice ? {
+		const selectedStyle = isSelected && !isMobile ? {
 			paddingBottom: "30px",
 			borderBottom: "10px solid #a171e9",
 			width: "90%",
@@ -92,7 +81,7 @@ const Block4 = () => {
 					infiniteLoop
 					autoPlay
 					centerMode
-					centerSlidePercentage={checkMobileDevice ? 100 : 33.3}
+					centerSlidePercentage={isMobile ? 100 : 33.3}
 					showThumbs={false}
 					showArrows={false}
 					showStatus={false}

@@ -2,19 +2,24 @@ import {useState} from "react";
 
 import { Link } from 'react-scroll';
 
+import {useIsMobile} from "../../hooks/UseIsMobile";
+
 import s from './BannerBlock.module.scss';
+
 
 function BannerBlock() {
 	const [activeBurger, setActiveBurger] = useState(false);
-
 	const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
+	const isMobile = useIsMobile();
 
 	const handleBurgerClick = () => {
-		setActiveBurger(!activeBurger);
-		if (!activeBurger) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
+		isMobile && setActiveBurger(!activeBurger);
+		if (isMobile) {
+			if (!activeBurger) {
+				document.body.style.overflow = "hidden";
+			} else {
+				document.body.style.overflow = "auto";
+			}
 		}
 	}
 
