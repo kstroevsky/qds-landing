@@ -4,7 +4,7 @@ import s from './Block3.module.scss';
 
 const Block3 = () => {
 	return (
-		<div className={s.block}>
+		<div className={s.block} id={"advantages"}>
 			<div className={classnames(s.section, s.section_first)}>
 				<div className={s.section__right}></div>
 			</div>

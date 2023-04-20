@@ -8,7 +8,7 @@ import s from './FormBlock.module.scss';
 
 const FormBlock = () => {
 	return (
-		<div className={s.wrapper}>
+		<div className={s.wrapper} id={"contacts"}>
 			<h1 className={s.title}>CONTACT US</h1>
 			<div className={s.formWrapper}>
 				<form className={s.form} action="">

@@ -3,7 +3,7 @@ import s from './Block2.module.scss';
 function Block2() {
 	return (
 		<div className={s.wrapper}>
-			<div className={s.blockTwo}>
+			<div className={s.blockTwo} id={"about"}>
 				<div>
 					<h1 className={s.titleTop}>WHO WE ARE</h1>
 					<div className={s.top}></div>

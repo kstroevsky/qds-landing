@@ -7,6 +7,10 @@
   position: relative;
   height: 100vh;
   justify-content: center;
+
+  @media all and (max-width: 480px) {
+    height: 74vh;
+  }
 }
 
 .table {

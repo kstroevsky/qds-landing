@@ -78,7 +78,7 @@ const Block4 = () => {
 	};
 
 	return (
-		<div className={s.block}>
+		<div className={s.block} id={"technologies"}>
 			<h1 className={s.title}>TECHNOLOGY</h1>
 			<div className={s.table}>
 				<h1 className={s.table__title}>{slides.find(el => el.key - 1 === activeIndex)?.alt}</h1>
@@ -94,7 +94,7 @@ const Block4 = () => {
 					swipeable
 					transitionTime={500}
 					interval={3000}
-					onChange={index => setActiveIndex(index)}
+					onChange={ index => setActiveIndex(index)}
 					renderItem={(item, props: any) => (
 						<CustomSlide {...props} index={props.index}>
 							{item}

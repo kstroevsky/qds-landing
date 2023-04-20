@@ -1,11 +1,22 @@
 import {useState} from "react";
 
+import { Link } from 'react-scroll';
+
 import s from './BannerBlock.module.scss';
 
 function BannerBlock() {
 	const [activeBurger, setActiveBurger] = useState(false);
 
 	const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
+
+	const handleBurgerClick = () => {
+		setActiveBurger(!activeBurger);
+		if (!activeBurger) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "auto";
+		}
+	}
 
 	return (
 		<div className={s.bannerWrapper}>
@@ -16,7 +27,15 @@ function BannerBlock() {
 			<nav className={`${s.nav} ${activeBurger && s.nav_mobile}`}>
 				<ul className={`${s.menu} ${activeBurger && s.menu_mobile}`}>
 					{navArray.map(el =>
-						<li className={`${s.menu__item} ${activeBurger && s.menu_mobile__item}`} key={el}><a href="">{el}</a></li>
+						<li className={`${s.menu__item} ${activeBurger && s.menu_mobile__item}`} key={el}>
+							<Link
+								to={el.toLowerCase()}
+								spy={true}
+								smooth={true}
+								duration={500}
+								onClick={handleBurgerClick}
+							>{el}</Link>
+						</li>
 					)}
 				</ul>
 			</nav>
@@ -27,7 +46,7 @@ function BannerBlock() {
 				</div>
 			</div>
 
-			<div className={`${s.burger} ${activeBurger && s.burger_active}`} onClick={() => setActiveBurger(!activeBurger)}>
+			<div className={`${s.burger} ${activeBurger && s.burger_active}`} onClick={handleBurgerClick}>
 				<span className={s.line}></span>
 			</div>
 		</div>

@@ -17,12 +17,16 @@
 
     &:nth-child(2) {
       bottom: 12vw;
+
+      @media all and (max-width: 480px) {
+        bottom: 135px;
+      }
     }
   }
 
   @media all and (max-width: 480px) {
     padding-top: 0;
-    height: 145vh;
+    height: 125vh;
   }
 }
 
@@ -64,7 +68,7 @@
 
   @media all and (max-width: 480px) {
     background-image: url("../../assets/block2/mobile/Drop.svg");
-    height: 59vh;
+    height: 127vw;
   }
 }
 

@@ -179,13 +179,13 @@
 	width: 95%;
 	margin: auto;
 	background-image: url('../../assets/bannerBlock/background.svg');
-	background-size: contain;
+	background-size: 100%;
 	background-repeat: no-repeat;
 
 	@media all and (min-width: 300px) and (max-width: 1024px) {
 		background-color: $bgColor;
 		border-radius: 10px;
-		height: 94vh;
+		height: 97vh;
 	}
 }
 
