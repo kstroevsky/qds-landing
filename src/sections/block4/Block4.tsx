@@ -48,6 +48,8 @@ const Block4 = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+	const checkMobileDevice = windowWidth <= 1280;
+
 	const handleResize = useCallback(() => {
 		setWindowWidth(window.innerWidth);
 	}, []);
@@ -58,8 +60,6 @@ const Block4 = () => {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, [handleResize]);
-
-	const checkMobileDevice = windowWidth <= 1280;
 
 	const CustomSlide = ({ index, ...props }: any) => {
 		const selectedStyle = props.isSelected === true && !checkMobileDevice ? {
