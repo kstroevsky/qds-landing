@@ -1,102 +1,75 @@
-import {useState} from "react";
-
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
-import {useIsMobile} from "../../hooks/UseIsMobile";
+import Slide from './components/Slide';
+import SlideWrapper from './components/SlideWrapper';
+import { useIsMobile } from '../../hooks/UseIsMobile';
+import { slides } from '../../shared/constants';
 
-import graphQL from '../../assets/slides/graphQL.svg';
-import mobx from '../../assets/slides/mobx.svg';
-import mongodb from '../../assets/slides/mongodb.svg';
-import nestJS from '../../assets/slides/NestJS 1.svg';
-import nodeJS from '../../assets/slides/node.js.svg';
-import postgreSQL from '../../assets/slides/postgreSQL.svg';
-import react from '../../assets/slides/react.svg';
-import recoil from '../../assets/slides/recoil-js.svg';
-import redux from '../../assets/slides/redux.svg';
-import reduxSaga from '../../assets/slides/redux-saga.svg';
-import threeJS from '../../assets/slides/three.js.svg';
-import vue from '../../assets/slides/vue.svg';
-import webpack from '../../assets/slides/webpack.svg';
-
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import s from './Block4.module.scss';
 
-interface CustomSlideProps {
-	style: React.CSSProperties;
-	isSelected: boolean;
-	children: React.ReactNode;
-}
-
-
-const slides = [
-	{ key: 1, src: graphQL, alt: 'GraphQL' },
-	{ key: 2, src: mobx, alt: 'Mobx' },
-	{ key: 3, src: mongodb, alt: 'Mongodb' },
-	{ key: 4, src: nestJS, alt: 'NestJS' },
-	{ key: 5, src: nodeJS, alt: 'NodeJS' },
-	{ key: 6, src: postgreSQL, alt: 'PostgreSQL' },
-	{ key: 7, src: react, alt: 'React' },
-	{ key: 8, src: recoil, alt: 'Recoil' },
-	{ key: 9, src: redux, alt: 'Redux' },
-	{ key: 10, src: reduxSaga, alt: 'ReduxSaga' },
-	{ key: 11, src: threeJS, alt: 'ThreeJS' },
-	{ key: 12, src: vue, alt: 'Vue' },
-	{ key: 13, src: webpack, alt: 'Webpack' },
-]
-
-const renderSlides = () => {
-	return slides.map((slide) => (
-		<div key={slide.key} style={{ minWidth: "auto" }}>
-			<img className={s.slide_img} src={slide.src} alt={slide.alt} />
-		</div>
-	));
-};
-
 const Block4 = () => {
-	const [activeIndex, setActiveIndex] = useState(0);
+	const carouselRef = useRef<Carousel>(null);
 	const isMobile = useIsMobile();
+	const [slidesList, setSlidesList] = useState<Record<string, string>[]>([]);
+	const [activeIndex, setActiveIndex] = useState(1);
+	const [isActive, setIsActive] = useState(true);
 
-	const CustomSlide = ({style, isSelected, children }: CustomSlideProps) => {
-		const selectedStyle = isSelected && !isMobile ? {
-			paddingBottom: "30px",
-			borderBottom: "10px solid #a171e9",
-			width: "90%",
-			margin: "0 auto",
-			borderRadius: "6px"
-		} : {};
+	useEffect(() => {
+		setSlidesList([...slides]);
+	}, []);
 
-		return (
-			<div style={{ ...style, ...selectedStyle }}>
-				{children}
-			</div>
-		);
+	const handleIndexChange = (index: number) => {
+		if (index === 1) {
+			setSlidesList([...slidesList.slice(-1), ...slidesList.slice(0, -1)]);
+		} else if (index === slidesList.length - 1) {
+			setSlidesList([...slidesList.slice(1), slidesList[0]]);
+		}
+
+		setActiveIndex(index);
 	};
 
 	return (
-		<div className={s.block} id={"technologies"}>
+		<div className={s.block} id={'technologies'}>
 			<h1 className={s.title}>TECHNOLOGY</h1>
 			<div className={s.table}>
-				<h1 className={s.table__title}>{slides.find(el => el.key - 1 === activeIndex)?.alt}</h1>
+				<h1 className={s.table__title}>
+					{slidesList.find((_, idx) => idx === activeIndex)?.alt}
+				</h1>
 				<Carousel
-					infiniteLoop
-					autoPlay
-					centerMode
-					centerSlidePercentage={isMobile ? 100 : 33.3}
+					ref={carouselRef}
+					autoFocus={true}
+					selectedItem={activeIndex}
+					autoPlay={isActive}
+					centerMode={true}
+					swipeable={true}
+					emulateTouch={true}
 					showThumbs={false}
-					showArrows={false}
+					showArrows={isMobile}
 					showStatus={false}
 					showIndicators={false}
-					swipeable
+					stopOnHover={true}
+					useKeyboardArrows={true}
+					preventMovementUntilSwipeScrollTolerance={true}
 					transitionTime={500}
 					interval={3000}
-					onChange={(index) => setActiveIndex(index)}
+					centerSlidePercentage={isMobile ? 100 : 20}
+					onChange={handleIndexChange}
+					onClickItem={(index) => carouselRef.current?.moveTo(index)}
 					renderItem={(item, props: any) => (
-						<CustomSlide {...props} onClick={null}>
+						<SlideWrapper
+							{...props}
+							isMobile={isMobile}
+							onClick={() => setIsActive((prev) => !prev)}
+						>
 							{item}
-						</CustomSlide>
+						</SlideWrapper>
 					)}
 				>
-					{renderSlides()}
+					{slidesList.map((slide, idx) => (
+						<Slide slide={slide} key={`slide-${idx}`} />
+					))}
 				</Carousel>
 			</div>
 		</div>

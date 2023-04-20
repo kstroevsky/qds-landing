@@ -56,20 +56,6 @@
   }
 }
 
-
-.slide_img {
-  height: 100%;
-  object-fit: contain;
-  max-height: 25vh;
-  max-width: 100%;
-
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
-    max-height: 35vh;
-  }
-}
-
-
-
 .title {
   @include title;
   color: white;
@@ -77,4 +63,3 @@
   text-align: center;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
-
