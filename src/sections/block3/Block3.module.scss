@@ -13,6 +13,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100vw;
+    width: 100vw;
     background-image: none;
     transition: background-image 0.4s ease;
     background-position: bottom;
@@ -22,9 +23,7 @@
       right: 10px;
     }
 
-    @media all and (min-width: 768px) and (max-width: 1024px) {
-
-    }
+    @media all and (min-width: 768px) and (max-width: 1024px) {}
 
     @media all and (min-width: 480px) and (max-width: 768px) {
       width: 0;

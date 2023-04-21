@@ -9,16 +9,18 @@
   transform-origin: 0% 25%;
   cursor: pointer;
   transition: .4s ease-in-out;
+  -webkit-filter: drop-shadow(0px 1px 0px white);
+  filter: drop-shadow(1px 1px 0px white);
 
   @media all and (min-width: 480px) and (max-width: 1024px) {
     left: 8%;
-    top: 7%;
+    top: 9%;
     position: absolute;
   }
 
   @media all and (max-width: 480px) {
-    left: 8%;
-    top: 7%;
+    left: 10%;
+    top: 9%;
     position: absolute;
   }
 
@@ -81,6 +83,8 @@
   &.light_checked {
     transform-origin: 29% 4%;
     transform: rotate(-180deg);
+    -webkit-filter: drop-shadow(0px -1px 0px gray);
+    filter: drop-shadow(0px -1px 0px gray);
 
     .line {
       background-color: black;
