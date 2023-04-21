@@ -1,53 +1,64 @@
-import React, {useEffect, useState} from 'react';
+import React, { lazy, useCallback, useRef, useState } from 'react';
 
-import { Element } from 'react-scroll';
-
-import {useIsMobile} from "./hooks/UseIsMobile";
-
-import Header from './sections/header/Header';
-import About from "./sections/about/About";
-import Advantages from "./sections/advantages/Advantages";
-import Technologies from "./sections/technologies/Technologies";
-import FormBlock from "./sections/formBlock/FormBlock";
-import ThemesToggle from "./components/thema/ThemesToggle";
-import FixHeader from "./components/fixHeader/FixHeader";
+import useIsMobile from './hooks/useIsMobile';
+import useScrollObserver from './hooks/useScrollObserver';
+import useSectionsObserver from './hooks/useSectionsObserver';
 
 import './App.css';
 
+const Header = lazy(() => import('./sections/header/Header'));
+const About = lazy(() => import('./sections/about/About'));
+const Advantages = lazy(() => import('./sections/advantages/Advantages'));
+const Technologies = lazy(() => import('./sections/technologies/Technologies'));
+const FormBlock = lazy(() => import('./sections/formBlock/FormBlock'));
+const ThemesToggle = lazy(() => import('./components/theme/ThemesToggle'));
+const FixHeader = lazy(() => import('./components/fixHeader/FixHeader'));
+
+const scrollOptions = Object.freeze({
+	root: window.document,
+	rootMargin: '110px',
+	threshold: 0,
+});
 
 function App() {
-    const [showHeader, setShowHeader] = useState(false);
-    const isMobile = useIsMobile();
+	const menuRef = useRef<HTMLUListElement | null>(null);
+	const aboutRef = useRef<HTMLDivElement | null>(null);
+	const advantagesRef = useRef<HTMLDivElement | null>(null);
+	const technologiesRef = useRef<HTMLDivElement | null>(null);
+	const formRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 80) {
-                setShowHeader(true);
-            } else {
-                setShowHeader(false);
-            }
-        };
+	const [showHeader, setShowHeader] = useState(false);
+	const isMobile = useIsMobile();
 
-        window.addEventListener('scroll', handleScroll);
+	const handleHeaderVisibility = useCallback((value: boolean) => {
+		setShowHeader(value);
+	}, []);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+	useScrollObserver(isMobile, menuRef, handleHeaderVisibility, scrollOptions);
 
-    return (
-        <div className='App'>
-            <Header/>
-            <Element name={"about"}>
-                <About/>
-            </Element>
-            <Advantages/>
-            <Technologies/>
-            <FormBlock/>
-            {!isMobile && <ThemesToggle/>}
-            <FixHeader showHeader={showHeader}/>
-        </div>
-    );
+	useSectionsObserver(
+		menuRef,
+		{
+			root: null,
+			threshold: 0.4,
+		},
+		aboutRef,
+		advantagesRef,
+		technologiesRef,
+		formRef
+	);
+
+	return (
+		<div className="App">
+			<Header key={'section-header'} />
+			<About key={'section-about'} ref={aboutRef} />
+			<Advantages key={'section-advantages'} ref={advantagesRef} />
+			<Technologies key={'section-technologies'} ref={technologiesRef} />
+			<FormBlock key={'section-form'} ref={formRef} />
+			{!isMobile && <ThemesToggle key={'toggle-theme'} />}
+			<FixHeader key={'header-fix'} showHeader={showHeader} ref={menuRef} />
+		</div>
+	);
 }
 
 export default App;
