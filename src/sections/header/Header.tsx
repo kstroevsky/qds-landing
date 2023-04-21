@@ -1,14 +1,15 @@
-import { FC, useState } from 'react';
+import { memo, useState } from 'react';
+import type { FC } from 'react';
 import { Link } from 'react-scroll';
 
-import ThemesToggle from '../../components/thema/ThemesToggle';
-import { useIsMobile } from '../../hooks/useIsMobile';
+import ThemesToggle from '../../components/theme/ThemesToggle';
+import useIsMobile from '../../hooks/useIsMobile';
+import { ENavigationTitles } from '../../shared/constants';
 
 import s from './header.module.scss';
 
 const Header: FC = () => {
 	const [activeBurger, setActiveBurger] = useState(false);
-	const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
 	const isMobile = useIsMobile();
 
 	const handleBurgerClick = () => {
@@ -26,15 +27,15 @@ const Header: FC = () => {
 		<div className={s.bannerWrapper}>
 			{!activeBurger && (
 				<div className={s.info}>
-					<h1 className={s.title}>QDS SOFTWARE</h1>
+					<h1 className={s.title}>{'QDS SOFTWARE'}</h1>
 					<button className={s.button}>
-						<a href="#">CONTACT US</a>
+						<a href="#">{'CONTACT US'}</a>
 					</button>
 				</div>
 			)}
 			<nav className={`${s.nav} ${activeBurger && s.nav_mobile}`}>
 				<ul className={`${s.menu} ${activeBurger && s.menu_mobile}`}>
-					{navArray.map((el) => (
+					{Object.keys(ENavigationTitles).map((el) => (
 						<li
 							className={`${s.menu__item} ${
 								activeBurger && s.menu_mobile__item
@@ -72,4 +73,4 @@ const Header: FC = () => {
 	);
 };
 
-export default Header;
+export default memo(Header);

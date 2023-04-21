@@ -35,3 +35,15 @@ export const slides: Record<string, any>[] = [
 	{ key: 11, src: threeJS, alt: 'ThreeJS' },
 	{ key: 12, src: vue, alt: 'Vue' },
 ];
+
+export enum EThemes {
+	DARK = 'dark',
+	LIGHT = 'light',
+}
+
+export enum ENavigationTitles {
+	ABOUT = 'about',
+	ADVANTAGES = 'advantages',
+	TECHNOLOGIES = 'technologies',
+	CONTACTS = 'contacts',
+}

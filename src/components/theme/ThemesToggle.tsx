@@ -1,6 +1,9 @@
-import { FC, useCallback } from 'react';
-import { EThemes, useTheme } from '../../hooks/UseTheme';
+import { memo, useCallback } from 'react';
 import classnames from 'classnames';
+import type { FC } from 'react';
+
+import useTheme from '../../hooks/useTheme';
+import { EThemes } from '../../shared/constants';
 
 import s from './ThemesToggle.module.scss';
 
@@ -26,4 +29,4 @@ const ThemesToggle: FC = () => {
 	);
 };
 
-export default ThemesToggle;
+export default memo(ThemesToggle);

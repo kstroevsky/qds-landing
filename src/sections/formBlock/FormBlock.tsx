@@ -1,14 +1,14 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 import UserChoice from './components/userChoice/UserChoice';
 import FormContainer from './components/formsInputs/FormContainer';
-
 import topForm from '../../assets/formBlock/topForm.svg';
 import downForm from '../../assets/formBlock/downForm.svg';
+import { ENavigationTitles } from '../../shared/constants';
 
 import s from './FormBlock.module.scss';
 
 const FormBlock = forwardRef<HTMLDivElement>((_, ref) => (
-	<div className={s.wrapper} id={'contacts'} ref={ref}>
+	<div className={s.wrapper} id={ENavigationTitles.CONTACTS} ref={ref}>
 		<h1 className={s.title}>CONTACT US</h1>
 		<div className={s.formWrapper}>
 			<div className={`${s.__container_top}`}>
@@ -32,4 +32,4 @@ const FormBlock = forwardRef<HTMLDivElement>((_, ref) => (
 	</div>
 ));
 
-export default FormBlock;
+export default memo(FormBlock);

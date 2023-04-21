@@ -1,13 +1,9 @@
 import { useLayoutEffect, useState } from 'react';
-
-export enum EThemes {
-	DARK = 'dark',
-	LIGHT = 'light',
-}
+import { EThemes } from '../shared/constants';
 
 const isDarkTheme = window?.matchMedia('(prefers-color-scheme: dark)').matches;
 
-export const useTheme = () => {
+const useTheme = () => {
 	const [theme, setTheme] = useState(
 		localStorage.getItem('app-theme') || isDarkTheme
 			? EThemes.DARK
@@ -21,3 +17,5 @@ export const useTheme = () => {
 
 	return { theme, setTheme };
 };
+
+export default useTheme;

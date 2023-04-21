@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, memo, useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
-import Slide from './components/Slide';
-import SlideWrapper from './components/SlideWrapper';
-import { useIsMobile } from '../../hooks/UseIsMobile';
-import { slides } from '../../shared/constants';
+import Slide from '../../components/Slide';
+import SlideWrapper from '../../components/SlideWrapper';
+import useIsMobile from '../../hooks/useIsMobile';
+import { ENavigationTitles, slides } from '../../shared/constants';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import s from './Technologies.module.scss';
 
-const Technologies = () => {
+const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 	const carouselRef = useRef<Carousel>(null);
 	const isMobile = useIsMobile();
 	const [slidesList, setSlidesList] = useState<Record<string, string>[]>([]);
@@ -31,7 +31,7 @@ const Technologies = () => {
 	};
 
 	return (
-		<div className={s.block} id={'technologies'}>
+		<div className={s.block} id={ENavigationTitles.TECHNOLOGIES} ref={ref}>
 			<h1 className={s.title}>TECHNOLOGIES</h1>
 			<div className={s.table}>
 				<h1 className={s.table__title}>
@@ -74,6 +74,6 @@ const Technologies = () => {
 			</div>
 		</div>
 	);
-};
+});
 
-export default Technologies;
+export default memo(Technologies);
