@@ -7,9 +7,9 @@ import { useIsMobile } from '../../hooks/UseIsMobile';
 import { slides } from '../../shared/constants';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import s from './Block4.module.scss';
+import s from './Technologies.module.scss';
 
-const Block4 = () => {
+const Technologies = () => {
 	const carouselRef = useRef<Carousel>(null);
 	const isMobile = useIsMobile();
 	const [slidesList, setSlidesList] = useState<Record<string, string>[]>([]);
@@ -76,4 +76,4 @@ const Block4 = () => {
 	);
 };
 
-export default Block4;
+export default Technologies;

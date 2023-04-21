@@ -1,8 +1,12 @@
 import classnames from 'classnames';
+import {useIsMobile} from "../../hooks/UseIsMobile";
 
-import s from './Block3.module.scss';
+import s from './Advantages.module.scss';
 
-const Block3 = () => {
+
+const Advantages = () => {
+	const isMobile = useIsMobile()
+
 	return (
 		<div className={s.block} id={"advantages"}>
 			<div className={classnames(s.section, s.section_first)}>
@@ -14,9 +18,9 @@ const Block3 = () => {
 			<div className={classnames(s.section, s.section_third)}>
 				<div className={s.section__right}></div>
 			</div>
-			<div className={classnames(s.background)}></div>
+			{!isMobile && <div className={classnames(s.background)}/>}
 		</div>
 	);
 };
 
-export default Block3;
+export default Advantages;

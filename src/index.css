@@ -71,8 +71,14 @@ a {
 
 html[data-theme='light'] {
   --mainBg: #D6DFEA;
+  --BgImage: none;
+  --leftBg: url('./assets/bannerBlock/leftSideLeft.svg');
+  --dropBg: url('./assets/block2/dropLight.svg');
 }
 
 html[data-theme='dark'] {
-  --mainBg: #080A14
+  --mainBg: #080A14;
+  --BgImage: url('./assets/bannerBlock/background.svg');
+  --leftBg: url('./assets/bannerBlock/leftSide.svg');
+  --dropBg: url('./assets/block2/drop.svg');
 }

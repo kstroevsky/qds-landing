@@ -1,26 +1,49 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-import BannerBlock from './sections/bannerBlock/BannerBlock';
-import Block2 from "./sections/block2/Block2";
-import Block3 from "./sections/block3/Block3";
-import Block4 from "./sections/block4/Block4";
+import {useIsMobile} from "./hooks/UseIsMobile";
+
+import Header from './sections/header/Header';
+import About from "./sections/about/About";
+import Advantages from "./sections/advantages/Advantages";
+import Technologies from "./sections/technologies/Technologies";
 import FormBlock from "./sections/formBlock/FormBlock";
 import ThemesToggle from "./components/thema/ThemesToggle";
+import FixHeader from "./components/fixHeader/FixHeader";
 
 import './App.css';
 
 
 function App() {
-  return (
-    <div className='App'>
-        <BannerBlock/>
-        <Block2/>
-        <Block3/>
-        <Block4/>
-        <FormBlock/>
-        <ThemesToggle/>
-    </div>
-  );
+    const [showHeader, setShowHeader] = useState(false);
+    const isMobile = useIsMobile();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setShowHeader(true);
+            } else {
+                setShowHeader(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    return (
+        <div className='App'>
+            <Header/>
+            <About/>
+            <Advantages/>
+            <Technologies/>
+            <FormBlock/>
+            {!isMobile && <ThemesToggle/>}
+            {showHeader && <FixHeader/>}
+        </div>
+    );
 }
 
 export default App;

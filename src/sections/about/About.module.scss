@@ -31,7 +31,7 @@
 }
 
 .top {
-  background-image: url("../../assets/block2/half-block.svg");
+  background-image: var(--dropBg);
   background-size: contain;
   background-repeat: no-repeat;
   height: 44vw;
@@ -58,7 +58,7 @@
 }
 
 .bottom {
-  background-image: url("../../assets/block2/half-block.svg");
+  background-image: var(--dropBg);
   transform: scale(-1, -1);
   background-size: contain;
   background-repeat: no-repeat;

@@ -4,9 +4,12 @@ import { Link } from 'react-scroll';
 
 import { useIsMobile } from '../../hooks/UseIsMobile';
 
-import s from './BannerBlock.module.scss';
+import ThemesToggle from "../../components/thema/ThemesToggle";
 
-function BannerBlock() {
+import s from './header.module.scss';
+
+
+function Header() {
 	const [activeBurger, setActiveBurger] = useState(false);
 	const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
 	const isMobile = useIsMobile();
@@ -67,8 +70,9 @@ function BannerBlock() {
 			>
 				<span className={s.line}></span>
 			</div>
+			{isMobile && activeBurger && <ThemesToggle/>}
 		</div>
 	);
 }
 
-export default BannerBlock;
+export default Header;

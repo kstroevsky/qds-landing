@@ -1,6 +1,6 @@
-import s from './Block2.module.scss';
+import s from './About.module.scss';
 
-function Block2() {
+function About() {
 	return (
 		<div className={s.wrapper}>
 			<div className={s.blockTwo} id={"about"}>
@@ -32,4 +32,4 @@ function Block2() {
 	);
 }
 
-export default Block2;
+export default About;
