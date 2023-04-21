@@ -32,7 +32,7 @@ const Block4 = () => {
 
 	return (
 		<div className={s.block} id={'technologies'}>
-			<h1 className={s.title}>TECHNOLOGY</h1>
+			<h1 className={s.title}>TECHNOLOGIES</h1>
 			<div className={s.table}>
 				<h1 className={s.table__title}>
 					{slidesList.find((_, idx) => idx === activeIndex)?.alt}

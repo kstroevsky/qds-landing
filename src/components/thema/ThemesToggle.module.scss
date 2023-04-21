@@ -2,12 +2,49 @@
   position: fixed;
   display: flex;
   z-index: 500;
-  height: 120px;
-  width: 120px;
-  right: 5%;
+  height: 96px;
+  width: 96px;
+  right: 0%;
   bottom: 0;
+  transform-origin: 0% 25%;
+  cursor: pointer;
+  transition: .4s ease-in-out;
 
-  .dark, .light {
+  @media all and (min-width: 480px) and (max-width: 1024px) {
+    left: 8%;
+    top: 7%;
+    position: absolute;
+  }
+
+  @media all and (max-width: 480px) {
+    left: 8%;
+    top: 7%;
+    position: absolute;
+  }
+
+  &:hover {
+    transition: .4s ease-in-out;
+    bottom: 1vh;
+  }
+
+  &:before {
+    opacity: 0;
+    content: "D";
+    color: white;
+    position: absolute;
+  }
+
+  &:hover:before {
+    opacity: 1;
+    transition: all .4s;
+    z-index: 1010;
+    font-size: 40px;
+    bottom: 75%;
+    right: 50%;
+  }
+
+  .dark,
+  .light {
     width: 80%;
     height: 43%;
     position: absolute;
@@ -16,25 +53,49 @@
   }
 
   .dark {
-    top: -45px;
-    left: -30px;
-    background: linear-gradient(225deg, #7763E7 0%, #FC686E 100%);
+    top: -39px;
+    left: -17px;
+    background: linear-gradient(225deg, #7763E7 0%, #FC686E 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
     border-radius: 0 0 100px 100px;
     transform: rotate(-225deg);
   }
 
   .light {
-    background: linear-gradient(225deg, #67D7D3 0%, #84C5F7 100%);
+    background: linear-gradient(225deg, #67D7D3 0%, #84C5F7 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
     border-radius: 0 0 100px 100px;
     transform: rotate(-45deg);
     z-index: 500;
   }
 
   .line {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    top: -67px;
-    left: -27px;
+    position: relative;
+    width: 2px;
+    height: 126px;
+    top: -33px;
+    left: 0px;
+    background-color: white;
+    transform: rotate(45deg) translateY(-40px);
+    z-index: 1000;
+  }
+
+  &.light_checked {
+    transform-origin: 29% 4%;
+    transform: rotate(-180deg);
+
+    .line {
+      background-color: black;
+    }
+
+    &:before {
+      content: "L";
+      opacity: 0;
+      color: black;
+    }
+
+    &:hover:before {
+      transition: all .4s;
+      opacity: 1;
+      transform: rotate(180deg);
+    }
   }
 }

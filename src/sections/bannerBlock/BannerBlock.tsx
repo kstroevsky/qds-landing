@@ -1,11 +1,10 @@
-import {useState} from "react";
+import { useState } from 'react';
 
 import { Link } from 'react-scroll';
 
-import {useIsMobile} from "../../hooks/UseIsMobile";
+import { useIsMobile } from '../../hooks/UseIsMobile';
 
 import s from './BannerBlock.module.scss';
-
 
 function BannerBlock() {
 	const [activeBurger, setActiveBurger] = useState(false);
@@ -16,32 +15,43 @@ function BannerBlock() {
 		isMobile && setActiveBurger(!activeBurger);
 		if (isMobile) {
 			if (!activeBurger) {
-				document.body.style.overflow = "hidden";
+				document.body.style.overflow = 'hidden';
 			} else {
-				document.body.style.overflow = "auto";
+				document.body.style.overflow = 'auto';
 			}
 		}
-	}
+	};
 
 	return (
 		<div className={s.bannerWrapper}>
-			{!activeBurger && <div className={s.info}>
-				<h1 className={s.title}>QTS SOFTWARE</h1>
-				<button className={s.button}><a href="">CONTACT US</a></button>
-			</div>}
+			{!activeBurger && (
+				<div className={s.info}>
+					<h1 className={s.title}>QDS SOFTWARE</h1>
+					<button className={s.button}>
+						<a href="#">CONTACT US</a>
+					</button>
+				</div>
+			)}
 			<nav className={`${s.nav} ${activeBurger && s.nav_mobile}`}>
 				<ul className={`${s.menu} ${activeBurger && s.menu_mobile}`}>
-					{navArray.map(el =>
-						<li className={`${s.menu__item} ${activeBurger && s.menu_mobile__item}`} key={el}>
+					{navArray.map((el) => (
+						<li
+							className={`${s.menu__item} ${
+								activeBurger && s.menu_mobile__item
+							}`}
+							key={el}
+						>
 							<Link
 								to={el.toLowerCase()}
 								spy={true}
 								smooth={true}
 								duration={500}
 								onClick={handleBurgerClick}
-							>{el}</Link>
+							>
+								{el}
+							</Link>
 						</li>
-					)}
+					))}
 				</ul>
 			</nav>
 			<div className={s.backgroundContainer}>
@@ -51,7 +61,10 @@ function BannerBlock() {
 				</div>
 			</div>
 
-			<div className={`${s.burger} ${activeBurger && s.burger_active}`} onClick={handleBurgerClick}>
+			<div
+				className={`${s.burger} ${activeBurger && s.burger_active}`}
+				onClick={handleBurgerClick}
+			>
 				<span className={s.line}></span>
 			</div>
 		</div>

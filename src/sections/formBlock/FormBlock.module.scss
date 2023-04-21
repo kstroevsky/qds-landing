@@ -4,7 +4,7 @@
   padding: 4vw;
   position: relative;
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     height: 100%;
   }
 }
@@ -24,7 +24,7 @@
     background-image: none;
   }
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     background-image: none;
   }
 }
@@ -37,7 +37,7 @@
     text-align: center;
   }
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     text-align: center;
   }
 }
@@ -57,7 +57,7 @@
     width: 90%;
   }
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     background-image: none;
     width: 100%;
     margin: 2vh 0 0;
@@ -72,7 +72,7 @@
   align-items: center;
   padding: 0 1vw;
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     height: 510px;
   }
 }
@@ -87,7 +87,7 @@
     font-size: 4vw;
   }
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     font-size: 5vw;
   }
 }
@@ -116,7 +116,7 @@
     height: 100px;
   }
 
-  @media all and (min-width: 300px) and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     height: 12vw;
     bottom: 3px;
   }
@@ -131,7 +131,7 @@
       font-size: 5vw;
     }
 
-    @media all and (min-width: 300px) and (max-width: 768px) {
+    @media all and (max-width: 768px) {
       font-size: 4.5vw;
     }
   }
