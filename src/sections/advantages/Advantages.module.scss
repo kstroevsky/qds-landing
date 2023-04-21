@@ -1,11 +1,73 @@
-@import "../../styles/vars";
+@import "../../shared/styles/vars";
 
 .block {
   padding: 0 35px;
   position: relative;
   width: 80%;
   margin: auto;
-  bottom: 55px;
+
+  &>div {
+    position: relative;
+    width: 100%;
+    bottom: 12vw;
+    margin-bottom: 30px;
+
+    @media all and (max-width: 480px) {
+      bottom: 135px;
+    }
+
+    .titleList {
+      position: absolute;
+      bottom: 10vw;
+      left: 21vw;
+
+      &__item {
+        @include title;
+        font-size: 4vw;
+        position: relative;
+
+        &_first {
+          color: $red;
+
+        }
+
+        &_second {
+          color: $green;
+          left: -7.5vw;
+
+        }
+
+        &_third {
+          color: $blue;
+          left: -16vw;
+        }
+      }
+    }
+
+    .bottom {
+      background-image: var(--dropBg);
+      transform: scale(-1, -1);
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 44vw;
+      width: 100%;
+      position: relative;
+
+      @media all and (max-width: 480px) {
+        background-image: url("../../assets/block2/mobile/Drop.svg");
+        height: 127vw;
+      }
+    }
+
+    .titleBottom {
+      @include title;
+      text-align: end;
+      padding-right: 4vw;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
 
   .background {
     bottom: 0;

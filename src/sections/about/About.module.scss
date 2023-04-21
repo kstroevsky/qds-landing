@@ -1,4 +1,4 @@
-@import "../../styles/vars";
+@import "../../shared/styles/vars";
 
 .wrapper {
   position: relative;
@@ -7,11 +7,6 @@
   opacity: 1;
   transform: translateY(50px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-
-  //.visible {
-  //  opacity: 1;
-  //  transform: translateY(0);
-  //}
 }
 
 .blockTwo {
@@ -63,57 +58,4 @@
     width: 100%;
     text-align: center;
   }
-}
-
-.bottom {
-  background-image: var(--dropBg);
-  transform: scale(-1, -1);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 44vw;
-  width: 100%;
-  position: relative;
-
-  @media all and (max-width: 480px) {
-    background-image: url("../../assets/block2/mobile/Drop.svg");
-    height: 127vw;
-  }
-}
-
-.titleList {
-  position: absolute;
-  bottom: 8vw;
-  right: 2vw;
-
-  &__item {
-    @include title;
-    font-size: 4vw;
-    position: relative;
-
-    &_first {
-      color: $red;
-
-    }
-
-    &_second {
-      color: $green;
-      left: -7.5vw;
-
-    }
-
-    &_third {
-      color: $blue;
-      left: -16vw;
-    }
-  }
-}
-
-
-.titleBottom {
-  @include title;
-  text-align: end;
-  padding-right: 4vw;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
