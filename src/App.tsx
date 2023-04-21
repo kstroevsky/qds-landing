@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
+import { Element } from 'react-scroll';
+
 import {useIsMobile} from "./hooks/UseIsMobile";
 
 import Header from './sections/header/Header';
@@ -36,7 +38,9 @@ function App() {
     return (
         <div className='App'>
             <Header/>
-            <About/>
+            <Element name={"about"}>
+                <About/>
+            </Element>
             <Advantages/>
             <Technologies/>
             <FormBlock/>
