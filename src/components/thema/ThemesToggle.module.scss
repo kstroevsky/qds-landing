@@ -13,16 +13,16 @@
   filter: drop-shadow(1px 1px 0px white);
 
   @media all and (min-width: 480px) and (max-width: 1024px) {
-    left: 8%;
-    top: 16%;
+    left: 50%;
+    bottom: -7%;
     height: 64px;
     width: 64px;
     position: absolute;
   }
 
   @media all and (max-width: 480px) {
-    left: 10%;
-    top: 9%;
+    left: 46%;
+    top: 75%;
     position: absolute;
   }
 

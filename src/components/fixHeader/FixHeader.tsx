@@ -3,12 +3,13 @@ import {Link} from "react-scroll";
 import s from "./FixHeader.module.scss"
 import {useIsMobile} from "../../hooks/UseIsMobile";
 
-const FixHeader = () => {
+const FixHeader = ({showHeader}: {showHeader: boolean}) => {
     const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
     const isMobile = useIsMobile();
 
     return (
-        <header className={s.fixHeader}>
+
+        <header className={`${s.fixHeader} ${showHeader && s.fadeIn}`}>
             {!isMobile && <div className={s.titleDiv}>
                 <h1>QDS SOFTWARE</h1>
             </div>}

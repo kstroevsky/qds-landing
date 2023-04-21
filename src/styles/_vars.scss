@@ -5,6 +5,13 @@
 	position: relative;
 }
 
+$show-block: (
+	to: (
+		opacity: 1,
+		transform: translateY(0)
+	)
+);
+
 $bgColor: #14192B;
 $whiteColor: #D6DFEA;
 $whiteBgColor: #faf6f2;
