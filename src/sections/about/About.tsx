@@ -1,14 +1,15 @@
+import { forwardRef } from 'react';
 import s from './About.module.scss';
 
-function About() {
+const About = forwardRef<HTMLDivElement>((_, ref) => {
 	return (
-		<div className={s.wrapper}>
-			<div className={s.blockTwo} id={"about"}>
-				<div>
+		<div className={s.wrapper} ref={ref}>
+			<div className={s.blockTwo}>
+				<div id={'about'}>
 					<h1 className={s.titleTop}>WHO WE ARE</h1>
 					<div className={s.top}></div>
 				</div>
-				<div>
+				<div id={'advantages'}>
 					<>
 						<div className={s.titleList}>
 							<h2 className={`${s.titleList__item} ${s.titleList__item_first}`}>
@@ -30,6 +31,6 @@ function About() {
 			</div>
 		</div>
 	);
-}
+});
 
 export default About;

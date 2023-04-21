@@ -5,6 +5,7 @@
   position: relative;
   width: 80%;
   margin: auto;
+  bottom: 55px;
 
   .background {
     bottom: 0;
@@ -39,7 +40,7 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin: 30px auto;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     position: relative;
     z-index: 10;
 

@@ -1,15 +1,12 @@
-import { useState } from 'react';
-
+import { FC, useState } from 'react';
 import { Link } from 'react-scroll';
 
-import { useIsMobile } from '../../hooks/UseIsMobile';
-
-import ThemesToggle from "../../components/thema/ThemesToggle";
+import ThemesToggle from '../../components/thema/ThemesToggle';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 import s from './header.module.scss';
 
-
-function Header() {
+const Header: FC = () => {
 	const [activeBurger, setActiveBurger] = useState(false);
 	const navArray = ['ABOUT', 'ADVANTAGES', 'TECHNOLOGIES', 'CONTACTS'];
 	const isMobile = useIsMobile();
@@ -70,9 +67,9 @@ function Header() {
 			>
 				<span className={s.line}></span>
 			</div>
-			{isMobile && activeBurger && <ThemesToggle/>}
+			{isMobile && activeBurger && <ThemesToggle />}
 		</div>
 	);
-}
+};
 
 export default Header;

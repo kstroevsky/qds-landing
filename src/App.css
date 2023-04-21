@@ -1,5 +1,9 @@
+body,
 .App {
 	background-color: var(--mainBg);
+}
+
+.App {
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
