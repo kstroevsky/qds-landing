@@ -1,0 +1,68 @@
+@import "../../shared/styles/vars";
+
+@-webkit-keyframes opening {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 20vw;
+  }
+}
+
+@keyframes opening {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 20vw;
+  }
+}
+
+.fullscreenBlock {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 100%;
+  z-index: 11000;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: left .5s ease-out;
+
+  &.first {
+    background: $block3FirstGradient;
+  }
+
+  &.second {
+    background: $block3SecondGradient;
+  }
+
+  &.third {
+    background: $block3ThirdGradient;
+  }
+
+  --mask: radial-gradient(22.36vh at 30.00vh 50%, #000 99%, #0000 101%) 0 calc(50% - 20vh)/100% 40vh,
+  radial-gradient(22.36vh at -20vh 50%, #0000 99%, #000 101%) 10vh 50%/100% 40vh repeat-y;
+
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+
+  &__open {
+    left: 20vw;
+
+    &:global(body) {
+      overflow: hidden;
+    }
+  }
+}

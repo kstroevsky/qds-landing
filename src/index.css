@@ -5,7 +5,12 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  width: 100vw;
+}
+
+#root {
+  position: relative;
+  transition: right .5s ease-out;
 }
 
 code {
@@ -16,6 +21,8 @@ code {
 html {
   box-sizing: border-box;
   font-size: 16px;
+  scroll-behavior: smooth;
+  width: 100vw;
 }
 
 *,

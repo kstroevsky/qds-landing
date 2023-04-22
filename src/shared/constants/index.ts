@@ -48,6 +48,12 @@ export enum ENavigationTitles {
 	CONTACTS = 'contacts',
 }
 
+export enum EAdvantages {
+	FIRST = 'first',
+	SECOND = 'second',
+	THIRD = 'third',
+}
+
 export const headerObserverOptions = Object.freeze({
 	root: null,
 	rootMargin: '-540px',
