@@ -3,6 +3,7 @@ import React, { lazy, useCallback, useRef, useState } from 'react';
 import useIsMobile from './hooks/useIsMobile';
 import useScrollObserver from './hooks/useScrollObserver';
 import useSectionsObserver from './hooks/useSectionsObserver';
+import { headerObserverOptions, menuObserverOptions } from './shared/constants';
 
 import './App.css';
 
@@ -14,13 +15,8 @@ const FormBlock = lazy(() => import('./sections/formBlock/FormBlock'));
 const ThemesToggle = lazy(() => import('./components/theme/ThemesToggle'));
 const FixHeader = lazy(() => import('./components/fixHeader/FixHeader'));
 
-const scrollOptions = Object.freeze({
-	root: window.document,
-	rootMargin: '110px',
-	threshold: 0,
-});
-
 function App() {
+	const headerRef = useRef<HTMLDivElement | null>(null);
 	const menuRef = useRef<HTMLUListElement | null>(null);
 	const aboutRef = useRef<HTMLDivElement | null>(null);
 	const advantagesRef = useRef<HTMLDivElement | null>(null);
@@ -34,14 +30,16 @@ function App() {
 		setShowHeader(value);
 	}, []);
 
-	useScrollObserver(isMobile, menuRef, handleHeaderVisibility, scrollOptions);
+	useScrollObserver(
+		isMobile,
+		headerRef,
+		handleHeaderVisibility,
+		headerObserverOptions
+	);
 
 	useSectionsObserver(
 		menuRef,
-		{
-			root: null,
-			threshold: [0.5, 0.2, 0.5, 0.4],
-		},
+		menuObserverOptions,
 		aboutRef,
 		advantagesRef,
 		technologiesRef,
@@ -50,7 +48,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header key={'section-header'} />
+			<Header key={'section-header'} ref={headerRef} />
 			<About key={'section-about'} ref={aboutRef} />
 			<Advantages key={'section-advantages'} ref={advantagesRef} />
 			<Technologies key={'section-technologies'} ref={technologiesRef} />

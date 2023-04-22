@@ -47,3 +47,14 @@ export enum ENavigationTitles {
 	TECHNOLOGIES = 'technologies',
 	CONTACTS = 'contacts',
 }
+
+export const headerObserverOptions = Object.freeze({
+	root: null,
+	rootMargin: '-540px',
+	threshold: 0,
+});
+
+export const menuObserverOptions = Object.freeze({
+	root: null,
+	threshold: [0.5, 0.2, 0.5, 0.4],
+});

@@ -42,7 +42,7 @@ const useSectionsObserver = (
 				ref.current && observer.unobserve(ref.current);
 			});
 		};
-	}, [sectionsRefs, controlRef, options]);
+	}, [controlRef, options, sectionsRefs]);
 };
 
 export default useSectionsObserver;

@@ -1,6 +1,5 @@
-import { memo, useCallback, useEffect, useState } from 'react';
-import type { FC } from 'react';
-import { Link } from 'react-scroll';
+import { forwardRef, memo, useCallback, useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 import ThemesToggle from '../../components/theme/ThemesToggle';
 import useIsMobile from '../../hooks/useIsMobile';
@@ -8,7 +7,7 @@ import { ENavigationTitles } from '../../shared/constants';
 
 import s from './header.module.scss';
 
-const Header: FC = () => {
+const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	const [activeBurger, setActiveBurger] = useState(false);
 	const isMobile = useIsMobile();
 
@@ -27,7 +26,7 @@ const Header: FC = () => {
 	}, [activeBurger]);
 
 	return (
-		<div className={s.bannerWrapper}>
+		<div className={s.bannerWrapper} ref={ref}>
 			{!activeBurger && (
 				<div className={s.info}>
 					<h1 className={s.title}>{'QDS SOFTWARE'}</h1>
@@ -36,16 +35,17 @@ const Header: FC = () => {
 					</button>
 				</div>
 			)}
-			<nav className={`${s.nav} ${activeBurger && s.nav_mobile}`}>
-				<ul className={`${s.menu} ${activeBurger && s.menu_mobile}`}>
-					{Object.keys(ENavigationTitles).map((el) => (
+			<nav className={classNames(s.nav, { [s.nav_mobile]: activeBurger })}>
+				<ul className={classNames(s.menu, { [s.menu_mobile]: activeBurger })}>
+					{Object.values(ENavigationTitles).map((el) => (
 						<li
 							className={`${s.menu__item} ${
 								activeBurger && s.menu_mobile__item
 							}`}
 							key={el}
 						>
-							<Link
+							<a href={`#${el}`}>{el.toUpperCase()}</a>
+							{/* <Link
 								to={el.toLowerCase()}
 								spy={true}
 								smooth={true}
@@ -53,7 +53,7 @@ const Header: FC = () => {
 								onClick={handleBurgerClick}
 							>
 								{el}
-							</Link>
+							</Link> */}
 						</li>
 					))}
 				</ul>
@@ -74,6 +74,6 @@ const Header: FC = () => {
 			{isMobile && activeBurger && <ThemesToggle />}
 		</div>
 	);
-};
+});
 
 export default memo(Header);

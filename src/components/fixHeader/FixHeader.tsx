@@ -1,7 +1,5 @@
 import { forwardRef, memo } from 'react';
-import { Link } from 'react-scroll';
-
-import useIsMobile from '../../hooks/useIsMobile';
+import classNames from 'classnames';
 import { ENavigationTitles } from '../../shared/constants';
 
 import s from './FixHeader.module.scss';
@@ -12,7 +10,7 @@ interface FixHeaderProps {
 
 const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
 	({ showHeader }, ref) => (
-		<header className={`${s.fixHeader} ${showHeader ? s.fadeIn : ''}`}>
+		<header className={classNames(s.fixHeader, { [s.fadeIn]: showHeader })}>
 			<div className={s.titleDiv}>
 				<h1>{'QDS SOFTWARE'}</h1>
 			</div>
@@ -20,9 +18,7 @@ const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
 				<ul className={s.fixNav__menu} ref={ref}>
 					{Object.values(ENavigationTitles).map((el) => (
 						<li key={el} data-section={el} className={s.fixNav__menu_item}>
-							<Link to={el} spy={true} smooth={true} duration={500}>
-								{el.toUpperCase()}
-							</Link>
+							<a href={`#${el}`}>{el.toUpperCase()}</a>
 						</li>
 					))}
 				</ul>
