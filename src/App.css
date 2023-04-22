@@ -1,3 +1,27 @@
+@-webkit-keyframes floating {
+	from {
+		opacity: 0;
+		bottom: -10vh
+	}
+
+	to {
+		opacity: 1;
+		bottom: 0;
+	}
+}
+
+@keyframes floating {
+	from {
+		opacity: 0;
+		bottom: -10vh
+	}
+
+	to {
+		opacity: 1;
+		bottom: 0;
+	}
+}
+
 body,
 .App {
 	background-color: var(--mainBg);
@@ -7,4 +31,24 @@ body,
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
+}
+
+.App > div:not(:first-child):not(:nth-child(2)):not(:last-child) {
+	opacity: 0;
+	bottom: -10vh;
+	transition: opacity .5s ease-out, transform .5s ease-out;
+}
+
+.App > div:not(:first-child):not(:nth-child(2)):not(:last-child).is-visible {
+	-webkit-animation: floating .5s ease-out forwards;
+	animation: floating .5s ease-out forwards;
+	-webkit-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+}
+
+.App > div:last-child {
+	-webkit-animation: floating .8s ease-out forwards;
+	animation: floating .8s ease-out forwards;
+	-webkit-animation-iteration-count: initial;
+	animation-iteration-count: initial;
 }

@@ -14,11 +14,21 @@ const useSectionsObserver = (
 
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
-				const idx = menuTitles.findIndex((el) => entry.target.id === el);
+				const idx = menuTitles.indexOf(entry.target.id);
 
 				if (idx !== -1) {
+					const isIntersect =
+						entry.intersectionRatio >=
+						((Array.isArray(options?.threshold)
+							? options?.threshold[idx]
+							: options?.threshold) || 0);
+
 					(controlRef.current?.children[idx] as HTMLElement).style.color =
-						entry.isIntersecting ? '#950000' : 'white';
+						isIntersect ? '#950000' : 'white';
+
+					if (!entry.target.classList.contains('is-visible')) {
+						isIntersect && entry.target.classList.add('is-visible');
+					}
 				}
 			});
 		}, options);

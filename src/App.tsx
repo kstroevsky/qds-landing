@@ -40,7 +40,7 @@ function App() {
 		menuRef,
 		{
 			root: null,
-			threshold: 0.4,
+			threshold: [0.5, 0.2, 0.5, 0.4],
 		},
 		aboutRef,
 		advantagesRef,
@@ -55,8 +55,8 @@ function App() {
 			<Advantages key={'section-advantages'} ref={advantagesRef} />
 			<Technologies key={'section-technologies'} ref={technologiesRef} />
 			<FormBlock key={'section-form'} ref={formRef} />
-			{!isMobile && <ThemesToggle key={'toggle-theme'} />}
 			<FixHeader key={'header-fix'} showHeader={showHeader} ref={menuRef} />
+			{!isMobile && <ThemesToggle key={'toggle-theme'} />}
 		</div>
 	);
 }

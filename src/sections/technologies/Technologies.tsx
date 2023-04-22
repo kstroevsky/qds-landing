@@ -32,7 +32,7 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 
 	return (
 		<div className={s.block} id={ENavigationTitles.TECHNOLOGIES} ref={ref}>
-			<h1 className={s.title}>TECHNOLOGIES</h1>
+			<h1 className={s.title}>{'TECHNOLOGIES'}</h1>
 			<div className={s.table}>
 				<h1 className={s.table__title}>
 					{slidesList.find((_, idx) => idx === activeIndex)?.alt}
