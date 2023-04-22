@@ -28,30 +28,60 @@
     left: 7vw;
   }
 
-  &:hover {
-    transition: .4s ease-in-out;
-    bottom: 1vh;
-  }
-
   &:before {
     opacity: 0;
     content: "D";
     color: white;
     position: absolute;
+    transition: opacity .4s;
   }
 
-  &:hover:before {
-    opacity: 1;
-    transition: all .4s;
-    z-index: 1010;
-    font-size: 40px;
-    bottom: 75%;
-    right: 50%;
+  &:hover {
+    transition: .4s ease-in-out;
+    bottom: 1vh;
+
+    &>.line {
+      height: 126px;
+      top: -33px;
+    }
+
+    &:before {
+      opacity: 1;
+      transition: all .4s;
+      z-index: 1010;
+      font-size: 40px;
+      bottom: 75%;
+      right: 50%;
+
+      @media all and (max-width: 480px) {
+        bottom: 96%;
+        right: 69%;
+        font-size: 30px;
+      }
+    }
+  }
+
+  .line {
+    position: relative;
+    width: 2px;
+    height: 0px;
+    top: 30%;
+    left: 0px;
+    background-color: white;
+    transition: .4s ease-in-out;
+    transform: rotate(45deg) translateY(-40px);
+    z-index: 1000;
 
     @media all and (max-width: 480px) {
-      bottom: 96%;
-      right: 69%;
-      font-size: 30px;
+      height: 74px;
+      top: -23px;
+      left: -11px;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 1024px) {
+      height: 86px;
+      top: -29px;
+      left: -12px;
     }
   }
 
@@ -97,29 +127,6 @@
     @media all and (max-width: 480px) {
       margin-left: 3px;
       margin-top: -12px;
-    }
-  }
-
-  .line {
-    position: relative;
-    width: 2px;
-    height: 126px;
-    top: -33px;
-    left: 0px;
-    background-color: white;
-    transform: rotate(45deg) translateY(-40px);
-    z-index: 1000;
-
-    @media all and (max-width: 480px) {
-      height: 74px;
-      top: -23px;
-      left: -11px;
-    }
-
-    @media all and (min-width: 480px) and (max-width: 1024px) {
-      height: 86px;
-      top: -29px;
-      left: -12px;
     }
   }
 
