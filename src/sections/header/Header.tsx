@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import type { FC } from 'react';
 import { Link } from 'react-scroll';
 
@@ -12,16 +12,19 @@ const Header: FC = () => {
 	const [activeBurger, setActiveBurger] = useState(false);
 	const isMobile = useIsMobile();
 
-	const handleBurgerClick = () => {
-		isMobile && setActiveBurger(!activeBurger);
-		if (isMobile) {
-			if (!activeBurger) {
-				document.body.style.overflow = 'hidden';
-			} else {
-				document.body.style.overflow = 'auto';
-			}
+	const handleBurgerClick = useCallback(() => {
+		setActiveBurger((prev) => !prev);
+	}, []);
+
+	useEffect(() => {
+		if (!isMobile) {
+			setActiveBurger(false);
 		}
-	};
+	}, [isMobile]);
+
+	useEffect(() => {
+		document.body.style.overflow = activeBurger ? 'hidden' : 'auto';
+	}, [activeBurger]);
 
 	return (
 		<div className={s.bannerWrapper}>

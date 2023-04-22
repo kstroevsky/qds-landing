@@ -55,8 +55,12 @@ function App() {
 			<Advantages key={'section-advantages'} ref={advantagesRef} />
 			<Technologies key={'section-technologies'} ref={technologiesRef} />
 			<FormBlock key={'section-form'} ref={formRef} />
-			<FixHeader key={'header-fix'} showHeader={showHeader} ref={menuRef} />
-			{!isMobile && <ThemesToggle key={'toggle-theme'} />}
+			{!isMobile && (
+				<>
+					<FixHeader key={'header-fix'} showHeader={showHeader} ref={menuRef} />
+					<ThemesToggle key={'toggle-theme'} />
+				</>
+			)}
 		</div>
 	);
 }

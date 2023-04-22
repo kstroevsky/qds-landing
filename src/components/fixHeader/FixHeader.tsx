@@ -13,11 +13,9 @@ interface FixHeaderProps {
 const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
 	({ showHeader }, ref) => (
 		<header className={`${s.fixHeader} ${showHeader ? s.fadeIn : ''}`}>
-			{!useIsMobile() && (
-				<div className={s.titleDiv}>
-					<h1>QDS SOFTWARE</h1>
-				</div>
-			)}
+			<div className={s.titleDiv}>
+				<h1>{'QDS SOFTWARE'}</h1>
+			</div>
 			<nav className={s.fixNav}>
 				<ul className={s.fixNav__menu} ref={ref}>
 					{Object.values(ENavigationTitles).map((el) => (

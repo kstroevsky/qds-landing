@@ -1,16 +1,32 @@
 @import '../../shared/styles/vars';
 
 .wrapper {
-  padding: 4vw;
+  padding: 0 3vw;
+  margin-top: 10vw;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    align-items: center;
+  }
 
   @media all and (max-width: 768px) {
     height: 100%;
+    align-items: center;
   }
 
   .title {
     @include title;
     color: #D6DFEA;
+    text-align: right;
+    bottom: 2vw;
+    right: 1vw;
+
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      bottom: 1vw;
+    }
 
     @media all and (min-width: 768px) and (max-width: 1024px) {
       text-align: center;
@@ -23,10 +39,28 @@
 
   .formWrapper {
     width: 41%;
-    margin-left: 4vw;
+    right: 4vw;
+    bottom: 3vw;
     position: relative;
     margin-top: 6vw;
     z-index: 1;
+
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      right: 3vw;
+      bottom: 3vw;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      right: 0;
+      width: 90%;
+    }
+
+    @media all and (max-width: 768px) {
+      background-image: none;
+      right: 0;
+      width: 100%;
+      margin: 2vh 0 0;
+    }
 
     .__container_top,
     .__container_bottom {
@@ -56,6 +90,10 @@
         }
       }
 
+      @media all and (min-width: 1024px) and (max-width: 1280px) {
+        padding: 0;
+      }
+
       @media all and (max-width: 768px) {
         height: 510px;
       }
@@ -71,6 +109,30 @@
 
       &:hover {
         bottom: 35px;
+      }
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        bottom: 38px;
+
+        &:hover {
+          bottom: 38px;
+        }
+      }
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        bottom: 60px;
+
+        &:hover {
+          bottom: 60px;
+        }
+      }
+
+      @media all and (max-width: 768px) {
+        bottom: 22px;
+
+        &:hover {
+          bottom: 22px;
+        }
       }
 
       .downBlock {
@@ -110,24 +172,10 @@
           }
 
           @media all and (max-width: 768px) {
-            font-size: 12vw;
+            font-size: 5vw;
           }
         }
       }
-    }
-
-    @media all and (min-width: 1024px) and (max-width: 1280px) {
-      width: 51%;
-    }
-
-    @media all and (min-width: 768px) and (max-width: 1024px) {
-      width: 90%;
-    }
-
-    @media all and (max-width: 768px) {
-      background-image: none;
-      width: 100%;
-      margin: 2vh 0 0;
     }
   }
 
@@ -136,18 +184,18 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    height: 96%;
+    height: 100%;
     width: 95%;
     padding: 65px 30px;
     position: absolute;
     bottom: 0;
 
     @media all and (min-width: 768px) and (max-width: 1024px) {
-      background-image: none;
+      display: none;
     }
 
     @media all and (max-width: 768px) {
-      background-image: none;
+      display: none;
     }
   }
 }

@@ -8,7 +8,7 @@ const About = forwardRef<HTMLDivElement>((_, ref) => {
 		<div className={s.wrapper} ref={ref} id={ENavigationTitles.ABOUT}>
 			<div className={s.blockTwo}>
 				<div>
-					<h1 className={s.titleTop}>WHO WE ARE</h1>
+					<h1 className={s.titleTop}>{'WHO WE ARE'}</h1>
 					<div className={s.top}></div>
 				</div>
 			</div>

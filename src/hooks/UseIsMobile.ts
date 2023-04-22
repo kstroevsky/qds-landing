@@ -14,7 +14,7 @@ const useIsMobile = (): boolean => {
 		};
 	}, [handleResize]);
 
-	return windowWidth <= 1280;
+	return windowWidth <= 1024;
 };
 
 export default useIsMobile;
