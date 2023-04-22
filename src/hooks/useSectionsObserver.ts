@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
+import { ENavigationTitles } from '../shared/constants';
 import type { MutableRefObject } from 'react';
 
 const useSectionsObserver = (
 	controlRef: MutableRefObject<HTMLElement | null>,
+	isMobile: boolean,
 	options?: IntersectionObserverInit,
 	...sectionsRefs: MutableRefObject<HTMLElement | null>[]
 ) => {
 	useEffect(() => {
 		const menuItems = Array.from(controlRef.current?.children || []);
-		const menuTitles: (string | undefined)[] = menuItems.map(
-			(el) => (el as HTMLElement).dataset.section
-		);
+		const menuTitles: (string | undefined)[] = isMobile
+			? Object.values(ENavigationTitles)
+			: menuItems.map((el) => (el as HTMLElement).dataset.section);
 
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
@@ -23,8 +25,10 @@ const useSectionsObserver = (
 							? options?.threshold[idx]
 							: options?.threshold) || 0);
 
-					(controlRef.current?.children[idx] as HTMLElement).style.color =
-						isIntersect ? '#950000' : 'white';
+					if (!isMobile) {
+						(controlRef.current?.children[idx] as HTMLElement).style.color =
+							isIntersect ? '#950000' : 'white';
+					}
 
 					if (!entry.target.classList.contains('is-visible')) {
 						isIntersect && entry.target.classList.add('is-visible');
@@ -42,7 +46,7 @@ const useSectionsObserver = (
 				ref.current && observer.unobserve(ref.current);
 			});
 		};
-	}, [controlRef, options, sectionsRefs]);
+	}, [controlRef, options, sectionsRefs, isMobile]);
 };
 
 export default useSectionsObserver;

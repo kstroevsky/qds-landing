@@ -39,6 +39,7 @@ function App() {
 
 	useSectionsObserver(
 		menuRef,
+		isMobile,
 		menuObserverOptions,
 		aboutRef,
 		advantagesRef,

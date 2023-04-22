@@ -45,15 +45,6 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 							key={el}
 						>
 							<a href={`#${el}`}>{el.toUpperCase()}</a>
-							{/* <Link
-								to={el.toLowerCase()}
-								spy={true}
-								smooth={true}
-								duration={500}
-								onClick={handleBurgerClick}
-							>
-								{el}
-							</Link> */}
 						</li>
 					))}
 				</ul>
