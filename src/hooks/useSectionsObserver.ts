@@ -26,8 +26,9 @@ const useSectionsObserver = (
 							: options?.threshold) || 0);
 
 					if (!isMobile) {
-						(controlRef.current?.children[idx] as HTMLElement).style.color =
-							isIntersect ? '#950000' : 'white';
+						(
+							controlRef.current?.children[idx] as HTMLElement
+						).style.color = `var(--main${isIntersect ? 'Hover' : 'Color'})`;
 					}
 
 					if (!entry.target.classList.contains('is-visible')) {

@@ -18,7 +18,7 @@ const AdvantageScreen: FC<AdvantageScreenProps> = ({ mode }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			setIsMounted(true);
-		}, 250);
+		}, 100);
 	}, []);
 
 	return ReactDOM.createPortal(

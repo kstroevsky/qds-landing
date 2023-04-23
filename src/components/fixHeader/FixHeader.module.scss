@@ -4,7 +4,7 @@
   opacity: 0;
   width: 100%;
   height: 50px;
-  background-color: $bgColor;
+  background-color: var(--secondBg);
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -21,7 +21,7 @@
     align-items: center;
     padding-left: 3%;
     position: relative;
-    color: white;
+    color: var(--mainColor);
     left: 0;
   }
 
@@ -47,14 +47,14 @@
       }
 
       &_item {
-        color: white;
+        color: var(--mainColor);
         font-weight: bold;
         font-size: 1.5vw;
         transition: color 0.5s ease;
         cursor: pointer;
 
         &:hover {
-          color: $red;
+          color: var(--mainHover);
         }
 
         @media all and (min-width: 300px) and (max-width: 1024px) {

@@ -104,14 +104,14 @@
 
 			&__item {
 				font-weight: 700;
-				color: white;
+				color: var(--mainColor);
 				margin-right: 2vw;
 				font-size: 1.5vw;
 				cursor: pointer;
 				transition: color 0.5s ease;
 
 				&:hover {
-					color: $red;
+					color: var(--mainHover);
 				}
 			}
 
@@ -171,9 +171,11 @@
 			.rightBackground {
 				position: absolute;
 				right: 0;
-				height: 100%;
-				width: 100%;
-				background-image: url('../../assets/bannerBlock/rightSide.png');
+				height: 88%;
+				bottom: 0;
+				width: 88%;
+				// background-image: url('../../assets/bannerBlock/rightSide.png');
+				background-image: var(--rightBg);
 				background-size: contain;
 				background-position: right;
 				background-repeat: no-repeat;

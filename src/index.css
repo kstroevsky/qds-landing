@@ -78,14 +78,22 @@ a {
 
 html[data-theme='light'] {
   --mainBg: #D6DFEA;
-  --BgImage: none;
-  --leftBg: url('./assets/bannerBlock/leftSideLeft.svg');
+  --mainColor: black;
+  --mainHover: #8954ca;
+  --secondBg: white;
+  --BgImage: url('./assets/bannerBlock/backgroundLight.svg');
+  --leftBg: url('./assets/bannerBlock/leftSideLight.svg');
+  --rightBg: url('./assets/bannerBlock/rightSideLight.png');
   --dropBg: url('./assets/block2/dropLight.svg');
 }
 
 html[data-theme='dark'] {
   --mainBg: #080A14;
+  --mainColor: white;
+  --mainHover: #d91717;
+  --secondBg: #14192B;
   --BgImage: url('./assets/bannerBlock/background.svg');
   --leftBg: url('./assets/bannerBlock/leftSide.svg');
+  --rightBg: url('./assets/bannerBlock/rightSide.png');
   --dropBg: url('./assets/block2/drop.svg');
 }
