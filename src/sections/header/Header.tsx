@@ -22,7 +22,7 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	}, [isMobile]);
 
 	useEffect(() => {
-		document.body.style.overflow = activeBurger ? 'hidden' : 'auto';
+		document.body.style.overflowY = activeBurger ? 'hidden' : 'auto';
 	}, [activeBurger]);
 
 	return (

@@ -23,10 +23,10 @@ const AdvantagesList: FC = () => {
 
 	useEffect(() => {
 		if (fullscreenOpen) {
-			document.body.style.overflow = 'hidden';
+			document.body.style.overflowY = 'hidden';
 			root.style.right = '100vw';
 		} else {
-			document.body.style.overflow = 'auto';
+			document.body.style.overflowY = 'auto';
 			root.style.right = '0';
 		}
 	}, [fullscreenOpen]);

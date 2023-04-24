@@ -41,8 +41,9 @@
     bottom: 1vh;
 
     &>.line {
-      height: 126px;
-      top: -33px;
+      height: 125%;
+      top: -49%;
+      left: 17%;
     }
 
     &:before {
@@ -62,27 +63,16 @@
   }
 
   .line {
-    position: relative;
-    width: 2px;
-    height: 0px;
-    top: 30%;
-    left: 0px;
+    position: absolute;
+    width: 0px;
+    height: 0%;
+    top: 14%;
+    left: 16%;
     background-color: white;
     transition: .4s ease-in-out;
     transform: rotate(45deg) translateY(-40px);
     z-index: 1000;
 
-    @media all and (max-width: 480px) {
-      height: 74px;
-      top: -23px;
-      left: -11px;
-    }
-
-    @media all and (min-width: 480px) and (max-width: 1024px) {
-      height: 86px;
-      top: -29px;
-      left: -12px;
-    }
   }
 
   .dark,
@@ -101,8 +91,8 @@
   }
 
   .dark {
-    top: -39px;
-    left: -17px;
+    left: -20%;
+    top: -41%;
     background: linear-gradient(225deg, #7763E7 0%, #FC686E 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
     border-radius: 0 0 100px 100px;
     transform: rotate(-225deg);
