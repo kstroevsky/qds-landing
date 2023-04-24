@@ -146,8 +146,8 @@
         padding-top: 1vw;
         position: relative;
         flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
 
         @media all and (min-width: 768px) and (max-width: 1024px) {
           height: 100px;
@@ -164,7 +164,6 @@
           font-size: 1.5vw;
           color: white;
           position: relative;
-          left: 5vw;
 
           @media all and (min-width: 768px) and (max-width: 1024px) {
             left: 10vw;

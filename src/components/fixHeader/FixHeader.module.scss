@@ -7,12 +7,15 @@
   background-color: var(--secondBg);
   display: flex;
   justify-content: space-between;
-  position: fixed;
+  position: absolute;
+  top: -100%;
   z-index: 500;
   transition: opacity 0.4s ease-in-out;
 
   &.fadeIn {
     opacity: 1;
+    position: fixed;
+    top: 0;
   }
 
   .titleDiv {
