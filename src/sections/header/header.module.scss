@@ -127,7 +127,7 @@
 				justify-content: space-evenly;
 
 				&__item {
-					font-size: 7.5vw;
+					font-size: 6.5vw;
 				}
 			}
 		}
@@ -151,6 +151,7 @@
 				background-color: $bgColor;
 				border-radius: 10px;
 				height: 97vh;
+				background-image: none;
 			}
 
 			.leftBackground {
@@ -200,7 +201,7 @@
 		z-index: 250;
 		align-items: center;
 		justify-content: flex-end;
-		width: 7vw;
+		width: 26px;
 		height: 26px;
 		top: 4.5%;
 		right: 8%;

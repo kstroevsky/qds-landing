@@ -6,7 +6,6 @@
   width: 96px;
   right: 1.5vw;
   top: 80vh;
-  //transform-origin: 19% -12%;
   cursor: pointer;
   transition: .4s ease-in-out;
   -webkit-filter: drop-shadow(0px 1px 0px white);
@@ -15,8 +14,8 @@
   @media all and (min-width: 480px) and (max-width: 1024px) {
     height: 64px;
     width: 64px;
-    position: relative;
-    top: 33vh;
+    position: absolute;
+    left: 0;
     margin: auto;
   }
 
@@ -25,7 +24,6 @@
     position: relative;
     margin: auto;
     z-index: 100000;
-    left: 7vw;
   }
 
   &:before {
@@ -35,7 +33,7 @@
     position: absolute;
     transition: opacity .4s;
     top: 22%;
-    left: 41%;
+    left: 43%;
   }
 
   &:hover {
@@ -57,9 +55,14 @@
       right: 50%;
 
       @media all and (max-width: 480px) {
-        bottom: 96%;
+        top: 22%;
         right: 69%;
+        font-size: 40px;
+      }
+
+      @media all and (min-width: 480px) and (max-width: 1024px) {
         font-size: 30px;
+        left: 37%;
       }
     }
   }
@@ -86,8 +89,8 @@
     z-index: 600;
 
     @media all and (max-width: 480px) {
-      width: 43%;
-      height: 24%;
+      width: 86%;
+      height: 40%;
       position: absolute;
     }
   }
@@ -98,11 +101,6 @@
     background: linear-gradient(225deg, #7763E7 0%, #FC686E 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
     border-radius: 0 0 100px 100px;
     transform: rotate(-225deg);
-
-    @media all and (max-width: 480px) {
-      margin-left: 6px;
-      margin-top: 5px;
-    }
   }
 
   .light {
@@ -114,15 +112,15 @@
     bottom: 10%;
     right: -4%;
 
-    @media all and (min-width: 480px) and (max-width: 1024px) {
-      margin-top: -12px;
-      margin-left: -2px;
-    }
-
-    @media all and (max-width: 480px) {
-      margin-left: 3px;
-      margin-top: -12px;
-    }
+    //@media all and (min-width: 480px) and (max-width: 1024px) {
+    //  margin-top: -12px;
+    //  margin-left: -2px;
+    //}
+    //
+    //@media all and (max-width: 480px) {
+    //  margin-left: 3px;
+    //  margin-top: -12px;
+    //}
   }
 
   &.light_checked {
@@ -139,6 +137,12 @@
       opacity: 0;
       color: black;
       position: absolute;
+
+      @media all and (min-width: 480px) and (max-width: 1024px) {
+        top: 76% !important;
+        right: 36% !important;
+        font-size: 30px;
+      }
     }
 
     &:hover:before {
