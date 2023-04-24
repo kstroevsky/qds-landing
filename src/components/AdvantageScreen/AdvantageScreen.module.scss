@@ -32,6 +32,36 @@
   overflow: hidden;
   transition: left .5s ease-out;
 
+  @media all and (max-width: 480px) {
+    width: 115vw;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -38vh;
+    width: 25vw;
+    bottom: 0;
+    left: -12vw;
+    background: $advantageWaveShadow;
+    -webkit-filter: blur(100%);
+    filter: blur(42px);
+    border-radius: inherit;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      left: -6vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      left: 0vw;
+    }
+
+    @media all and (max-width: 480px) {
+      width: 100vw;
+      left: -60vw;
+    }
+  }
+
   &.first {
     background: $block3FirstGradient;
   }
@@ -44,11 +74,9 @@
     background: $block3ThirdGradient;
   }
 
-  --mask: radial-gradient(22.36vh at 30.00vh 50%, #000 99%, #0000 101%) 0 calc(50% - 20vh)/100% 40vh,
-  radial-gradient(22.36vh at -20vh 50%, #0000 99%, #000 101%) 10vh 50%/100% 40vh repeat-y;
 
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
+  -webkit-mask: $advantageWaveMask;
+  mask: $advantageWaveMask;
 
   &__content {
     position: absolute;
@@ -60,6 +88,18 @@
 
   &__open {
     left: 20vw;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      left: 15vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      left: 5vw;
+    }
+
+    @media all and (max-width: 480px) {
+      left: -10vw;
+    }
 
     &:global(body) {
       overflow: hidden;

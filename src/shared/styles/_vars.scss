@@ -6,10 +6,8 @@
 }
 
 $show-block: (
-	to: (
-		opacity: 1,
-		transform: translateY(0)
-	)
+	to: (opacity: 1,
+		transform: translateY(0))
 );
 
 $bgColor: #14192B;
@@ -32,3 +30,9 @@ $activePurpleGradient: linear-gradient(90deg, rgba(168, 122, 252, 0.4) 0%, rgba(
 $block3FirstGradient: linear-gradient(90deg, #69B7D8 0%, rgba(105, 183, 216, 0) 93.75%, rgba(105, 183, 216, 0) 100%);
 $block3SecondGradient: linear-gradient(90deg, rgba(123, 136, 188, 0) 0%, #7B88BC 100%);
 $block3ThirdGradient: linear-gradient(90deg, #CBCACE 0%, #D9D7D7 60.42%, #D9D8D9 68.23%, rgba(216, 214, 216, 0) 100%);
+
+$advantageWaveMask: radial-gradient(22.36vh at 30.00vh 50%, #000 99%, #0000 101%) 0 calc(50% - 20vh)/100% 40vh,
+	radial-gradient(22.36vh at -20vh 50%, #0000 99%, #000 101%) 10vh 50%/100% 40vh repeat-y;
+
+$advantageWaveShadow: radial-gradient(22.36vh at calc(100% - 30.00vh) 50%, #000 99%, #0000 101%) 0 calc(50% - 20vh)/100% 40vh,
+	radial-gradient(22.36vh at calc(100% + 20.00vh) 50%, #0000 99%, #000 101%) calc(100% - 10vh) 50%/100% 40vh repeat-y;
