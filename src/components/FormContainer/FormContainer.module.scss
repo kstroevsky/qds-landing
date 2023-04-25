@@ -1,0 +1,19 @@
+@import '../../shared/styles/vars';
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0.2vw;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 61px;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $whiteBG inset !important;
+}
