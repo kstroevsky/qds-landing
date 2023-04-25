@@ -70,10 +70,12 @@
 		@media all and (max-width: 768px) {
 			font-size: 4.5vw;
 			width: 50vw;
-			bottom: 0;
+			bottom: 5%;
 			height: 10vh;
 			background-color: var(--mainColor);
 			color: var(--secondBg);
+			position: relative;
+			margin: 0 auto;
 		}
 
 		@media all and (max-width: 480px) {
