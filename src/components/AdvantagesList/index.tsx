@@ -1,6 +1,7 @@
 import { Suspense, lazy, memo, useCallback, useEffect, useState } from 'react';
-import type { FC } from 'react';
 import classnames from 'classnames';
+import type { FC } from 'react';
+
 import { EAdvantages } from '../../shared/constants';
 import { root } from '../..';
 

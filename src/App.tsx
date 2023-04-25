@@ -1,4 +1,4 @@
-import React, { lazy, useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import useIsMobile from './hooks/useIsMobile';
 import useScrollObserver from './hooks/useScrollObserver';
@@ -6,14 +6,13 @@ import useSectionsObserver from './hooks/useSectionsObserver';
 import { headerObserverOptions, menuObserverOptions } from './shared/constants';
 
 import './App.css';
-
-const Header = lazy(() => import('./sections/header/Header'));
-const About = lazy(() => import('./sections/about/About'));
-const Advantages = lazy(() => import('./sections/advantages/Advantages'));
-const Technologies = lazy(() => import('./sections/technologies/Technologies'));
-const FormBlock = lazy(() => import('./sections/formBlock/FormBlock'));
-const ThemesToggle = lazy(() => import('./components/theme/ThemesToggle'));
-const FixHeader = lazy(() => import('./components/fixHeader/FixHeader'));
+import FixHeader from './components/fixHeader/FixHeader';
+import ThemesToggle from './components/theme/ThemesToggle';
+import About from './sections/about/About';
+import Advantages from './sections/advantages/Advantages';
+import FormBlock from './sections/formBlock/FormBlock';
+import Header from './sections/header/Header';
+import Technologies from './sections/technologies/Technologies';
 
 function App() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
@@ -23,7 +22,7 @@ function App() {
 	const technologiesRef = useRef<HTMLDivElement | null>(null);
 	const formRef = useRef<HTMLDivElement | null>(null);
 
-	const [showHeader, setShowHeader] = useState(false);
+	const [showHeader, setShowHeader] = useState<boolean>(false);
 	const isMobile = useIsMobile();
 
 	const handleHeaderVisibility = useCallback((value: boolean) => {

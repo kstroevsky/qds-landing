@@ -1,23 +1,12 @@
-import {
-	Suspense,
-	forwardRef,
-	lazy,
-	memo,
-	useCallback,
-	useEffect,
-	useState,
-} from 'react';
+import { forwardRef, memo, useCallback, useEffect, useState } from 'react';
 
+import HeaderBackground from '../../components/HeaderBackground';
+import HeaderNav from '../../components/HeaderNav';
+import HeaderInfo from '../../components/HeaderInfo';
+import ThemesToggle from '../../components/theme/ThemesToggle';
 import useIsMobile from '../../hooks/useIsMobile';
 
 import s from './header.module.scss';
-
-const HeaderNav = lazy(() => import('../../components/HeaderNav'));
-const HeaderInfo = lazy(() => import('../../components/HeaderInfo'));
-const ThemesToggle = lazy(() => import('../../components/theme/ThemesToggle'));
-const HeaderBackground = lazy(
-	() => import('../../components/HeaderBackground')
-);
 
 const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	const isMobile = useIsMobile();
@@ -38,17 +27,15 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	}, [activeBurger]);
 
 	return (
-		<Suspense>
-			<div className={s.bannerWrapper} ref={ref}>
-				<HeaderNav
-					activeBurger={activeBurger}
-					onBurgerClick={handleBurgerClick}
-				/>
-				{!activeBurger && <HeaderInfo />}
-				<HeaderBackground activeBurger={activeBurger} />
-				{isMobile && activeBurger && <ThemesToggle />}
-			</div>
-		</Suspense>
+		<div className={s.bannerWrapper} ref={ref}>
+			<HeaderNav
+				activeBurger={activeBurger}
+				onBurgerClick={handleBurgerClick}
+			/>
+			{!activeBurger && <HeaderInfo />}
+			<HeaderBackground activeBurger={activeBurger} />
+			{isMobile && activeBurger && <ThemesToggle />}
+		</div>
 	);
 });
 

@@ -4,7 +4,7 @@ import { EThemes } from '../shared/constants';
 const isDarkTheme = window?.matchMedia('(prefers-color-scheme: dark)').matches;
 
 const useTheme = () => {
-	const [theme, setTheme] = useState(
+	const [theme, setTheme] = useState<EThemes>(
 		localStorage.getItem('app-theme') || isDarkTheme
 			? EThemes.DARK
 			: EThemes.LIGHT
