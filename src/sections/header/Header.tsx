@@ -1,15 +1,27 @@
-import { forwardRef, memo, useCallback, useEffect, useState } from 'react';
-import classNames from 'classnames';
+import {
+	Suspense,
+	forwardRef,
+	lazy,
+	memo,
+	useCallback,
+	useEffect,
+	useState,
+} from 'react';
 
-import ThemesToggle from '../../components/theme/ThemesToggle';
 import useIsMobile from '../../hooks/useIsMobile';
-import { ENavigationTitles } from '../../shared/constants';
 
 import s from './header.module.scss';
 
+const HeaderNav = lazy(() => import('../../components/HeaderNav'));
+const HeaderInfo = lazy(() => import('../../components/HeaderInfo'));
+const ThemesToggle = lazy(() => import('../../components/theme/ThemesToggle'));
+const HeaderBackground = lazy(
+	() => import('../../components/HeaderBackground')
+);
+
 const Header = forwardRef<HTMLDivElement>((_, ref) => {
-	const [activeBurger, setActiveBurger] = useState(false);
 	const isMobile = useIsMobile();
+	const [activeBurger, setActiveBurger] = useState<boolean>(false);
 
 	const handleBurgerClick = useCallback(() => {
 		setActiveBurger((prev) => !prev);
@@ -26,44 +38,17 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	}, [activeBurger]);
 
 	return (
-		<div className={s.bannerWrapper} ref={ref}>
-			{!activeBurger && (
-				<div className={s.info}>
-					<h1 className={s.title}>{'QDS SOFTWARE'}</h1>
-					<button className={s.button}>
-						<a href="#">{'CONTACT US'}</a>
-					</button>
-				</div>
-			)}
-			<nav className={classNames(s.nav, { [s.nav_mobile]: activeBurger })}>
-				<ul className={classNames(s.menu, { [s.menu_mobile]: activeBurger })}>
-					{Object.values(ENavigationTitles).map((el) => (
-						<li
-							className={`${s.menu__item} ${
-								activeBurger && s.menu_mobile__item
-							}`}
-							key={el}
-						>
-							<a href={`#${el}`}>{el.toUpperCase()}</a>
-						</li>
-					))}
-				</ul>
-			</nav>
-			<div className={s.backgroundContainer}>
-				<div className={s.mainBackground}>
-					<div className={s.leftBackground}></div>
-					{!activeBurger && <div className={s.rightBackground}></div>}
-				</div>
+		<Suspense>
+			<div className={s.bannerWrapper} ref={ref}>
+				<HeaderNav
+					activeBurger={activeBurger}
+					onBurgerClick={handleBurgerClick}
+				/>
+				{!activeBurger && <HeaderInfo />}
+				<HeaderBackground activeBurger={activeBurger} />
+				{isMobile && activeBurger && <ThemesToggle />}
 			</div>
-
-			<div
-				className={`${s.burger} ${activeBurger && s.burger_active}`}
-				onClick={handleBurgerClick}
-			>
-				<span className={s.line}></span>
-			</div>
-			{isMobile && activeBurger && <ThemesToggle />}
-		</div>
+		</Suspense>
 	);
 });
 
