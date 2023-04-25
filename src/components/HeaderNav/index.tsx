@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import {memo} from 'react';
 import type { FC } from 'react';
 import classNames from 'classnames';
 
@@ -9,9 +9,10 @@ import s from './headerNav.module.scss';
 interface HeaderNavProps {
 	activeBurger: boolean;
 	onBurgerClick: () => void;
+	t: any;
 }
 
-const HeaderNav: FC<HeaderNavProps> = ({ activeBurger, onBurgerClick }) => (
+const HeaderNav: FC<HeaderNavProps> = ({ activeBurger, onBurgerClick, t }) => (
 	<>
 		<div
 			className={classNames(s.burger, { [s.burger_active]: activeBurger })}
@@ -28,7 +29,7 @@ const HeaderNav: FC<HeaderNavProps> = ({ activeBurger, onBurgerClick }) => (
 							[s.menu_mobile__item]: activeBurger,
 						})}
 					>
-						<a href={`#${el}`}>{el.toUpperCase()}</a>
+						<a href={`#${el}`}>{t(`navigate.${el}`).toUpperCase()}</a>
 					</li>
 				))}
 			</ul>

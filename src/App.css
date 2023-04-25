@@ -34,7 +34,7 @@ body,
 }
 
 .App > div:not(:first-child):not(:nth-child(2)):not(:last-child) {
-	opacity: 0;
+	opacity: 1;
 	bottom: -10vh;
 	transition: opacity .5s ease-out, transform .5s ease-out;
 }

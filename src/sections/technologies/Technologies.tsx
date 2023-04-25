@@ -5,6 +5,7 @@ import Slide from '../../components/Slide';
 import SlideWrapper from '../../components/SlideWrapper';
 import useIsMobile from '../../hooks/useIsMobile';
 import { ENavigationTitles, slides } from '../../shared/constants';
+import {useTranslation} from "react-i18next";
 
 // import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import s from './Technologies.module.scss';
@@ -12,6 +13,7 @@ import s from './Technologies.module.scss';
 const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 	const isMobile = useIsMobile();
 	const [activeIndex, setActiveIndex] = useState(0);
+	const {t} = useTranslation();
 
 	console.log(activeIndex)
 
@@ -28,7 +30,7 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 
 	return (
 		<div className={s.block} id={ENavigationTitles.TECHNOLOGIES} ref={ref}>
-			<h1 className={s.title}>{'TECHNOLOGIES'}</h1>
+			<h1 className={s.title}>{t('navigate.technologies')}</h1>
 			{/*<div className={s.table}>*/}
 				<h1 className={s.table__title}>
 					{slides[activeIndex].alt}

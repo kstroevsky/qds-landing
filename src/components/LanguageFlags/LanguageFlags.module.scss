@@ -1,0 +1,19 @@
+.wrapper {
+  position: fixed;
+  bottom: 17% !important;
+  right: 2.2%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  z-index: 100;
+
+  &:hover {
+    background-color: gray;
+  }
+}

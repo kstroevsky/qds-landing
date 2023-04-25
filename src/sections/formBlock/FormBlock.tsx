@@ -8,15 +8,16 @@ import { ENavigationTitles } from '../../shared/constants';
 import s from './FormBlock.module.scss';
 import FormButton from "../../components/FormButton/FormButton";
 
-const FormBlock = forwardRef<HTMLDivElement>((_, ref) => (
+const FormBlock = forwardRef<HTMLDivElement, any>(({t}, ref) => (
+
 	<div className={s.wrapper} id={ENavigationTitles.CONTACTS} ref={ref}>
-		<h1 className={s.title}>{`CONTACT US`}</h1>
+		<h1 className={s.title}>{t('navigate.contacts')}</h1>
 		<div className={s.formWrapper}>
 			<div className={`${s.__container_top}`}>
 				<form className={s.form} action="">
-					<span className={s.span}>{`I'm interested in...`}</span>
+					<span className={s.span}>{t('form.title')}</span>
 					<UserChoice />
-					<FormContainer />
+					<FormContainer t={t}/>
 				</form>
 				<img src={topForm} alt="line" className={`${s.__img}`} />
 			</div>

@@ -6,10 +6,11 @@ import s from './FixHeader.module.scss';
 
 interface FixHeaderProps {
 	showHeader: boolean;
+	t: any;
 }
 
 const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
-	({ showHeader }, ref) => (
+	({ showHeader, t }, ref) => (
 		<header className={classNames(s.fixHeader, { [s.fadeIn]: showHeader })}>
 			<div className={s.titleDiv}>
 				<h1>{'QDS SOFTWARE'}</h1>
@@ -18,7 +19,7 @@ const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
 				<ul className={s.fixNav__menu} ref={ref}>
 					{Object.values(ENavigationTitles).map((el) => (
 						<li key={el} data-section={el} className={s.fixNav__menu_item}>
-							<a href={`#${el}`}>{el.toUpperCase()}</a>
+							<a href={`#${el}`}>{t(`navigate.${el}`).toUpperCase()}</a>
 						</li>
 					))}
 				</ul>
