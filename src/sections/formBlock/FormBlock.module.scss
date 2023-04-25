@@ -19,7 +19,7 @@
 
   .title {
     @include title;
-    color: #D6DFEA;
+    color: var(--mainBg);
     text-align: right;
     bottom: 2vw;
     right: 1vw;
@@ -136,26 +136,30 @@
       }
 
       .downBlock {
-        height: 5vw;
+        height: 8vw;
         background: $downBlockPurpleGradient;
         border-radius: 0 0 80px 80px;
         font-size: 2vw;
         width: 100%;
-        bottom: 10px;
+        bottom: 8px;
         display: flex;
         padding-top: 1vw;
         position: relative;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
 
         @media all and (min-width: 768px) and (max-width: 1024px) {
-          height: 100px;
+          height: 20vw;
         }
 
         @media all and (max-width: 768px) {
-          height: 12vw;
-          bottom: 3px;
+          height: 22vw;
+          bottom: 10px;
+        }
+
+        @media all and (max-width: 480px){
+          bottom: 5px;
         }
 
         &__link {
@@ -166,7 +170,6 @@
           position: relative;
 
           @media all and (min-width: 768px) and (max-width: 1024px) {
-            left: 10vw;
             font-size: 3vw;
           }
 

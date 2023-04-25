@@ -6,6 +6,7 @@ import UserChoice from '../../components/UserChoice';
 import { ENavigationTitles } from '../../shared/constants';
 
 import s from './FormBlock.module.scss';
+import FormButton from "../../components/FormButton/FormButton";
 
 const FormBlock = forwardRef<HTMLDivElement>((_, ref) => (
 	<div className={s.wrapper} id={ENavigationTitles.CONTACTS} ref={ref}>
@@ -22,6 +23,7 @@ const FormBlock = forwardRef<HTMLDivElement>((_, ref) => (
 			<div className={`${s.__container_bottom}`}>
 				<img src={downForm} alt="line" className={`${s.__img}`} />
 				<div className={s.downBlock}>
+					<FormButton/>
 					<a className={s.downBlock__link} href="#">
 						{'example@gmail.com'}
 					</a>
