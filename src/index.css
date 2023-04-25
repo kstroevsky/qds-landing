@@ -81,6 +81,8 @@ html[data-theme='light'] {
   --mainColor: black;
   --mainHover: #8954ca;
   --secondBg: white;
+  --secondColor: #14192B;
+  --thirdColor: #14192B;
   --BgImage: url('./assets/bannerBlock/backgroundLight.svg');
   --leftBg: url('./assets/bannerBlock/leftSideLight.svg');
   --rightBg: url('./assets/bannerBlock/rightSideLight.png');
@@ -92,6 +94,8 @@ html[data-theme='dark'] {
   --mainColor: white;
   --mainHover: #d91717;
   --secondBg: #14192B;
+  --secondColor: #D6DFEA;
+  --thirdColor: #faf6f2;
   --BgImage: url('./assets/bannerBlock/background.svg');
   --leftBg: url('./assets/bannerBlock/leftSide.svg');
   --rightBg: url('./assets/bannerBlock/rightSide.png');

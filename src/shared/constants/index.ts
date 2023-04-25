@@ -56,7 +56,7 @@ export enum EAdvantages {
 
 export const headerObserverOptions = Object.freeze({
 	root: null,
-	rootMargin: '-20%',
+	rootMargin: '-50%',
 	threshold: 0,
 });
 

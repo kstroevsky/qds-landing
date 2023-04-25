@@ -9,11 +9,11 @@ import s from './FormBlock.module.scss';
 
 const FormBlock = forwardRef<HTMLDivElement>((_, ref) => (
 	<div className={s.wrapper} id={ENavigationTitles.CONTACTS} ref={ref}>
-		<h1 className={s.title}>CONTACT US</h1>
+		<h1 className={s.title}>{`CONTACT US`}</h1>
 		<div className={s.formWrapper}>
 			<div className={`${s.__container_top}`}>
 				<form className={s.form} action="">
-					<span className={s.span}>I'm interested in...</span>
+					<span className={s.span}>{`I'm interested in...`}</span>
 					<UserChoice />
 					<FormContainer />
 				</form>

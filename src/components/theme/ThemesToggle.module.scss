@@ -5,15 +5,12 @@
   height: 96px;
   width: 96px;
   right: 1.5vw;
-  top: 80vh;
+  top: 85vh;
   cursor: pointer;
   transition: .4s ease-in-out;
-  -webkit-filter: drop-shadow(0px 1px 0px white);
-  filter: drop-shadow(1px 1px 0px white);
 
-  @media all and (min-width: 480px) and (max-width: 1024px) {
-    height: 64px;
-    width: 64px;
+  @media all and (max-width: 1024px) {
+    top: 80vh;
     position: absolute;
     left: 0;
     margin: auto;
@@ -22,7 +19,6 @@
   @media all and (max-width: 480px) {
     top: 50vh;
     position: relative;
-    margin: auto;
     z-index: 100000;
   }
 
@@ -38,12 +34,20 @@
 
   &:hover {
     transition: .4s ease-in-out;
-    bottom: 1vh;
+    top: 84vh;
+
+    @media all and (max-width: 1024px) {
+      top: 79vh;
+    }
+
+    @media all and (max-width: 480px) {
+      top: 49vh;
+    }
 
     &>.line {
       height: 125%;
-      top: -49%;
-      left: 17%;
+      top: 16%;
+      left: 23%;
     }
 
     &:before {
@@ -53,31 +57,19 @@
       font-size: 40px;
       bottom: 75%;
       right: 50%;
-
-      @media all and (max-width: 480px) {
-        top: 22%;
-        right: 69%;
-        font-size: 40px;
-      }
-
-      @media all and (min-width: 480px) and (max-width: 1024px) {
-        font-size: 30px;
-        left: 37%;
-      }
     }
   }
 
   .line {
     position: absolute;
-    width: 0px;
+    width: 2px;
     height: 0%;
-    top: 14%;
-    left: 16%;
+    top: 76%;
+    left: 24%;
     background-color: white;
     transition: .4s ease-in-out;
     transform: rotate(45deg) translateY(-40px);
     z-index: 1000;
-
   }
 
   .dark,
@@ -87,12 +79,6 @@
     position: absolute;
     cursor: pointer;
     z-index: 600;
-
-    @media all and (max-width: 480px) {
-      width: 86%;
-      height: 40%;
-      position: absolute;
-    }
   }
 
   .dark {
@@ -107,26 +93,19 @@
     background: linear-gradient(225deg, #67D7D3 0%, #84C5F7 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
     border-radius: 0 0 100px 100px;
     transform: rotate(-45deg);
-    z-index: 500;
     position: absolute;
     bottom: 10%;
     right: -4%;
-
-    //@media all and (min-width: 480px) and (max-width: 1024px) {
-    //  margin-top: -12px;
-    //  margin-left: -2px;
-    //}
-    //
-    //@media all and (max-width: 480px) {
-    //  margin-left: 3px;
-    //  margin-top: -12px;
-    //}
   }
 
   &.light_checked {
     transform: rotate(-180deg);
-    -webkit-filter: drop-shadow(0px -1px 0px gray);
-    filter: drop-shadow(0px -1px 0px gray);
+
+    .light,
+    .dark {
+      -webkit-filter: drop-shadow(0px -1px 0px gray);
+      filter: drop-shadow(0px -1px 0px gray);
+    }
 
     .line {
       background-color: black;
@@ -137,12 +116,6 @@
       opacity: 0;
       color: black;
       position: absolute;
-
-      @media all and (min-width: 480px) and (max-width: 1024px) {
-        top: 76% !important;
-        right: 36% !important;
-        font-size: 30px;
-      }
     }
 
     &:hover:before {

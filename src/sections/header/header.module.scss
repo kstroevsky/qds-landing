@@ -38,10 +38,16 @@
 			width: 10%;
 
 			@media all and (max-width: 1024px) {
+				color: var(--mainColor);
 				width: 100%;
-				font-size: 12.5vw;
-				color: white;
+				top: 4%;
+				font-size: 10vw;
 				text-align: center;
+			}
+
+			@media all and (max-width: 768px) {
+				top: 0%;
+				font-size: 12.5vw;
 			}
 		}
 	}
@@ -57,17 +63,17 @@
 
 	.button {
 		width: 21vw;
-		height: 50px;
+		height: 4vw;
 		border: none;
 		border-radius: 92px;
-		font-size: 1.9vw;
+		font-size: 2vw;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-weight: 700;
 		cursor: pointer;
-		background-color: $bgColor;
-		color: $whiteColor;
+		background-color: var(--secondBg);
+		color: var(--secondColor);
 		transition: transform 0.2s ease-in-out;
 
 		&:hover {
@@ -75,12 +81,28 @@
 		}
 
 		@media all and (max-width: 1024px) {
-			width: 79vw;
-			font-size: 28px;
-			margin: 0 auto;
-			background-color: white;
-			color: black;
-			height: 10vh;
+			width: 60vw;
+			height: 8vh;
+			font-size: 5.5vw;
+			margin: auto;
+			background-color: var(--thirdColor);
+			color: var(--secondBg);
+			position: relative;
+			bottom: -37%;
+			margin: auto;
+		}
+
+		@media all and (max-width: 768px) {
+			font-size: 5.5vw;
+			width: 50vw;
+			bottom: 30%;
+			height: 7vh;
+		}
+
+		@media all and (max-width: 480px) {
+			font-size: 8vw;
+			width: 60vw;
+			bottom: 30%;
 		}
 	}
 
@@ -104,7 +126,7 @@
 
 			&__item {
 				font-weight: 700;
-				color: var(--mainColor);
+				color: var(--secondColor);
 				margin-right: 2vw;
 				font-size: 1.5vw;
 				cursor: pointer;
@@ -148,7 +170,7 @@
 			background-repeat: no-repeat;
 
 			@media all and (max-width: 1024px) {
-				background-color: $bgColor;
+				background-color: var(--secondBg);
 				border-radius: 10px;
 				height: 97vh;
 				background-image: none;
@@ -175,7 +197,6 @@
 				height: 88%;
 				bottom: 0;
 				width: 88%;
-				// background-image: url('../../assets/bannerBlock/rightSide.png');
 				background-image: var(--rightBg);
 				background-size: contain;
 				background-position: right;
@@ -183,13 +204,12 @@
 				z-index: 100;
 
 				@media all and (max-width: 1024px) {
-					background-image: url('../../assets/bannerBlock/modile/bootomImg.svg');
 					background-position: bottom;
 					bottom: 0;
 				}
 
-				@media all and (max-width: 480px) {
-					bottom: 10%;
+				@media all and (max-width: 768px) {
+					width: 100%;
 				}
 			}
 		}
@@ -216,7 +236,7 @@
 			position: absolute;
 			height: 2px;
 			width: 100%;
-			background-color: $whiteBgColor;
+			background-color: var(--thirdColor);
 			transition: all 0.3s ease 0s;
 		}
 
@@ -248,7 +268,7 @@
 			height: 2px;
 			width: 80%;
 			transform: scale(1);
-			background-color: #faf6f2;
+			background-color: var(--thirdColor);
 		}
 	}
 }
