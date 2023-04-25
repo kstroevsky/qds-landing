@@ -207,6 +207,7 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 						<img src={slide.src} alt="" key={idx} width={'150px'}/>
 					)}
 				</Carousel>
+
 			{/*</div>*/}
 		</div>
 	);
