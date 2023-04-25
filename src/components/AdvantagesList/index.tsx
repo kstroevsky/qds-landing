@@ -28,6 +28,7 @@ const AdvantagesList: FC = () => {
 			root.style.right = '100vw';
 		} else {
 			document.body.style.overflowY = 'auto';
+			document.body.style.overflowX = 'hidden';
 			root.style.right = '0';
 		}
 	}, [fullscreenOpen]);

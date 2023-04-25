@@ -2,7 +2,6 @@
 
 .wrapper {
   padding: 0 3vw;
-  margin-top: 10vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -19,7 +18,7 @@
 
   .title {
     @include title;
-    color: var(--mainBg);
+    color: var(--mainColor);
     text-align: right;
     bottom: 2vw;
     right: 1vw;
