@@ -8,7 +8,7 @@ interface SlideProps {
 }
 
 const Slide: FC<SlideProps> = ({ slide }) => (
-	<div className={s.slide_block}>
+	<div className={s.slide_block} style={{minWidth: "33.3%"}}>
 		<img className={s.slide_img} src={slide.src} alt={slide.alt} />
 	</div>
 );
