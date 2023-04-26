@@ -1,22 +1,19 @@
-import {useLayoutEffect, useState} from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { EThemes } from '../shared/constants';
 
-
-const isDarkTheme = window?.matchMedia('(prefers-color-scheme: dark)').matches;
-
 const useTheme = () => {
+	const isDarkTheme = window?.matchMedia(
+		'(prefers-color-scheme: dark)'
+	).matches;
 	const [theme, setTheme] = useState<EThemes>(
 		localStorage.getItem('app-theme') || isDarkTheme
 			? EThemes.DARK
 			: EThemes.LIGHT
 	);
 
-	// console.log("theme", theme)
-
 	useLayoutEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme);
 		localStorage.setItem('theme', theme);
-
 	}, [theme]);
 
 	return { theme, setTheme };

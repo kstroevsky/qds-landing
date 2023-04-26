@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import './i18n';
+import './shared/i18n';
 
 export var root = document.getElementById('root') as HTMLElement;
 
