@@ -54,6 +54,11 @@ export enum EAdvantages {
 	THIRD = 'third',
 }
 
+export enum ELanguages {
+	UA = 'ua',
+	EN = 'en',
+}
+
 export const headerObserverOptions = Object.freeze({
 	root: null,
 	rootMargin: '-50%',
