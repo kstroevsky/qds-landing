@@ -24,18 +24,16 @@ const AdvantageScreen: FC<AdvantageScreenProps> = ({ mode }) => {
 	}, []);
 
 	return ReactDOM.createPortal(
-		<>
-			<div
-				className={classnames(s.fullscreenBlock, s[mode || ''], {
-					[s.fullscreenBlock__open]: !!isMounted,
-				})}
-			>
-				<div className={s.fullscreenBlock__content}>
-					<h2>{'Fullscreen Block Content'}</h2>
-				</div>
+		<div
+			className={classnames(s.fullscreenBlock, s[mode || ''], {
+				[s.fullscreenBlock__open]: isMounted,
+			})}
+		>
+			<div className={s.fullscreenBlock__content}>
+				<h2>{'Fullscreen Block Content'}</h2>
 			</div>
-			<img src={arrow} alt="arrow"/>
-		</>,
+			<img className={s.arrow} src={arrow} alt="arrow"/>
+		</div>,
 		root
 	);
 };

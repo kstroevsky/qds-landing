@@ -106,3 +106,16 @@
     }
   }
 }
+
+.arrow {
+  position: absolute;
+  bottom: 37%;
+  left: 15%;
+  width: 16%;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateX(-5%);
+    cursor: pointer;
+  }
+}

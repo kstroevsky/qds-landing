@@ -1,11 +1,13 @@
 import { forwardRef, memo, useState } from 'react';
-import Carousel from 'react-simply-carousel';
 
-import Slide from '../../components/Slide';
-import SlideWrapper from '../../components/SlideWrapper';
+import Carousel from 'react-simply-carousel';
+import { useTranslation } from 'react-i18next';
+
 import useIsMobile from '../../hooks/useIsMobile';
 import { ENavigationTitles, slides } from '../../shared/constants';
-import { useTranslation } from 'react-i18next';
+
+import rightArrow from "../../assets/slides/arrow-right.png";
+import backArrow from "../../assets/slides/back-button.png";
 
 import s from './Technologies.module.scss';
 
@@ -13,8 +15,6 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 	const isMobile = useIsMobile();
 	const [activeIndex, setActiveIndex] = useState(0);
 	const { t } = useTranslation();
-
-	console.log(activeIndex);
 
 	return (
 		<div className={s.block} id={ENavigationTitles.TECHNOLOGIES} ref={ref}>
@@ -32,39 +32,47 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 					centerMode={true}
 					infinite={true}
 					swipeTreshold={60}
+					autoplay={true}
+					autoplayDelay={3000}
 					activeSlideIndex={activeIndex}
-					activeSlideProps={{
-						style: {
-							background: 'blue',
-						},
-					}}
 					onRequestChange={setActiveIndex}
+					responsiveProps={[{minWidth: 1280, itemsToShow: 3}, {maxWidth: 1280, itemsToShow: 1}]}
 					forwardBtnProps={{
-						children: '>',
+						show: !isMobile && true,
+						children: <img src={rightArrow}/>,
 						style: {
-							width: 60,
-							height: 60,
-							minWidth: 60,
+							width: "4.9vw",
 							alignSelf: 'center',
+							background: "none",
+							border: "none",
+							outline: "none",
+							cursor: "pointer",
 						},
 					}}
 					backwardBtnProps={{
-						children: '<',
+						show: !isMobile && true,
+						children: <img src={backArrow}/>,
 						style: {
-							width: 60,
-							height: 60,
-							minWidth: 60,
+							width: "4.9vw",
 							alignSelf: 'center',
+							background: "none",
+							border: "none",
+							outline: "none",
+							cursor: "pointer"
 						},
 					}}
-					dotsNav={{
-						show: true,
+					dotsNav={ {
+						show: !isMobile && true,
 						itemBtnProps: {
 							style: {
 								height: 16,
 								width: 16,
 								borderRadius: '50%',
 								border: 0,
+								opacity: 0.5,
+								marginRight: 5,
+								cursor: "pointer",
+								marginTop: "1.5%"
 							},
 						},
 						activeItemBtnProps: {
@@ -74,36 +82,23 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 								borderRadius: '50%',
 								border: 0,
 								background: 'black',
+								opacity: 1,
+								marginRight: 5,
+								cursor: "pointer",
+								marginTop: "1.5%"
 							},
 						},
 					}}
-					itemsToShow={5}
+					itemsToShow={3}
 					itemsToScroll={1}
 					speed={400}
 				>
 					{slides.map((slide, idx) => (
 						<div
+							className={s.slide_block}
 							key={idx}
-							style={{
-								// background: 'yellow',
-								width: 150,
-								height: 300,
-								border: '30px solid white',
-								textAlign: 'center',
-								lineHeight: '240px',
-								boxSizing: 'border-box',
-							}}
 						>
-							<div className={s.slide_block} style={{ minWidth: '33.3%' }}>
-								<img className={s.slide_img} src={slide.src} alt={slide.alt} />
-							</div>
-							{/* <SlideWrapper
-								isSelected={activeIndex === idx}
-								isMobile={isMobile}
-								style={{}}
-							> */}
-							{/* <Slide slide={slide} /> */}
-							{/* </SlideWrapper> */}
+							<img className={s.slide_img} src={slide.src} alt={slide.alt} />
 						</div>
 					))}
 				</Carousel>

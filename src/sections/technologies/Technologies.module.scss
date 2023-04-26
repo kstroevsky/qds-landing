@@ -5,13 +5,14 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  justify-content: center;
   width: 80%;
+  height: 100%;
   margin: auto;
   top: -125px;
 
-  @media all and (min-width: 768px) and (max-width: 1024px) {
+  @media all and (min-width: 480px) and (max-width: 1024px) {
     margin-top: 5vw;
+    top: -65px;
   }
 
   @media all and (max-width: 480px) {
@@ -23,18 +24,23 @@
 
 .table {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   height: 60vh;
   width: 90%;
   border-radius: 300px;
-  padding: 0 5%;
+  padding: 2vh 5%;
   background: linear-gradient(180deg, #F5616D 0%, rgba(245, 97, 109, 0.515625) 35.94%, rgba(245, 97, 109, 0.339558) 47.92%, rgba(245, 97, 109, 0) 100%);
+
+  @media all and (max-width: 1024px) {
+    height: 85vh;
+    border-radius: 85px;
+  }
 
   &__title {
     color: $titlePurple;
     font-size: 2.5vw;
+    margin: 1% 0 3%;
 
     @media all and (min-width: 1024px) and (max-width: 1280px) {
       font-size: 4.5vw;
@@ -56,6 +62,7 @@
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
     border-radius: 100px;
+    height: 75vw;
   }
 
   @media all and (max-width: 480px) {
@@ -67,7 +74,35 @@
 .title {
   @include title;
   color: white;
-  margin-bottom: -22px;
+  margin-bottom: 25px;
   text-align: center;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.slide_block {
+  width: 18vw;
+  display: flex;
+  justify-content: center;
+
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+    width: 35vw;
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    width: 54vw;
+    margin-top: 0.4% !important;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    width: 64vh;
+  }
+
+  @media all and (max-width: 480px) {
+    margin-top: 5vh !important;
+    width: 53vh;
+  }
+}
+
+.slide_img {
+  width: 65% !important;
 }
