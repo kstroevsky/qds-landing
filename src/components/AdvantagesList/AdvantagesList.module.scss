@@ -120,3 +120,29 @@
     }
   }
 }
+
+.button {
+  position: absolute;
+  bottom: 60px;
+  width: 15%;
+  height: 10%;
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 1px solid var(--mainBg);
+  color: var(--mainBg);
+  border-radius: 10px;
+  opacity: 0.5;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  &__left {
+    left: 95px;
+  }
+
+  &__right {
+    right: 95px;
+  }
+}

@@ -6,6 +6,8 @@ import type { FC } from 'react';
 import { EAdvantages } from '../../shared/constants';
 import { root } from '../..';
 
+import arrow from "../../assets/block3/left-arrow.png"
+
 import s from './AdvantageScreen.module.scss';
 
 interface AdvantageScreenProps {
@@ -22,15 +24,18 @@ const AdvantageScreen: FC<AdvantageScreenProps> = ({ mode }) => {
 	}, []);
 
 	return ReactDOM.createPortal(
-		<div
-			className={classnames(s.fullscreenBlock, s[mode || ''], {
-				[s.fullscreenBlock__open]: !!isMounted,
-			})}
-		>
-			<div className={s.fullscreenBlock__content}>
-				<h2>{'Fullscreen Block Content'}</h2>
+		<>
+			<div
+				className={classnames(s.fullscreenBlock, s[mode || ''], {
+					[s.fullscreenBlock__open]: !!isMounted,
+				})}
+			>
+				<div className={s.fullscreenBlock__content}>
+					<h2>{'Fullscreen Block Content'}</h2>
+				</div>
 			</div>
-		</div>,
+			<img src={arrow} alt="arrow"/>
+		</>,
 		root
 	);
 };

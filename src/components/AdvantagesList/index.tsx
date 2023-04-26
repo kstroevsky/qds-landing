@@ -51,23 +51,33 @@ const AdvantagesList: FC = () => {
 			<div
 				key={`advantage-${EAdvantages.FIRST}`}
 				className={classnames(s.section, s.section_first)}
-				onClick={() => handleSectionClick(EAdvantages.FIRST)}
 			>
 				<div className={s.section__right}></div>
+				<button
+					className={`${s.button} ${s.button__left}`}
+					onClick={() => handleSectionClick(EAdvantages.FIRST)}
+				>learn more
+				</button>
 			</div>
 			<div
 				key={`advantage-${EAdvantages.SECOND}`}
 				className={classnames(s.section, s.section_second)}
-				onClick={() => handleSectionClick(EAdvantages.SECOND)}
 			>
 				<div className={s.section__left}></div>
+				<button
+					className={`${s.button} ${s.button__right}`}
+					onClick={() => handleSectionClick(EAdvantages.SECOND)}
+				>learn more</button>
 			</div>
 			<div
 				key={`advantage-${EAdvantages.THIRD}`}
 				className={classnames(s.section, s.section_third)}
-				onClick={() => handleSectionClick(EAdvantages.THIRD)}
 			>
 				<div className={s.section__right}></div>
+				<button
+					className={`${s.button} ${s.button__left}`}
+					onClick={() => handleSectionClick(EAdvantages.THIRD)}
+				>learn more</button>
 			</div>
 		</>
 	);
