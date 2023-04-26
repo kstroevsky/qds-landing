@@ -32,7 +32,6 @@ const AdvantageScreen: FC<AdvantageScreenProps> = ({ mode }) => {
 			<div className={s.fullscreenBlock__content}>
 				<h2>{'Fullscreen Block Content'}</h2>
 			</div>
-			<img className={s.arrow} src={arrow} alt="arrow"/>
 		</div>,
 		root
 	);

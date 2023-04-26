@@ -3,15 +3,17 @@ import classNames from 'classnames';
 import { ENavigationTitles } from '../../shared/constants';
 
 import s from './FixHeader.module.scss';
+import {useTranslation} from "react-i18next";
 
 interface FixHeaderProps {
 	showHeader: boolean;
-	t: any;
 }
 
-const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
-	({ showHeader, t }, ref) => (
-		<header className={classNames(s.fixHeader, { [s.fadeIn]: showHeader })}>
+const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(({ showHeader }, ref) => {
+	const {t} = useTranslation()
+
+	return (
+		<header className={classNames(s.fixHeader, {[s.fadeIn]: showHeader})}>
 			<div className={s.titleDiv}>
 				<h1>{'QDS SOFTWARE'}</h1>
 			</div>
@@ -26,6 +28,6 @@ const FixHeader = forwardRef<HTMLUListElement, FixHeaderProps>(
 			</nav>
 		</header>
 	)
-);
+});
 
 export default memo(FixHeader);

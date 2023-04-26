@@ -6,6 +6,7 @@ import { EAdvantages } from '../../shared/constants';
 import { root } from '../..';
 
 import s from './AdvantagesList.module.scss';
+import {useTranslation} from "react-i18next";
 
 const AdvantageScreen = lazy(() => import('../AdvantageScreen'));
 
@@ -13,6 +14,8 @@ const AdvantagesList: FC = () => {
 	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(
 		null
 	);
+
+	const {t} = useTranslation();
 
 	const handleSectionClick = useCallback((adv: EAdvantages) => {
 		setFullscreenOpen(adv);
@@ -56,8 +59,7 @@ const AdvantagesList: FC = () => {
 				<button
 					className={`${s.button} ${s.button__left}`}
 					onClick={() => handleSectionClick(EAdvantages.FIRST)}
-				>learn more
-				</button>
+				>{t('advantages.learn_more')}</button>
 			</div>
 			<div
 				key={`advantage-${EAdvantages.SECOND}`}
@@ -67,7 +69,7 @@ const AdvantagesList: FC = () => {
 				<button
 					className={`${s.button} ${s.button__right}`}
 					onClick={() => handleSectionClick(EAdvantages.SECOND)}
-				>learn more</button>
+				>{t('advantages.learn_more')}</button>
 			</div>
 			<div
 				key={`advantage-${EAdvantages.THIRD}`}
@@ -77,7 +79,7 @@ const AdvantagesList: FC = () => {
 				<button
 					className={`${s.button} ${s.button__left}`}
 					onClick={() => handleSectionClick(EAdvantages.THIRD)}
-				>learn more</button>
+				>{t('advantages.learn_more')}</button>
 			</div>
 		</>
 	);

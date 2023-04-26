@@ -94,10 +94,7 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 					speed={400}
 				>
 					{slides.map((slide, idx) => (
-						<div
-							className={s.slide_block}
-							key={idx}
-						>
+						<div className={s.slide_block} key={idx}>
 							<img className={s.slide_img} src={slide.src} alt={slide.alt} />
 						</div>
 					))}

@@ -133,13 +133,27 @@
   border-radius: 10px;
   opacity: 0.5;
 
+  @media all and (max-width: 1024px) {
+    top: 9%;
+    right: 13% !important;
+    width: 28%;
+    background-color: black;
+    color: white;
+    opacity: 0.6;
+    border: none;
+  }
+
+
   &:hover {
     cursor: pointer;
     opacity: 1;
   }
 
   &__left {
-    left: 95px;
+    @media all and (min-width: 1024px) {
+      left: 95px;
+    }
+
   }
 
   &__right {

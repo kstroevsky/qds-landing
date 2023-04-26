@@ -1,13 +1,14 @@
 .theme {
   position: fixed;
   display: flex;
-  z-index: 500;
+  z-index: 11001;
   height: 96px;
   width: 96px;
   right: 1.5vw;
   top: 85vh;
   cursor: pointer;
   transition: .4s ease-in-out;
+
 
   @media all and (max-width: 1024px) {
     top: 72vh;
