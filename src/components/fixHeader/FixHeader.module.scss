@@ -57,8 +57,10 @@
         transition: color 0.5s ease;
         cursor: pointer;
 
-        &:hover {
-          color: var(--mainHover);
+        @media (hover: hover) {
+          &:hover {
+            color: var(--mainHover);
+          }
         }
 
         @media all and (min-width: 300px) and (max-width: 1024px) {

@@ -13,7 +13,9 @@
   cursor: pointer;
   z-index: 11001;
 
-  &:hover {
-    background-color: gray;
+  @media (hover: hover) {
+    &:hover {
+      background-color: gray;
+    }
   }
 }

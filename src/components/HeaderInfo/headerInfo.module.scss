@@ -52,8 +52,10 @@
 		color: var(--secondColor);
 		transition: transform 0.2s ease-in-out;
 
-		&:hover {
-			transform: scale(1.1);
+		@media (hover: hover) {
+			&:hover {
+				transform: scale(1.1);
+			}
 		}
 
 		@media all and (min-width: 768px) and (max-width: 1024px) {

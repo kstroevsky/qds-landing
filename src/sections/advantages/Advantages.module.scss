@@ -128,28 +128,30 @@
       margin-top: 10px;
     }
 
-    &:nth-child(1):hover~.background {
-      @media all and (min-width: 1024px) {
-        opacity: 0.4;
-        transition: background-image 0.4s ease, opacity 0.4s ease;
-        background-image: url("../../assets/block3/first.png");
+    @media (hover: hover) {
+      &:nth-child(1):hover~.background {
+        @media all and (min-width: 1024px) {
+          opacity: 0.4;
+          transition: background-image 0.4s ease, opacity 0.4s ease;
+          background-image: url("../../assets/block3/first.png");
+        }
       }
-    }
 
-    &:nth-child(2):hover~.background {
-      @media all and (min-width: 1024px) {
-        opacity: 0.4;
-        transition: background-image 0.4s ease, opacity 0.4s ease;
-        transform: scale(-1, 1);
-        background-image: url("../../assets/block3/second.png");
+      &:nth-child(2):hover~.background {
+        @media all and (min-width: 1024px) {
+          opacity: 0.4;
+          transition: background-image 0.4s ease, opacity 0.4s ease;
+          transform: scale(-1, 1);
+          background-image: url("../../assets/block3/second.png");
+        }
       }
-    }
 
-    &:nth-child(3):hover~.background {
-      @media all and (min-width: 1024px) {
-        opacity: 0.4;
-        transition: background-image 0.4s ease, opacity 0.4s ease;
-        background-image: url("../../assets/block3/third.png");
+      &:nth-child(3):hover~.background {
+        @media all and (min-width: 1024px) {
+          opacity: 0.4;
+          transition: background-image 0.4s ease, opacity 0.4s ease;
+          background-image: url("../../assets/block3/third.png");
+        }
       }
     }
 

@@ -44,16 +44,22 @@
 
   }
 
-  &:hover {
-    color: white;
-  }
-
-  &:active,
-  &:hover {
+  &:active {
     transition: transform 0.3s ease, color 0.3s ease;
 
     &:before {
       opacity: 1;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:before {
+        opacity: 1;
+      }
     }
   }
 

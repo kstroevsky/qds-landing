@@ -33,31 +33,33 @@
     left: 43%;
   }
 
-  &:hover {
-    transition: .4s ease-in-out;
-    top: 84vh;
+  @media (hover: hover) {
+    &:hover {
+      transition: .4s ease-in-out;
+      top: 84vh;
 
-    @media all and (max-width: 1024px) {
-      top: 68vh;
-    }
+      @media all and (max-width: 1024px) {
+        top: 68vh;
+      }
 
-    @media all and (max-width: 480px) {
-      top: 49vh;
-    }
+      @media all and (max-width: 480px) {
+        top: 49vh;
+      }
 
-    &>.line {
-      height: 125%;
-      top: 16%;
-      left: 23%;
-    }
+      &>.line {
+        height: 125%;
+        top: 16%;
+        left: 23%;
+      }
 
-    &:before {
-      opacity: 1;
-      transition: all .4s;
-      z-index: 1010;
-      font-size: 40px;
-      bottom: 75%;
-      right: 50%;
+      &:before {
+        opacity: 1;
+        transition: all .4s;
+        z-index: 1010;
+        font-size: 40px;
+        bottom: 75%;
+        right: 50%;
+      }
     }
   }
 
@@ -119,13 +121,15 @@
       position: absolute;
     }
 
-    &:hover:before {
-      transition: all .4s;
-      opacity: 1;
-      transform: rotate(180deg);
-      position: absolute;
-      top: 75%;
-      right: 38%;
+    @media (hover: hover) {
+      &:hover:before {
+        transition: all .4s;
+        opacity: 1;
+        transform: rotate(180deg);
+        position: absolute;
+        top: 75%;
+        right: 38%;
+      }
     }
   }
 }

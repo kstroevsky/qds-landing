@@ -114,8 +114,10 @@
   width: 16%;
   transition: transform 0.3s ease;
 
-  &:hover {
-    transform: translateX(-5%);
-    cursor: pointer;
+  @media (hover: hover) {
+    &:hover {
+      transform: translateX(-5%);
+      cursor: pointer;
+    }
   }
 }
