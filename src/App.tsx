@@ -4,8 +4,8 @@ import useIsMobile from './hooks/useIsMobile';
 import useScrollObserver from './hooks/useScrollObserver';
 import useSectionsObserver from './hooks/useSectionsObserver';
 import { headerObserverOptions, menuObserverOptions } from './shared/constants';
+import {Context} from './context'
 
-import './App.css';
 import FixHeader from './components/fixHeader/FixHeader';
 import ThemesToggle from './components/theme/ThemesToggle';
 import About from './sections/about/About';
@@ -14,6 +14,9 @@ import FormBlock from './sections/formBlock/FormBlock';
 import Header from './sections/header/Header';
 import Technologies from './sections/technologies/Technologies';
 import LanguageFlags from "./components/LanguageFlags/LanguageFlags";
+
+import './App.css';
+import useTheme from "./hooks/useTheme";
 
 function App() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
@@ -25,6 +28,7 @@ function App() {
 
 	const [showHeader, setShowHeader] = useState<boolean>(false);
 	const isMobile = useIsMobile();
+	const { theme } = useTheme();
 
 	const handleHeaderVisibility = useCallback((value: boolean) => {
 		setShowHeader(value);
@@ -48,21 +52,24 @@ function App() {
 	);
 
 	return (
-		<div className="App">
-			<Header key={'section-header'} ref={headerRef} />
-			<About key={'section-about'} ref={aboutRef} />
-			<Advantages key={'section-advantages'} ref={advantagesRef} />
-			<Technologies key={'section-technologies'} ref={technologiesRef} />
-			<FormBlock key={'section-form'} ref={formRef}/>
-			{!isMobile && (
-				<>
-					<FixHeader key={'header-fix'} showHeader={showHeader} ref={menuRef} />
-					<LanguageFlags key={'toggle-language'}/>
-					<ThemesToggle key={'toggle-theme'} />
-				</>
-			)}
+		<Context.Provider value={{theme}}>
+			<div className="App">
+				<Header key={'section-header'} ref={headerRef} />
+				<About key={'section-about'} ref={aboutRef} />
+				<Advantages key={'section-advantages'} ref={advantagesRef} />
+				<Technologies key={'section-technologies'} ref={technologiesRef} />
+				<FormBlock key={'section-form'} ref={formRef}/>
+				{!isMobile && (
+					<>
+						<FixHeader key={'header-fix'} showHeader={showHeader} ref={menuRef} />
+						<LanguageFlags key={'toggle-language'}/>
+						<ThemesToggle key={'toggle-theme'} />
+					</>
+				)}
 
-		</div>
+			</div>
+		// </Context.Provider>
+
 	);
 }
 

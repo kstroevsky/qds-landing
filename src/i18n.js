@@ -14,7 +14,7 @@ i18n
         // Поддерживаемые языки:
         supportedLngs: ['en','ua'],
         // Стандартный язык
-        fallbackLng: 'ua',
+        fallbackLng: 'en',
         debug: true,
         // Распознавание и кэширование языковых кук
         detection: {

@@ -1,10 +1,11 @@
 import { forwardRef, memo, useCallback, useEffect, useState } from 'react';
 
+import useIsMobile from '../../hooks/useIsMobile';
+
 import HeaderBackground from '../../components/HeaderBackground';
 import HeaderNav from '../../components/HeaderNav';
 import HeaderInfo from '../../components/HeaderInfo';
 import ThemesToggle from '../../components/theme/ThemesToggle';
-import useIsMobile from '../../hooks/useIsMobile';
 
 import s from './header.module.scss';
 
@@ -32,7 +33,7 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 				onBurgerClick={handleBurgerClick}
 			/>
 			{!activeBurger && <HeaderInfo/>}
-			<HeaderBackground activeBurger={activeBurger} />
+			<HeaderBackground activeBurger={activeBurger}/>
 			{isMobile && activeBurger && <ThemesToggle />}
 		</div>
 	);
