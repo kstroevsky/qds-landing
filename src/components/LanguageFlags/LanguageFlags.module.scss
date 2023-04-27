@@ -8,15 +8,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  border: 1px solid white;
-  color: white;
   cursor: pointer;
   z-index: 11001;
+  overflow: hidden;
 
-  @media (hover: hover) {
+  .flags {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to top left, transparent 30%, black 32%);
+    mask-size: 200%;
+    transition: mask-position 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+
     &:hover {
-      background-color: gray;
+      mask-position: 100% 100%;
+      opacity: 0;
     }
   }
 }
