@@ -16,6 +16,7 @@
   @media all and (min-width: 768px) and (max-width: 1024px) {
     height: 550px;
     padding: 15px;
+    border-radius: 60px;
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
@@ -60,26 +61,14 @@
   &_first {
     margin-top: 0;
     background: $block3FirstGradient;
-
-    //&>div {
-    //  background-image: url("../../assets/block3/first.png");
-    //}
   }
 
   &_second {
     background: $block3SecondGradient;
-
-    //&>div {
-    //  background-image: url("../../assets/block3/second.png");
-    //}
   }
 
   &_third {
     background: $block3ThirdGradient;
-
-    //&>div {
-    //  background-image: url("../../assets/block3/third.png");
-    //}
   }
 
   &>div {
@@ -157,15 +146,16 @@
   color: black;
   border-radius: 10px;
   opacity: 0.5;
+  font-size: 1.2vw;
 
   @media all and (min-width: 480px) and (max-width: 1024px) {
     top: 9%;
-    right: 13% !important;
     width: 28%;
     background-color: black;
     color: white;
     opacity: 0.6;
     border: none;
+    font-size: 2vw;
   }
 
   @media all and (max-width: 480px) {
