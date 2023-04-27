@@ -23,8 +23,8 @@ const LanguageFlags: FC = () => {
 
 	return (
 		<div className={s.wrapper} onClick={() => {handleChangeLanguage(isUA ? ELanguages.UA : ELanguages.EN);}}>
-			<img className={s.flags} src={activeFlag === 'ua' ? ua : en} alt={'ua'} />
-			<img className={s.flags} src={activeFlag !== 'en' ? en : ua} alt={'en'} />
+			<img className={s.flags} src={activeFlag === 'ua' ? en : ua} alt={'ua'} />
+			<img className={s.flags} src={activeFlag !== 'en' ? ua : en} alt={'en'} />
 		</div>
 	);
 };
