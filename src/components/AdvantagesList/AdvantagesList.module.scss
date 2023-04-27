@@ -61,25 +61,25 @@
     margin-top: 0;
     background: $block3FirstGradient;
 
-    &>div {
-      background-image: url("../../assets/block3/first.png");
-    }
+    //&>div {
+    //  background-image: url("../../assets/block3/first.png");
+    //}
   }
 
   &_second {
     background: $block3SecondGradient;
 
-    &>div {
-      background-image: url("../../assets/block3/second.png");
-    }
+    //&>div {
+    //  background-image: url("../../assets/block3/second.png");
+    //}
   }
 
   &_third {
     background: $block3ThirdGradient;
 
-    &>div {
-      background-image: url("../../assets/block3/third.png");
-    }
+    //&>div {
+    //  background-image: url("../../assets/block3/third.png");
+    //}
   }
 
   &>div {
@@ -124,6 +124,28 @@
   }
 }
 
+.adv__img {
+  position: absolute;
+  width: 30%;
+  bottom: 4%;
+
+  @media all and (max-width: 1024px) {
+    width: 48%;
+  }
+
+  @media all and (max-width: 768px) {
+    width: 59%;
+  }
+
+  &_right {
+    right: 4%;
+  }
+
+  &_left{
+    left: 4%;
+  }
+}
+
 .button {
   position: absolute;
   bottom: 60px;
@@ -136,7 +158,7 @@
   border-radius: 10px;
   opacity: 0.5;
 
-  @media all and (max-width: 1024px) {
+  @media all and (min-width: 480px) and (max-width: 1024px) {
     top: 9%;
     right: 13% !important;
     width: 28%;
@@ -144,6 +166,16 @@
     color: white;
     opacity: 0.6;
     border: none;
+  }
+
+  @media all and (max-width: 480px) {
+    bottom: 8%;
+    font-size: 3vw;
+    background-color: black;
+    color: white;
+    opacity: 0.6;
+    border: none;
+    width: 33%;
   }
 
   @media (hover: hover) {
@@ -154,13 +186,10 @@
   }
 
   &__left {
-    @media all and (min-width: 1024px) {
-      left: 95px;
-    }
-
+    left: 4%;
   }
 
   &__right {
-    right: 95px;
+    right: 4%;
   }
 }

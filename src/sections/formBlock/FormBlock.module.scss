@@ -189,23 +189,7 @@
     }
   }
 
-  .background {
-    background-image: url("../../assets/formBlock/bgForm.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: 100%;
-    width: 95%;
-    padding: 65px 30px;
+  .bgImg {
     position: absolute;
-    bottom: 0;
-
-    @media all and (min-width: 768px) and (max-width: 1024px) {
-      display: none;
-    }
-
-    @media all and (max-width: 768px) {
-      display: none;
-    }
   }
 }

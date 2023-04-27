@@ -4,16 +4,21 @@ import topForm from '../../assets/formBlock/topForm.svg';
 import downForm from '../../assets/formBlock/downForm.svg';
 import UserChoice from '../../components/UserChoice';
 import { ENavigationTitles } from '../../shared/constants';
-
-import s from './FormBlock.module.scss';
 import FormButton from "../../components/FormButton/FormButton";
 import {useTranslation} from "react-i18next";
+import useIsMobile from "../../hooks/useIsMobile";
+
+import bgImg from "../../assets/formBlock/bgForm.png";
+
+import s from './FormBlock.module.scss';
 
 const FormBlock = forwardRef<HTMLDivElement>((_, ref) => {
 	const {t} = useTranslation();
+	const isMobile = useIsMobile();
 
 	return (
 		<div className={s.wrapper} id={ENavigationTitles.CONTACTS} ref={ref}>
+			{!isMobile && <img className={s.bgImg} src={bgImg} alt=""/>}
 			<h1 className={s.title}>{t('navigate.contacts')}</h1>
 			<div className={s.formWrapper}>
 				<div className={`${s.__container_top}`}>
