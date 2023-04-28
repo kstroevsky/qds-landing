@@ -25,7 +25,7 @@ const LanguageFlags: FC = () => {
 		<div className={s.wrapper} onClick={handleChangeLanguage}>
 			<img
 				className={classNames(s.flags, i18n.language)}
-				src={''}
+				// src={''}
 				style={{
 					backgroundImage: `url(${isUA ? en : ua})`,
 				}}
@@ -33,7 +33,7 @@ const LanguageFlags: FC = () => {
 			/>
 			<img
 				className={classNames(s.flags, i18n.language)}
-				src={''}
+				// src={''}
 				style={{
 					backgroundImage: `url(${isUA ? ua : en})`,
 				}}
