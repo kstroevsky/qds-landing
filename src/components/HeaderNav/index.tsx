@@ -32,7 +32,11 @@ const HeaderNav: FC<HeaderNavProps> = ({ activeBurger, onBurgerClick}) => {
 								[s.menu_mobile__item]: activeBurger,
 							})}
 						>
-							<a href={`#${el}`} onClick={() => setTimeout(() => onBurgerClick(), 500)}>{t(`navigate.${el}`).toUpperCase()} </a>
+							<a
+								href={`#${el}`}
+								onClick={() => setTimeout(() => onBurgerClick(), 500)}>
+								{t(`navigate.${el}`).toUpperCase()}
+							</a>
 						</li>
 					))}
 				</ul>
