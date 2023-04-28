@@ -8,7 +8,7 @@ interface ThemeContextType {
 	theme: EThemes;
 }
 
-interface TranslationProviderProps {
+interface ThemeProviderProps {
 	children: ReactNode;
 }
 
@@ -16,10 +16,10 @@ export const Context = createContext<ThemeContextType>({
 	theme: EThemes.DARK,
 });
 
-const TranslationProvider: FC<TranslationProviderProps> = ({ children }) => {
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 	const { theme } = useTheme();
 
 	return <Context.Provider value={{ theme }}>{children}</Context.Provider>;
 };
 
-export default memo(TranslationProvider);
+export default memo(ThemeProvider);
