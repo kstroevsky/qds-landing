@@ -8,6 +8,7 @@ import HeaderInfo from '../../components/HeaderInfo';
 import ThemesToggle from '../../components/theme/ThemesToggle';
 
 import s from './header.module.scss';
+import LanguageFlags from "../../components/LanguageFlags";
 
 const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	const isMobile = useIsMobile();
@@ -34,7 +35,14 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 			/>
 			{!activeBurger && <HeaderInfo/>}
 			<HeaderBackground activeBurger={activeBurger}/>
-			{isMobile && activeBurger && <ThemesToggle />}
+			<div className={s.wrapperPanel}>
+				<div className={s.panel}>
+					{isMobile && activeBurger && <ThemesToggle />}
+					{isMobile && activeBurger && <LanguageFlags />}
+				</div>
+			</div>
+
+
 		</div>
 	);
 });

@@ -10,17 +10,22 @@
   transition: .4s ease-in-out;
 
 
-  @media all and (max-width: 1024px) {
-    top: 72vh;
+  @media all and (min-width: 480px) and (max-width: 1024px) {
+    top: 0%;
     position: absolute;
-    left: 0;
+    left: -10%;
     margin: auto;
+    height: 73px;
+    width: 80px;
   }
 
   @media all and (max-width: 480px) {
-    bottom: 8%;
-    position: absolute;
+    top: inherit;
     z-index: 100000;
+    margin: inherit;
+    left: 26%;
+    height: 70px;
+    width: 78px;
   }
 
   &:before {

@@ -15,9 +15,7 @@ import s from './AdvantagesList.module.scss';
 const AdvantageScreen = lazy(() => import('../AdvantageScreen'));
 
 const AdvantagesList: FC = () => {
-	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(
-		null
-	);
+	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(null);
 
 	const { t } = useTranslation();
 
