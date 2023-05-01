@@ -24,7 +24,9 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	}, [isMobile]);
 
 	useEffect(() => {
-		document.body.style.overflowY = activeBurger ? 'hidden' : 'auto';
+		if (window.innerWidth < 1180) {
+			document.body.style.overflowY = activeBurger ? 'hidden' : 'auto';
+		}
 	}, [activeBurger]);
 
 	return (
