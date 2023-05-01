@@ -18,8 +18,13 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 			} else {
 				setActiveIndex(activeIndex + 1);
 			}
-		} else if (e.key === 'ArrowLeft') {
-			setActiveIndex((prev) => (prev - 1 ));
+		}
+		if (e.key === 'ArrowLeft') {
+			if (activeIndex === 0) {
+				setActiveIndex(slides.length - 1)
+			} else {
+				setActiveIndex(activeIndex - 1);
+			}
 		}
 	};
 
