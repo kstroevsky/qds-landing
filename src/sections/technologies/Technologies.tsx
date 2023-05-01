@@ -24,9 +24,7 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 				<Carousel
 					containerProps={{
 						style: {
-							width: '100%',
-							justifyContent: 'space-between',
-							userSelect: 'none',
+							marginTop: '5%'
 						},
 					}}
 					centerMode={true}
@@ -36,59 +34,10 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 					autoplayDelay={3000}
 					activeSlideIndex={activeIndex}
 					onRequestChange={setActiveIndex}
+					updateOnItemClick={true}
 					responsiveProps={[{minWidth: 1280, itemsToShow: 3}, {maxWidth: 1280, itemsToShow: 1}]}
-					forwardBtnProps={{
-						show: !isMobile && true,
-						children: <img src={rightArrow}/>,
-						style: {
-							width: "4.9vw",
-							alignSelf: 'center',
-							background: "none",
-							border: "none",
-							outline: "none",
-							cursor: "pointer",
-						},
-					}}
-					backwardBtnProps={{
-						show: !isMobile && true,
-						children: <img src={backArrow}/>,
-						style: {
-							width: "4.9vw",
-							alignSelf: 'center',
-							background: "none",
-							border: "none",
-							outline: "none",
-							cursor: "pointer"
-						},
-					}}
-					dotsNav={ {
-						show: !isMobile && true,
-						itemBtnProps: {
-							style: {
-								height: 16,
-								width: 16,
-								borderRadius: '50%',
-								border: 0,
-								opacity: 0.5,
-								marginRight: 5,
-								cursor: "pointer",
-								marginTop: "1.5%"
-							},
-						},
-						activeItemBtnProps: {
-							style: {
-								height: 16,
-								width: 16,
-								borderRadius: '50%',
-								border: 0,
-								background: 'black',
-								opacity: 1,
-								marginRight: 5,
-								cursor: "pointer",
-								marginTop: "1.5%"
-							},
-						},
-					}}
+					forwardBtnProps={{show: false}}
+					backwardBtnProps={{show: false}}
 					itemsToShow={3}
 					itemsToScroll={1}
 					speed={400}
