@@ -15,18 +15,16 @@
   color: white;
   border-radius: 10px;
 
-  @media all and (min-width: 480px) and (max-width: 1224px) {
-    width: 70px;
-    height: 70px;
+  @media all and (min-width: 480px) and (max-width: 1179px) {
     bottom: auto;
-    right: 40%;
+    right: 38%;
   }
 
   @media all and (max-width: 480px) {
-    width: 70px;
-    height: 70px;
     right: 26%;
     bottom: auto;
+    width: 16%;
+    height: 8%;
   }
 
   .flags {

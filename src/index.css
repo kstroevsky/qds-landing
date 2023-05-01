@@ -87,6 +87,7 @@ html[data-theme='light'] {
   --leftBg: url('./assets/bannerBlock/leftSideLight.svg');
   --rightBg: url('./assets/bannerBlock/rightSideLight.png');
   --dropBg: url('./assets/block2/dropLight.svg');
+  --dropBgMobile: url('./assets/block2/mobile/DropForLight.svg');
 }
 
 html[data-theme='dark'] {
@@ -100,4 +101,5 @@ html[data-theme='dark'] {
   --leftBg: url('./assets/bannerBlock/leftSide.svg');
   --rightBg: url('./assets/bannerBlock/rightSide.png');
   --dropBg: url('./assets/block2/drop.svg');
+  --dropBgMobile: url('./assets/block2/mobile/Drop.svg');
 }

@@ -60,7 +60,7 @@
 
       @media all and (max-width: 480px) {
         background-size: cover;
-        background-image: url("../../assets/block2/mobile/Drop.svg");
+        background-image: var(--dropBgMobile);
         height: 135vw;
       }
     }

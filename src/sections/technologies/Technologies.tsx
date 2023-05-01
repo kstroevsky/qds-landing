@@ -3,16 +3,11 @@ import { forwardRef, memo, useState } from 'react';
 import Carousel from 'react-simply-carousel';
 import { useTranslation } from 'react-i18next';
 
-import useIsMobile from '../../hooks/useIsMobile';
 import { ENavigationTitles, slides } from '../../shared/constants';
-
-import rightArrow from "../../assets/slides/arrow-right.png";
-import backArrow from "../../assets/slides/back-button.png";
 
 import s from './Technologies.module.scss';
 
 const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
-	const isMobile = useIsMobile();
 	const [activeIndex, setActiveIndex] = useState(0);
 	const { t } = useTranslation();
 
@@ -24,7 +19,8 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 				<Carousel
 					containerProps={{
 						style: {
-							marginTop: '5%'
+							marginTop: '5%',
+							userSelect: 'none'
 						},
 					}}
 					centerMode={true}

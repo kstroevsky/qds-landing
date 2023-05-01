@@ -97,3 +97,5 @@ const AdvantagesList: FC = () => {
 };
 
 export default memo(AdvantagesList);
+
+
