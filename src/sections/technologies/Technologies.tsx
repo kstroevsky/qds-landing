@@ -1,4 +1,4 @@
-import { forwardRef, memo, useState } from 'react';
+import { forwardRef, memo, useState, KeyboardEvent } from 'react';
 
 import Carousel from 'react-simply-carousel';
 import { useTranslation } from 'react-i18next';
@@ -8,11 +8,23 @@ import { ENavigationTitles, slides } from '../../shared/constants';
 import s from './Technologies.module.scss';
 
 const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
-	const [activeIndex, setActiveIndex] = useState(0);
+	const [activeIndex, setActiveIndex] = useState<number>(0);
 	const { t } = useTranslation();
 
+	const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
+		if (e.key === 'ArrowRight') {
+			if (activeIndex > (slides.length - 2)) {
+				setActiveIndex(0)
+			} else {
+				setActiveIndex(activeIndex + 1);
+			}
+		} else if (e.key === 'ArrowLeft') {
+			setActiveIndex((prev) => (prev - 1 ));
+		}
+	};
+
 	return (
-		<div className={s.block} id={ENavigationTitles.TECHNOLOGIES} ref={ref}>
+		<div className={s.block} id={ENavigationTitles.TECHNOLOGIES} ref={ref} onKeyDown={handleKeyDown} tabIndex={0}>
 			<h1 className={s.title}>{t('navigate.technologies')}</h1>
 			<div className={s.table}>
 				<h1 className={s.table__title}>{slides[activeIndex].alt}</h1>
@@ -21,13 +33,13 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 						style: {
 							marginTop: '5%',
 							userSelect: 'none'
-						},
+						}
 					}}
 					centerMode={true}
 					infinite={true}
 					swipeTreshold={60}
 					autoplay={true}
-					autoplayDelay={3000}
+					autoplayDelay={30000000}
 					activeSlideIndex={activeIndex}
 					onRequestChange={setActiveIndex}
 					updateOnItemClick={true}
