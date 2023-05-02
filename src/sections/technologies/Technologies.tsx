@@ -1,6 +1,7 @@
 import { forwardRef, memo, useState, KeyboardEvent } from 'react';
 
 import Carousel from 'react-simply-carousel';
+
 import { useTranslation } from 'react-i18next';
 
 import { ENavigationTitles, slides } from '../../shared/constants';
@@ -44,7 +45,7 @@ const Technologies = forwardRef<HTMLDivElement>((_, ref) => {
 					infinite={true}
 					swipeTreshold={60}
 					autoplay={true}
-					autoplayDelay={30000000}
+					autoplayDelay={3000}
 					activeSlideIndex={activeIndex}
 					onRequestChange={setActiveIndex}
 					updateOnItemClick={true}
