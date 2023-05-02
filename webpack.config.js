@@ -1,22 +1,31 @@
-const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const webpack = import('webpack')
+const path = import('path')
+const HtmlWebpackPlugin = import('html-webpack-plugin')
+const MiniCssExtractPlugin = import('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = import('clean-webpack-plugin')
+const TerserPlugin = import('terser-webpack-plugin')
+const ImageMinimizerPlugin = import('image-minimizer-webpack-plugin');
+const ImageminPlugin = import('imagemin-webpack-plugin').default;
+const imageminWebp = import('imagemin-webp');
+
+// import webpack from "webpack";
+// import path from "path";
+// import HtmlWebpackPlugin from "html-webpack-plugin";
+// import MiniCssExtractPlugin from "mini-css-extract-plugin";
+// import {CleanWebpackPlugin} from "clean-webpack-plugin";
+// import TerserPlugin from "terser-webpack-plugin";
+// import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
+// import ImageminWebpackPlugin from "imagemin-webpack-plugin";
+// import imageminWebp from "imagemin-webp";
 
 module.exports = {
     mode: 'production',
     entry: {
-        bundle: path.resolve(__dirname, 'src/index.tsx'),
-        webworker: path.resolve(
-            __dirname,
-            'src/shared/WebApi/web-workers/canvas-worker.ts'
-        )
+        // bundle: path.resolve(__dirname, 'src/index.tsx'),
+        bundle: path.resolve(__dirname, 'src/index.tsx')
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         publicPath: 'auto',
         filename: '[name].[contenthash].js',
         clean: true,
@@ -28,7 +37,7 @@ module.exports = {
     devServer: {
         static: [
             {
-                directory: path.resolve(__dirname, 'dist')
+                directory: path.resolve(__dirname, 'build')
             },
             {
                 directory: path.resolve(__dirname, 'public')
@@ -161,7 +170,22 @@ module.exports = {
                         : userRequest;
                 }
             }
-        )
+        ),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png)$/i,
+            cacheFolder: './cache/',
+            jpegtran: {
+                progressive: true
+            },
+            plugins: [
+                imageminWebp({
+                    quality: 75
+                }),
+                imageminAvif({
+                    quality: 75
+                })
+            ]
+        })
     ],
     resolve: {
         extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
