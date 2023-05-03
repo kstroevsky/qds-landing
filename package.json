@@ -35,6 +35,7 @@
     "html-webpack-plugin": "^5.5.1",
     "image-minimizer-webpack-plugin": "^3.8.2",
     "image-webpack-loader": "^8.1.0",
+    "imagemin-sharp": "^1.0.6",
     "imagemin-webp": "^8.0.0",
     "imagemin-webp-webpack-plugin": "^3.3.6",
     "imagemin-webpack-plugin": "^2.4.2",
@@ -57,7 +58,10 @@
     "webp-loader": "^0.6.0",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
-    "webpack-dev-server": "^4.13.3"
+    "webpack-dev-server": "^4.13.3",
+    "webpack-image-placeholder-loader": "^1.2.1",
+    "webpack-image-resize-loader": "^5.0.0",
+    "webpack-image-srcset-loader": "^5.0.4"
   },
   "scripts": {
     "start": "webpack serve",

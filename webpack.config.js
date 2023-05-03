@@ -10,6 +10,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const StringReplacePlugin = require('string-replace-webpack-plugin');
+const sharp = require('sharp');
 
 module.exports = {
 	mode: 'production',
@@ -177,6 +178,54 @@ module.exports = {
 					to: 'images/',
 				},
 			],
+		}),
+		new ImageMinimizerPlugin({
+			test: /\.(jpe?g|png|webp)$/i,
+			exclude: /node_modules/,
+			deleteOriginalAssets: true,
+			loader: false,
+			minimizer: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920].map(
+				(width) => ({
+					filename: `[name]-${width}.webp`,
+					implementation: async (original, options) => {
+						const [fileName, fileExt] = (
+							original?.info?.sourceFilename || original.filename
+						).split('.');
+						console.log(original?.info?.sourceFilename);
+						let resizedImage;
+						// return new Promise(async (resolve, reject) => {
+						switch (fileExt) {
+							case 'jpg':
+							case 'jpeg':
+							case 'png':
+								resizedImage = await sharp(original.data)
+									.resize(width)
+									.toBuffer();
+								break;
+							case 'webp':
+								resizedImage = await sharp(original.data)
+									.resize(width)
+									.jpeg({ quality: 100 })
+									.toBuffer();
+								break;
+							default:
+								return null;
+						}
+
+						return {
+							filename: `${fileName}-${width}.${fileExt}`,
+							data: resizedImage,
+							warnings: [],
+							errors: [],
+							info: {
+								...original.info,
+								minimized: true,
+								minimizedBy: ['sharp-minimizer'],
+							},
+						};
+					},
+				})
+			),
 		}),
 		new ImageminWebpWebpackPlugin({
 			config: [
