@@ -1,213 +1,220 @@
-const webpack = import('webpack')
-const path = import('path')
-const HtmlWebpackPlugin = import('html-webpack-plugin')
-const MiniCssExtractPlugin = import('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = import('clean-webpack-plugin')
-const TerserPlugin = import('terser-webpack-plugin')
-const ImageMinimizerPlugin = import('image-minimizer-webpack-plugin');
-const ImageminPlugin = import('imagemin-webpack-plugin').default;
-const imageminWebp = import('imagemin-webp');
-
-// import webpack from "webpack";
-// import path from "path";
-// import HtmlWebpackPlugin from "html-webpack-plugin";
-// import MiniCssExtractPlugin from "mini-css-extract-plugin";
-// import {CleanWebpackPlugin} from "clean-webpack-plugin";
-// import TerserPlugin from "terser-webpack-plugin";
-// import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
-// import ImageminWebpackPlugin from "imagemin-webpack-plugin";
-// import imageminWebp from "imagemin-webp";
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const PostCSSVariables = require('postcss-css-variables');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+const StringReplacePlugin = require('string-replace-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
-    entry: {
-        // bundle: path.resolve(__dirname, 'src/index.tsx'),
-        bundle: path.resolve(__dirname, 'src/index.tsx')
-    },
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        publicPath: 'auto',
-        filename: '[name].[contenthash].js',
-        clean: true,
-        assetModuleFilename: '[name][ext]',
-    },
-    cache: {
-        type: 'memory'
-    },
-    devServer: {
-        static: [
-            {
-                directory: path.resolve(__dirname, 'build')
-            },
-            {
-                directory: path.resolve(__dirname, 'public')
-            }
-        ],
-        port: process.env.PORT || 3000,
-        hot: true,
-        compress: true,
-        historyApiFallback: true
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
-            },
-            {
-                test: /\.(png|jpg|jpeg|gif|ico)$/,
-                exclude: /node_modules/,
-                use: ['file-loader?name=[name].[ext]']
-            },
-            {
-                test: /\.svg$/i,
-                issuer: /\.[jt]sx?$/,
-                use: ['@svgr/webpack']
-            },
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.(glsl|vs|fs|vert|frag)$/,
-                exclude: /node_modules/,
-                use: [
-                    'raw-loader', 'glslify-loader'
-                ]
-            },
-            {
-                test: /\.(png|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'images/[name].[hash:8].[ext]'
-                },
-                use: [
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            mozjpeg: {
-                                progressive: true,
-                                quality: 65
-                            },
-                            optipng: {
-                                enabled: false
-                            },
-                            pngquant: {
-                                quality: [0.65, 0.90],
-                                speed: 4
-                            },
-                            gifsicle: {
-                                interlaced: false
-                            },
-                            webp: {
-                                quality: 75
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(jpe?g|png)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'images/[name].[ext]'
-                        }
-                    },
-                    {
-                        loader: 'webp-loader',
-                        options: {
-                            quality: 75
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            inject: true,
-            title: 'Bindfly Gallery',
-            template: './public/index.html',
-            favicon: './public/favicon.ico',
-            manifest: './public/manifest.json',
-            filename: './index.html'
-        }),
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        }),
-        new webpack.ProvidePlugin({
-            process: 'process/browser'
-        }),
-        new ImageMinimizerPlugin({
-            minimizerOptions: {
-                // ...other image minimizer options...
-            }
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        }),
-        new webpack.NormalModuleReplacementPlugin(
-            /(\.png)|(\.jpe?g)$/i,
-            resource => {
-                const { userRequest } = resource;
-                if (/\.(png|jpe?g)$/.test(userRequest)) {
-                    const isWebpSupported = resource.context
-                        .minimize // webpack v4
-                        ?.optimization
-                        ?.minimizer
-                        ?.find(
-                            m =>
-                                m.constructor.name === 'TerserPlugin' &&
-                                m.options.terserOptions.output.webp.enabled
-                        );
-                    resource.request = isWebpSupported
-                        ? userRequest.replace(/\.(png|jpe?g)$/, '.webp')
-                        : userRequest;
-                }
-            }
-        ),
-        new ImageminPlugin({
-            test: /\.(jpe?g|png)$/i,
-            cacheFolder: './cache/',
-            jpegtran: {
-                progressive: true
-            },
-            plugins: [
-                imageminWebp({
-                    quality: 75
-                }),
-                imageminAvif({
-                    quality: 75
-                })
-            ]
-        })
-    ],
-    resolve: {
-        extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
-    },
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        },
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                parallel: true,
-                terserOptions: {
-                    keep_classnames: true,
-                    keep_fnames: true
-                }
-            })
-        ]
-    },
-    performance: {
-        hints: false,
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
-    }
-}
+	mode: 'production',
+	entry: {
+		bundle: path.resolve(__dirname, 'src/index.tsx'),
+	},
+	resolve: {
+		extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+	},
+	output: {
+		path: path.resolve(__dirname, 'build'),
+		publicPath: 'auto',
+		filename: '[name].[contenthash].js',
+		clean: true,
+		assetModuleFilename: '[name][ext]',
+	},
+	cache: false,
+	devServer: {
+		static: [
+			{
+				directory: path.resolve(__dirname, 'build'),
+			},
+			{
+				directory: path.resolve(__dirname, 'public'),
+			},
+		],
+		port: process.env.PORT || 3000,
+		hot: true,
+		compress: true,
+		historyApiFallback: true,
+	},
+	module: {
+		rules: [
+			{
+				test: /\.(js|jsx|ts|tsx)$/,
+				exclude: /node_modules/,
+				use: [
+					'babel-loader',
+					StringReplacePlugin.replace({
+						replacements: [
+							{
+								pattern: /<img([^>]+)src={('[^`]+')}([^>]*)\/>/g,
+								replacement: (match, p1, p2, p3) => {
+									const file = p2.slice(1, -1);
+									const [filename, fileExt] = file.split('.');
+									console.log(filename, fileExt);
+									const srcset = [480, 768, 1024, 1280, 1366, 1440, 1680, 1920]
+										.map(
+											(size) =>
+												`${filename}-${size}.${fileExt} ${size}w, ${filename}-${size}.webp ${size}w`
+										)
+										.join(', ');
+
+									return `<img ${p1} srcSet="${srcset}" ${p3} />`;
+								},
+							},
+						],
+					}),
+				],
+			},
+			{
+				test: /\.scss$/,
+				exclude: /node_modules/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							url: false,
+						},
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [
+									PostCSSVariables({
+										preserve: true,
+									}),
+								],
+							},
+						},
+					},
+					'sass-loader',
+				],
+			},
+			{
+				test: /\.css$/i,
+				exclude: /node_modules/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							url: false,
+						},
+					},
+				],
+			},
+			{
+				test: /\.svg$/i,
+				exclude: /node_modules/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'images/[hash][ext][query]',
+				},
+				include: [path.resolve(__dirname, 'public')],
+				use: ['file-loader'],
+			},
+			{
+				test: /\.(jpe?g|png|webp)$/i,
+				exclude: /node_modules/,
+				type: 'asset',
+				generator: {
+					filename: 'images/[name]-[width].[ext]',
+				},
+				include: [path.resolve(__dirname, 'public')],
+				use: [
+					{
+						loader: 'responsive-loader',
+						options: {
+							adapter: require('responsive-loader/sharp'),
+							sizes: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920],
+							name: '[name]-[width].[ext]',
+						},
+					},
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							webp: {
+								quality: 100,
+							},
+						},
+					},
+				],
+			},
+		],
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			inject: true,
+			title: 'QDS Software',
+			template: './public/index.html',
+			favicon: './public/favicon.ico',
+			filename: './index.html',
+			minify: {
+				html5: true,
+				removeComments: true,
+				collapseWhitespace: true,
+				removeRedundantAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				useShortDoctype: true,
+			},
+		}),
+		new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin({
+			filename: '[name].[contenthash].css',
+		}),
+		new webpack.ProvidePlugin({
+			process: 'process/browser',
+		}),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: 'public/images',
+					to: 'images/',
+				},
+			],
+		}),
+		new ImageminWebpWebpackPlugin({
+			config: [
+				{
+					test: /\.(jpe?g|png)/,
+					options: {
+						quality: 75,
+						method: 6,
+					},
+				},
+			],
+			overrideExtension: true,
+			detailedLogs: true,
+			silent: false,
+			strict: true,
+		}),
+	],
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+		minimize: true,
+		minimizer: [
+			new CssMinimizerPlugin(),
+			new TerserPlugin({
+				parallel: true,
+				terserOptions: {
+					keep_classnames: true,
+					keep_fnames: true,
+				},
+			}),
+		],
+	},
+	performance: {
+		hints: false,
+		maxEntrypointSize: 512000,
+		maxAssetSize: 512000,
+	},
+};
