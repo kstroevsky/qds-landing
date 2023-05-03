@@ -50,7 +50,7 @@
     }
 
     .bottom {
-      background-image: var(--dropBg);
+      background-image: $dropBg;
       transform: scale(-1, -1);
       background-size: contain;
       background-repeat: no-repeat;
@@ -60,7 +60,7 @@
 
       @media all and (max-width: 480px) {
         background-size: cover;
-        background-image: var(--dropBgMobile);
+        background-image: $dropBgMobile;
         height: 135vw;
       }
     }

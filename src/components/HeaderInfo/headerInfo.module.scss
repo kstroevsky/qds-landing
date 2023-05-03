@@ -24,7 +24,7 @@
 		width: 10%;
 
 		@media all and (max-width: 1024px) {
-			color: var(--mainColor);
+			color: $mainColor;
 			width: 100%;
 			top: 4%;
 			font-size: 12vw;
@@ -48,8 +48,8 @@
 		justify-content: center;
 		font-weight: 700;
 		cursor: pointer;
-		background-color: var(--secondBg);
-		color: var(--secondColor);
+		background-color: $secondBg;
+		color: $secondColor;
 		transition: transform 0.2s ease-in-out;
 
 		@media (hover: hover) {
@@ -63,8 +63,8 @@
 			height: 10.2vh;
 			font-size: 34px;
 			margin: 0 auto;
-			background-color: var(--thirdColor);
-			color: var(--secondBg);
+			background-color: $thirdColor;
+			color: $secondBg;
 			position: relative;
 			bottom: 5%;
 		}
@@ -74,8 +74,8 @@
 			width: 50vw;
 			bottom: 5%;
 			height: 12%;
-			background-color: var(--mainColor);
-			color: var(--secondBg);
+			background-color: $mainColor;
+			color: $secondBg;
 			position: relative;
 			margin: 0 auto;
 		}

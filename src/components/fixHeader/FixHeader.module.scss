@@ -4,7 +4,7 @@
   opacity: 0;
   width: 100%;
   height: 4vw;
-  background-color: var(--secondBg);
+  background-color: $secondBg;
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -24,7 +24,7 @@
     align-items: center;
     padding-left: 3%;
     position: relative;
-    color: var(--mainColor);
+    color: $mainColor;
     left: 0;
     font-size: 1.5vw;
   }
@@ -51,7 +51,7 @@
       }
 
       &_item {
-        color: var(--mainColor);
+        color: $mainColor;
         font-weight: bold;
         font-size: 1.5vw;
         transition: color 0.5s ease;
@@ -59,7 +59,7 @@
 
         @media (hover: hover) {
           &:hover {
-            color: var(--mainHover);
+            color: $mainHover;
           }
         }
 

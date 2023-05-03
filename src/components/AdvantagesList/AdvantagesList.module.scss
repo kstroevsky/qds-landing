@@ -36,7 +36,7 @@
       @media all and (min-width: 1024px) {
         opacity: 0.4;
         transition: background-image 0.4s ease, opacity 0.4s ease;
-        background-image: url("../../assets/block3/first.png");
+        background-image: url("../../../public/images/block3/first.png");
       }
     }
 
@@ -45,7 +45,7 @@
         opacity: 0.4;
         transition: background-image 0.4s ease, opacity 0.4s ease;
         transform: scale(-1, 1);
-        background-image: url("../../assets/block3/second.png");
+        background-image: url("../../../public/images/block3/second.png");
       }
     }
 
@@ -53,7 +53,7 @@
       @media all and (min-width: 1024px) {
         opacity: 0.4;
         transition: background-image 0.4s ease, opacity 0.4s ease;
-        background-image: url("../../assets/block3/third.png");
+        background-image: url("../../../public/images/block3/third.png");
       }
     }
   }
@@ -130,7 +130,7 @@
     right: 4%;
   }
 
-  &_left{
+  &_left {
     left: 4%;
   }
 }

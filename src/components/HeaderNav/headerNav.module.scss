@@ -21,7 +21,7 @@
 
 		&__item {
 			font-weight: 700;
-			color: var(--secondColor);
+			color: $secondColor;
 			margin-right: 2vw;
 			font-size: 1.5vw;
 			cursor: pointer;
@@ -29,7 +29,7 @@
 
 			@media (hover: hover) {
 				&:hover {
-					color: var(--mainHover);
+					color: $mainHover;
 				}
 			}
 		}
@@ -73,7 +73,7 @@
 		position: absolute;
 		height: 2px;
 		width: 100%;
-		background-color: var(--thirdColor);
+		background-color: $thirdColor;
 		transition: all 0.3s ease 0s;
 	}
 
@@ -105,6 +105,6 @@
 		height: 2px;
 		width: 80%;
 		transform: scale(1);
-		background-color: var(--thirdColor);
+		background-color: $thirdColor;
 	}
 }

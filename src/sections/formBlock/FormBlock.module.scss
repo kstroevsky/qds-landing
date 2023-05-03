@@ -19,7 +19,7 @@
 
   .title {
     @include title;
-    color: var(--mainColor);
+    color: $mainColor;
     text-align: right;
     bottom: 2vw;
     right: 1vw;
