@@ -52,10 +52,8 @@ module.exports = {
 						replacements: [
 							{
 								pattern: /<img([^>]+)src={('[^`]+')}([^>]*)\/>/g,
-								replacement: (match, p1, p2, p3) => {
-									const file = p2.slice(1, -1);
-									const [filename, fileExt] = file.split('.');
-									console.log(filename, fileExt);
+								replacement: (_, p1, p2, p3) => {
+									const [filename, fileExt] = p2.slice(1, -1).split('.');
 									const srcset = [480, 768, 1024, 1280, 1366, 1440, 1680, 1920]
 										.map(
 											(size) =>
