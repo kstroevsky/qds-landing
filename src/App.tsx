@@ -64,8 +64,10 @@ function App() {
 							showHeader={showHeader}
 							ref={menuRef}
 						/>
-						<LanguageFlags key={'toggle-language'} />
-						<ThemesToggle key={'toggle-theme'} />
+						<div>
+							<LanguageFlags key={'toggle-language'} />
+							<ThemesToggle key={'toggle-theme'} />
+						</div>
 					</>
 				)}
 			</div>

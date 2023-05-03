@@ -6,8 +6,6 @@ import type { FC } from 'react';
 import { EAdvantages } from '../../shared/constants';
 import { root } from '../..';
 
-import arrow from "../../assets/block3/left-arrow.png"
-
 import s from './AdvantageScreen.module.scss';
 
 interface AdvantageScreenProps {

@@ -6,16 +6,14 @@ import { EAdvantages } from '../../shared/constants';
 import { root } from '../..';
 import { useTranslation } from 'react-i18next';
 
-import first from "../../assets/block3/first.png";
-import second from "../../assets/block3/second.png";
-import third from "../../assets/block3/third.png";
-
 import s from './AdvantagesList.module.scss';
 
 const AdvantageScreen = lazy(() => import('../AdvantageScreen'));
 
 const AdvantagesList: FC = () => {
-	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(null);
+	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(
+		null
+	);
 
 	const { t } = useTranslation();
 
@@ -64,7 +62,11 @@ const AdvantagesList: FC = () => {
 				>
 					{t('advantages.learn_more')}
 				</button>
-				<img className={`${s.adv__img} ${s.adv__img_right}`} src={first} alt=""/>
+				<img
+					className={`${s.adv__img} ${s.adv__img_right}`}
+					src={'/images/block3/first.png'}
+					alt=""
+				/>
 			</div>
 			<div
 				key={`advantage-${EAdvantages.SECOND}`}
@@ -77,7 +79,11 @@ const AdvantagesList: FC = () => {
 				>
 					{t('advantages.learn_more')}
 				</button>
-				<img className={`${s.adv__img} ${s.adv__img_left}`} src={second} alt=""/>
+				<img
+					className={`${s.adv__img} ${s.adv__img_left}`}
+					src={'/images/block3/second.png'}
+					alt=""
+				/>
 			</div>
 			<div
 				key={`advantage-${EAdvantages.THIRD}`}
@@ -90,12 +96,14 @@ const AdvantagesList: FC = () => {
 				>
 					{t('advantages.learn_more')}
 				</button>
-				<img className={`${s.adv__img} ${s.adv__img_right}`} src={third} alt=""/>
+				<img
+					className={`${s.adv__img} ${s.adv__img_right}`}
+					src={'/images/block3/third.png'}
+					alt=""
+				/>
 			</div>
 		</>
 	);
 };
 
 export default memo(AdvantagesList);
-
-

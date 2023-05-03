@@ -1,10 +1,8 @@
 import { memo, useContext } from 'react';
 import type { FC } from 'react';
 
-import rightImg from '../../assets/bannerBlock/rightSide.png';
-import rightImgLight from '../../assets/bannerBlock/rightSideLight.png';
 import { Context } from '../../shared/context';
-import { EThemes } from '../../shared/constants';
+import { EThemes, imageSizes } from '../../shared/constants';
 
 import s from './headerBackground.module.scss';
 
@@ -15,18 +13,26 @@ interface HeaderBackgroundProps {
 const HeaderBackground: FC<HeaderBackgroundProps> = ({ activeBurger }) => {
 	const { theme } = useContext(Context);
 
-	console.log('theme', theme);
+	const bg = `/images/bannerBlock/${
+		theme === EThemes.DARK ? 'rightSide.png' : 'rightSideLight.png'
+	}`;
+
+	const srcset = imageSizes
+		.map((size) => {
+			return `/images/bannerBlock/${
+				theme === EThemes.DARK ? 'rightSide' : 'rightSideLight'
+			}-${size}.png ${size}w, /images/bannerBlock/${
+				theme === EThemes.DARK ? 'rightSide' : 'rightSideLight'
+			}-${size}.webp ${size}w`;
+		})
+		.join(', ');
 
 	return (
 		<div className={s.backgroundContainer}>
 			<div className={s.mainBackground}>
 				<div className={s.leftBackground}></div>
 				{!activeBurger && (
-					<img
-						className={s.rightImg}
-						alt={'theme-toggle'}
-						src={theme === EThemes.DARK ? rightImg : rightImgLight}
-					/>
+					<img className={s.rightImg} alt={'theme-toggle'} srcSet={srcset} />
 				)}
 			</div>
 		</div>

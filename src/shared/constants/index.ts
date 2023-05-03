@@ -1,17 +1,3 @@
-import graphQL from '../../assets/slides/graphQL.svg';
-import mobx from '../../assets/slides/mobx.svg';
-import mongodb from '../../assets/slides/mongodb.svg';
-import nestJS from '../../assets/slides/NestJS 1.svg';
-import nodeJS from '../../assets/slides/node.js.svg';
-import postgreSQL from '../../assets/slides/postgreSQL.svg';
-import react from '../../assets/slides/react.svg';
-import recoil from '../../assets/slides/recoil-js.svg';
-import redux from '../../assets/slides/redux.svg';
-import reduxSaga from '../../assets/slides/redux-saga.svg';
-import threeJS from '../../assets/slides/three.js.svg';
-import vue from '../../assets/slides/vue.svg';
-import webpack from '../../assets/slides/webpack.svg';
-
 export const formOptions = [
 	'UI/UX design',
 	'Frontend',
@@ -20,20 +6,22 @@ export const formOptions = [
 	'Architecture',
 ];
 
+const path = '/images/slides/';
+
 export const slides: Record<string, any>[] = [
-	{ key: 0, src: webpack, alt: 'Webpack' },
-	{ key: 1, src: graphQL, alt: 'GraphQL' },
-	{ key: 2, src: mobx, alt: 'Mobx' },
-	{ key: 3, src: mongodb, alt: 'Mongodb' },
-	{ key: 4, src: nestJS, alt: 'NestJS' },
-	{ key: 5, src: nodeJS, alt: 'NodeJS' },
-	{ key: 6, src: postgreSQL, alt: 'PostgreSQL' },
-	{ key: 7, src: react, alt: 'React' },
-	{ key: 8, src: recoil, alt: 'Recoil' },
-	{ key: 9, src: redux, alt: 'Redux' },
-	{ key: 10, src: reduxSaga, alt: 'ReduxSaga' },
-	{ key: 11, src: threeJS, alt: 'ThreeJS' },
-	{ key: 12, src: vue, alt: 'Vue' },
+	{ key: 0, src: `${path}webpack.svg`, alt: 'Webpack' },
+	{ key: 1, src: `${path}graphQL.svg`, alt: 'GraphQL' },
+	{ key: 2, src: `${path}mobx.svg`, alt: 'Mobx' },
+	{ key: 3, src: `${path}mongodb.svg`, alt: 'Mongodb' },
+	{ key: 4, src: `${path}NestJS.svg`, alt: 'NestJS' },
+	{ key: 5, src: `${path}node.js.svg`, alt: 'NodeJS' },
+	{ key: 6, src: `${path}postgreSQL.svg`, alt: 'PostgreSQL' },
+	{ key: 7, src: `${path}react.svg`, alt: 'React' },
+	{ key: 8, src: `${path}recoil-js.svg`, alt: 'Recoil' },
+	{ key: 9, src: `${path}redux.svg`, alt: 'Redux' },
+	{ key: 10, src: `${path}redux-saga.svg`, alt: 'ReduxSaga' },
+	{ key: 11, src: `${path}three.js.svg`, alt: 'ThreeJS' },
+	{ key: 12, src: `${path}vue.svg`, alt: 'Vue' },
 ];
 
 export enum EThemes {
@@ -69,3 +57,5 @@ export const menuObserverOptions = Object.freeze({
 	root: null,
 	threshold: [0.5, 0.2, 0.5, 0.4],
 });
+
+export const imageSizes = [480, 768, 1024, 1280, 1366, 1440, 1680, 1920];
