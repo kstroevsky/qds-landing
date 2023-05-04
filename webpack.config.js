@@ -121,29 +121,8 @@ module.exports = {
 			{
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
-				type: 'asset',
-				generator: {
-					filename: 'images/[name]-[width].[ext]',
-				},
-				include: [path.resolve(__dirname, 'public')],
-				use: [
-					{
-						loader: 'responsive-loader',
-						options: {
-							adapter: require('responsive-loader/sharp'),
-							sizes: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920],
-							name: '[name]-[width].[ext]',
-						},
-					},
-					{
-						loader: 'image-webpack-loader',
-						options: {
-							webp: {
-								quality: 100,
-							},
-						},
-					},
-				],
+				type: 'asset/resource',
+				use: ['file-loader'],
 			},
 		],
 	},
@@ -179,54 +158,7 @@ module.exports = {
 				},
 			],
 		}),
-		new ImageMinimizerPlugin({
-			test: /\.(jpe?g|png|webp)$/i,
-			exclude: /node_modules/,
-			deleteOriginalAssets: true,
-			loader: false,
-			minimizer: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920].map(
-				(width) => ({
-					filename: `[name]-${width}.webp`,
-					implementation: async (original, options) => {
-						const [fileName, fileExt] = (
-							original?.info?.sourceFilename || original.filename
-						).split('.');
-						console.log(original?.info?.sourceFilename);
-						let resizedImage;
-						// return new Promise(async (resolve, reject) => {
-						switch (fileExt) {
-							case 'jpg':
-							case 'jpeg':
-							case 'png':
-								resizedImage = await sharp(original.data)
-									.resize(width)
-									.toBuffer();
-								break;
-							case 'webp':
-								resizedImage = await sharp(original.data)
-									.resize(width)
-									.jpeg({ quality: 100 })
-									.toBuffer();
-								break;
-							default:
-								return null;
-						}
 
-						return {
-							filename: `${fileName}-${width}.${fileExt}`,
-							data: resizedImage,
-							warnings: [],
-							errors: [],
-							info: {
-								...original.info,
-								minimized: true,
-								minimizedBy: ['sharp-minimizer'],
-							},
-						};
-					},
-				})
-			),
-		}),
 		new ImageminWebpWebpackPlugin({
 			config: [
 				{
@@ -256,6 +188,49 @@ module.exports = {
 					keep_classnames: true,
 					keep_fnames: true,
 				},
+			}),
+			new ImageMinimizerPlugin({
+				test: /\.(jpe?g|png|webp)$/i,
+				exclude: /node_modules/,
+				deleteOriginalAssets: true,
+				loader: false,
+				generator: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920].map(
+					(width) => ({
+						type: 'asset',
+						implementation: async ({ data, filename, info }) => {
+							const [fileName, fileExt] = filename.split('.');
+							let resizedImage;
+
+							switch (fileExt) {
+								case 'jpg':
+								case 'jpeg':
+								case 'png':
+									resizedImage = await sharp(data).resize(width).toBuffer();
+									break;
+								case 'webp':
+									resizedImage = await sharp(data)
+										.resize(width)
+										.jpeg({ quality: 100 })
+										.toBuffer();
+									break;
+								default:
+									return null;
+							}
+
+							return {
+								data: resizedImage,
+								filename: `${fileName}-${width}.${fileExt}`,
+								warnings: [],
+								errors: [],
+								info: {
+									...info,
+									minimized: true,
+									minimizedBy: ['sharp-minimizer'],
+								},
+							};
+						},
+					})
+				),
 			}),
 		],
 	},
