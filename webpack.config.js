@@ -47,27 +47,7 @@ module.exports = {
 			{
 				test: /\.(js|jsx|ts|tsx)$/,
 				exclude: /node_modules/,
-				use: [
-					'babel-loader',
-					StringReplacePlugin.replace({
-						replacements: [
-							{
-								pattern: /<img([^>]+)src={('[^`]+')}([^>]*)\/>/g,
-								replacement: (_, p1, p2, p3) => {
-									const [filename, fileExt] = p2.slice(1, -1).split('.');
-									const srcset = [480, 768, 1024, 1280, 1366, 1440, 1680, 1920]
-										.map(
-											(size) =>
-												`${filename}-${size}.${fileExt} ${size}w, ${filename}-${size}.webp ${size}w`
-										)
-										.join(', ');
-
-									return `<img ${p1} srcSet="${srcset}" ${p3} />`;
-								},
-							},
-						],
-					}),
-				],
+				use: ['babel-loader'],
 			},
 			{
 				test: /\.scss$/,
@@ -121,8 +101,35 @@ module.exports = {
 			{
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
-				type: 'asset/resource',
+				type: 'asset/inline',
 				use: ['file-loader'],
+			},
+			{
+				test: /\.(js|jsx|ts|tsx)$/,
+				exclude: /node_modules/,
+				use: [
+					StringReplacePlugin.replace({
+						replacements: [
+							{
+								pattern: /<img([^>]+)src={('[^`]+')}([^>]*)\/>/g,
+								replacement: (_, p1, p2, p3) => {
+									const [filename, fileExt] = p2.slice(1, -1).split('.');
+
+									const sources = [fileExt, 'webp'].map((ext) => ({
+										srcset: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920]
+											.map((size) => `${filename}-${size}.${ext} ${size}w`)
+											.join(', '),
+										ext,
+									}));
+
+									const sourcesHtml = `<source srcSet="${sources[1].srcset}" type="image/${sources[1].ext}"/><img srcSet="${sources[0].srcset}" alt="image"/>`;
+
+									return `<picture ${p1}>${sourcesHtml}</picture>`;
+								},
+							},
+						],
+					}),
+				],
 			},
 		],
 	},
@@ -158,7 +165,6 @@ module.exports = {
 				},
 			],
 		}),
-
 		new ImageminWebpWebpackPlugin({
 			config: [
 				{
@@ -178,6 +184,25 @@ module.exports = {
 	optimization: {
 		splitChunks: {
 			chunks: 'all',
+			cacheGroups: {
+				reactVendor: {
+					test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+					name: 'vendor-react',
+				},
+				corejsVendor: {
+					test: /[\\/]node_modules[\\/](core-js)[\\/]/,
+					name: 'vendor-corejs',
+				},
+				defaultVendors: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor-default',
+					reuseExistingChunk: true,
+				},
+				default: {
+					minChunks: 2,
+					reuseExistingChunk: true,
+				},
+			},
 		},
 		minimize: true,
 		minimizer: [
@@ -193,7 +218,7 @@ module.exports = {
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
 				deleteOriginalAssets: true,
-				loader: true,
+				loader: false,
 				generator: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920].map(
 					(width) => ({
 						type: 'asset',

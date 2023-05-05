@@ -13,26 +13,31 @@ interface HeaderBackgroundProps {
 const HeaderBackground: FC<HeaderBackgroundProps> = ({ activeBurger }) => {
 	const { theme } = useContext(Context);
 
-	const bg = `/images/bannerBlock/${
-		theme === EThemes.DARK ? 'rightSide.png' : 'rightSideLight.png'
-	}`;
-
-	const srcset = imageSizes
-		.map((size) => {
-			return `/images/bannerBlock/${
-				theme === EThemes.DARK ? 'rightSide' : 'rightSideLight'
-			}-${size}.png ${size}w, /images/bannerBlock/${
-				theme === EThemes.DARK ? 'rightSide' : 'rightSideLight'
-			}-${size}.webp ${size}w`;
-		})
-		.join(', ');
+	const sources = ['webp', 'png'].map((ext) => ({
+		srcset: imageSizes
+			.map(
+				(size) =>
+					`/images/bannerBlock/${
+						theme === EThemes.DARK ? 'rightSide' : 'rightSideLight'
+					}-${size}.${ext} ${size}w`
+			)
+			.join(', '),
+		ext,
+	}));
 
 	return (
 		<div className={s.backgroundContainer}>
 			<div className={s.mainBackground}>
 				<div className={s.leftBackground}></div>
 				{!activeBurger && (
-					<img className={s.rightImg} alt={'theme-toggle'} srcSet={srcset} />
+					<picture className={s.rightImg}>
+						<source srcSet={sources[0].srcset} type={`image/webp`} />
+						<img
+							className={s.rightImg}
+							srcSet={sources[1].srcset}
+							alt="Header"
+						></img>
+					</picture>
 				)}
 			</div>
 		</div>
