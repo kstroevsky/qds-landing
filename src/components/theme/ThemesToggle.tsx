@@ -10,6 +10,8 @@ import s from './ThemesToggle.module.scss';
 const ThemesToggle: FC = () => {
 	const { theme, setTheme } = useTheme();
 
+	console.log(theme)
+
 	const toggleTheme = useCallback(
 		() => setTheme(theme === EThemes.DARK ? EThemes.LIGHT : EThemes.DARK),
 		[setTheme, theme]

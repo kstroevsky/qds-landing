@@ -101,7 +101,7 @@ module.exports = {
 			{
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
-				type: 'asset/inline',
+				type: 'asset/resource',
 				use: ['file-loader'],
 			},
 			{
@@ -165,6 +165,7 @@ module.exports = {
 				},
 			],
 		}),
+
 		new ImageminWebpWebpackPlugin({
 			config: [
 				{
@@ -218,7 +219,7 @@ module.exports = {
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
 				deleteOriginalAssets: true,
-				loader: false,
+				loader: true,
 				generator: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920].map(
 					(width) => ({
 						type: 'asset',

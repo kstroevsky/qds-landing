@@ -64,7 +64,7 @@ function App() {
 							showHeader={showHeader}
 							ref={menuRef}
 						/>
-						<div>
+						<div className={"panelWrapper"}>
 							<LanguageFlags key={'toggle-language'} />
 							<ThemesToggle key={'toggle-theme'} />
 						</div>

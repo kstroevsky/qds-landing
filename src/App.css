@@ -51,3 +51,7 @@ body,
 	-webkit-animation-iteration-count: initial;
 	animation-iteration-count: initial;
 }
+
+.panelWrapper {
+	z-index: 20;
+}
