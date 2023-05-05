@@ -12,6 +12,7 @@ import s from './FormBlock.module.scss';
 const FormBlock = forwardRef<HTMLDivElement>((_, ref) => {
 	const { t } = useTranslation();
 	const isMobile = useIsMobile();
+	const path = '/images/formBlock/';
 
 	return (
 		<div className={s.wrapper} id={ENavigationTitles.CONTACTS} ref={ref}>
@@ -27,14 +28,14 @@ const FormBlock = forwardRef<HTMLDivElement>((_, ref) => {
 						<FormContainer />
 					</form>
 					<img
-						src={'/images/formBlock/topForm.svg'}
+						src={`${path}topForm.svg`}
 						alt="line"
 						className={`${s.__img}`}
 					/>
 				</div>
 				<div className={`${s.__container_bottom}`}>
 					<img
-						src={'/images/formBlock/downForm.svg'}
+						src={`${path}downForm.svg`}
 						alt="line"
 						className={`${s.__img}`}
 					/>
