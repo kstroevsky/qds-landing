@@ -101,7 +101,7 @@ module.exports = {
 			{
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
-				type: 'asset/resource',
+				type: 'asset/inline',
 				use: ['file-loader'],
 			},
 			{
@@ -189,10 +189,7 @@ module.exports = {
 				reactVendor: {
 					test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
 					name: 'vendor-react',
-				},
-				corejsVendor: {
-					test: /[\\/]node_modules[\\/](core-js)[\\/]/,
-					name: 'vendor-corejs',
+					reuseExistingChunk: true,
 				},
 				defaultVendors: {
 					test: /[\\/]node_modules[\\/]/,
@@ -219,7 +216,7 @@ module.exports = {
 				test: /\.(jpe?g|png|webp)$/i,
 				exclude: /node_modules/,
 				deleteOriginalAssets: true,
-				loader: true,
+				loader: false,
 				generator: [480, 768, 1024, 1280, 1366, 1440, 1680, 1920].map(
 					(width) => ({
 						type: 'asset',

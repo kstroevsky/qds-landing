@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { Suspense, lazy, useCallback, useRef, useState } from 'react';
 
 import useIsMobile from './hooks/useIsMobile';
 import useScrollObserver from './hooks/useScrollObserver';
@@ -9,13 +9,14 @@ import ThemeProvider from './shared/context';
 import FixHeader from './components/fixHeader/FixHeader';
 import ThemesToggle from './components/theme/ThemesToggle';
 import About from './sections/about/About';
-import Advantages from './sections/advantages/Advantages';
-import FormBlock from './sections/formBlock/FormBlock';
 import Header from './sections/header/Header';
-import Technologies from './sections/technologies/Technologies';
 import LanguageFlags from './components/LanguageFlags';
 
 import './App.css';
+
+const Advantages = lazy(() => import('./sections/advantages/Advantages'));
+const FormBlock = lazy(() => import('./sections/formBlock/FormBlock'));
+const Technologies = lazy(() => import('./sections/technologies/Technologies'));
 
 function App() {
 	const headerRef = useRef<HTMLDivElement | null>(null);
@@ -54,9 +55,15 @@ function App() {
 			<div className="App">
 				<Header key={'section-header'} ref={headerRef} />
 				<About key={'section-about'} ref={aboutRef} />
-				<Advantages key={'section-advantages'} ref={advantagesRef} />
-				<Technologies key={'section-technologies'} ref={technologiesRef} />
-				<FormBlock key={'section-form'} ref={formRef} />
+				<Suspense fallback={null}>
+					<Advantages key={'section-advantages'} ref={advantagesRef} />
+				</Suspense>
+				<Suspense fallback={null}>
+					<Technologies key={'section-technologies'} ref={technologiesRef} />
+				</Suspense>
+				<Suspense fallback={null}>
+					<FormBlock key={'section-form'} ref={formRef} />
+				</Suspense>
 				{!isMobile && (
 					<>
 						<FixHeader
@@ -64,7 +71,7 @@ function App() {
 							showHeader={showHeader}
 							ref={menuRef}
 						/>
-						<div className={"panelWrapper"}>
+						<div className={'panelWrapper'}>
 							<LanguageFlags key={'toggle-language'} />
 							<ThemesToggle key={'toggle-theme'} />
 						</div>

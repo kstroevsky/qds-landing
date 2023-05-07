@@ -1,6 +1,9 @@
+import { memo } from 'react';
+import type { FC } from 'react';
+
 import s from './Loader.module.scss';
 
-const Loader = () => {
+const Loader: FC = () => {
 	return (
 		<div className={s.loader}>
 			<div className={s.wrapper}>
@@ -64,4 +67,4 @@ const Loader = () => {
 	);
 };
 
-export default Loader;
+export default memo(Loader);
