@@ -97,9 +97,9 @@
     width: 46vh;
   }
 
-  @media screen and (min-device-width: 481px) and (orientation:landscape) {
-    width: 63vh
-  }
+  //@media screen and (min-device-width: 481px) and (orientation:landscape) {
+  //  width: 63vh
+  //}
 
   @media all and (max-width: 480px) {
     margin-top: 5vh !important;
