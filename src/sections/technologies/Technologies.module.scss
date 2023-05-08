@@ -81,6 +81,7 @@
 
 .slide_block {
   width: 18vw;
+  height: 100%;
   display: flex;
   justify-content: center;
 
@@ -90,11 +91,13 @@
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
     width: 54vw;
+    height: 70%;
     margin-top: 0.4% !important;
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 46vh;
+    width: 54vh;
+    height: 31vw;
   }
 
   //@media screen and (min-device-width: 481px) and (orientation:landscape) {
@@ -104,10 +107,12 @@
   @media all and (max-width: 480px) {
     margin-top: 5vh !important;
     width: 53vh;
+    height: 70%;
   }
 }
 
 .slide_img {
   width: 65% !important;
+  height: 100%;
   cursor: pointer;
 }
