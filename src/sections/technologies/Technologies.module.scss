@@ -94,7 +94,11 @@
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 64vh;
+    width: 46vh;
+  }
+
+  @media screen and (min-device-width: 481px) and (orientation:landscape) {
+    width: 63vh
   }
 
   @media all and (max-width: 480px) {
