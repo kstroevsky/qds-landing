@@ -11,9 +11,7 @@ import s from './AdvantagesList.module.scss';
 const AdvantageScreen = lazy(() => import('../AdvantageScreen'));
 
 const AdvantagesList: FC = () => {
-	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(
-		null
-	);
+	const [fullscreenOpen, setFullscreenOpen] = useState<EAdvantages | null>(null);
 
 	const { t } = useTranslation();
 
@@ -62,6 +60,14 @@ const AdvantagesList: FC = () => {
 				>
 					{t('advantages.learn_more')}
 				</button>
+				{/*<picture className={s.adv__img}>*/}
+				{/*	<source srcSet={'/images/block3/first.png'} type={`image/webp`} />*/}
+				{/*	<img*/}
+				{/*		className={s.adv__img}*/}
+				{/*		srcSet={'/images/block3/first.png'}*/}
+				{/*		alt="Header"*/}
+				{/*	></img>*/}
+				{/*</picture>*/}
 				<img
 					className={`${s.adv__img} ${s.adv__img_right}`}
 					src={'/images/block3/first.png'}
@@ -79,9 +85,17 @@ const AdvantagesList: FC = () => {
 				>
 					{t('advantages.learn_more')}
 				</button>
+				{/*<picture className={s.adv__img}>*/}
+				{/*	<source srcSet={`/images/block3/second.png`} type={`image/webp`} />*/}
+				{/*	<img*/}
+				{/*		className={s.adv__img}*/}
+				{/*		srcSet={`/images/block3/second.png`}*/}
+				{/*		alt="Header"*/}
+				{/*	></img>*/}
+				{/*</picture>*/}
 				<img
 					className={`${s.adv__img} ${s.adv__img_left}`}
-					src={'/images/block3/second.png'}
+					src={`/images/block3/second.png`}
 					alt=""
 				/>
 			</div>
@@ -96,6 +110,14 @@ const AdvantagesList: FC = () => {
 				>
 					{t('advantages.learn_more')}
 				</button>
+				{/*<picture className={s.adv__img}>*/}
+				{/*	<source srcSet={'/images/block3/third.png'} type={`image/webp`} />*/}
+				{/*	<img*/}
+				{/*		className={s.adv__img}*/}
+				{/*		srcSet={'/images/block3/third.png'}*/}
+				{/*		alt="Header"*/}
+				{/*	></img>*/}
+				{/*</picture>*/}
 				<img
 					className={`${s.adv__img} ${s.adv__img_right}`}
 					src={'/images/block3/third.png'}

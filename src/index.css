@@ -90,7 +90,7 @@ a {
   --dropBgMobile: url('../images/block2/mobile/dropMobile.svg');
 }
 
-html[data-theme='light'] {
+[data-theme='light'] {
   --mainBg: #D6DFEA;
   --mainColor: black;
   --mainHover: #8954ca;

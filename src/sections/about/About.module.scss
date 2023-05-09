@@ -37,7 +37,7 @@
 }
 
 .top {
-  background-image: $dropBg;
+  background-image: var(--dropBg);
   background-size: contain;
   background-repeat: no-repeat;
   height: 44vw;

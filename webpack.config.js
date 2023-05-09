@@ -10,6 +10,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const StringReplacePlugin = require('string-replace-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const sharp = require('sharp');
 
 module.exports = {
@@ -41,6 +42,9 @@ module.exports = {
 		hot: true,
 		compress: true,
 		historyApiFallback: true,
+		headers: {
+			'Cache-Control': 'no-store',
+		},
 	},
 	module: {
 		rules: [
@@ -140,6 +144,7 @@ module.exports = {
 			template: './public/index.html',
 			favicon: './public/favicon.ico',
 			filename: './index.html',
+			cache: true,
 			minify: {
 				html5: true,
 				removeComments: true,
@@ -180,6 +185,9 @@ module.exports = {
 			detailedLogs: true,
 			silent: false,
 			strict: true,
+		}),
+		new CompressionWebpackPlugin({
+			test: /\.js(\?.*)?$|\.css(\?.*)?$|\.html$/,
 		}),
 	],
 	optimization: {
