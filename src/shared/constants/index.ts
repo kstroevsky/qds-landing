@@ -58,4 +58,4 @@ export const menuObserverOptions = Object.freeze({
 	threshold: [0.5, 0.2, 0.5, 0.4],
 });
 
-export const imageSizes = [480, 768, 1024, 1280, 1366, 1440, 1680, 1920];
+export const imageSizes = [1920, 1680, 1440, 1366, 1280, 1024, 768, 480];
