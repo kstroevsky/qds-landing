@@ -1,0 +1,89 @@
+@import '../../shared/styles/vars';
+
+.wrapper {
+  background-size: 100%;
+  background-image: '';
+  position: relative;
+  z-index: 100;
+  border: 1px solid rgba(46, 2, 73, 0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: rgba(46, 2, 73, 0.3);
+  padding: 0.8vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  background-color: inherit;
+  margin: 0.2vw;
+  outline: none;
+  transition: color 0.3s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:before {
+    cursor: pointer;
+    background-image: linear-gradient($hoverPurpleLite, $hoverPurpleDark);
+    border-radius: 9px;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: opacity .4s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+  }
+
+  &:active {
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    font-size: 5.5vw;
+    margin: 0.6vw;
+  }
+
+  @media all and (max-width: 768px) {
+    padding: 2.8vw;
+    font-size: 22px;
+    margin: 0.6vw;
+
+    &:focus {
+      color: rgba(46, 2, 73, 0.3);
+
+      &:before {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.active {
+    background-image: $activePurpleGradient;
+    color: white;
+  }
+}

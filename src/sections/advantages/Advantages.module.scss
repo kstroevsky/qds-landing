@@ -1,0 +1,77 @@
+@import "../../shared/styles/vars";
+
+.block {
+  padding: 0 35px;
+  position: relative;
+  width: 80%;
+  margin: auto;
+
+  @media all and (max-width: 480px) {
+    padding: 0;
+    width: 85%;
+  }
+
+  &>div {
+    position: relative;
+    width: 100%;
+    bottom: 12vw;
+    margin-bottom: 30px;
+
+    @media all and (max-width: 480px) {
+      top: 0;
+    }
+
+    .titleList {
+      position: absolute;
+      bottom: 10vw;
+      left: 21vw;
+
+      &__item {
+        @include title;
+        font-size: 4vw;
+        position: relative;
+
+        &_first {
+          color: $red;
+
+        }
+
+        &_second {
+          color: $green;
+          left: -7.5vw;
+
+        }
+
+        &_third {
+          color: $blue;
+          left: -16vw;
+        }
+      }
+    }
+
+    .bottom {
+      background-image: $dropBg;
+      transform: scale(-1, -1);
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 44vw;
+      width: 100%;
+      position: relative;
+
+      @media all and (max-width: 480px) {
+        background-size: cover;
+        background-image: $dropBgMobile;
+        height: 135vw;
+      }
+    }
+
+    .titleBottom {
+      @include title;
+      text-align: end;
+      padding-right: 4vw;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@import "../../shared/styles/vars";
+
+@-webkit-keyframes opening {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 20vw;
+  }
+}
+
+@keyframes opening {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 20vw;
+  }
+}
+
+.fullscreenBlock {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 100%;
+  z-index: 11000;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: left .5s ease-out;
+
+  @media all and (max-width: 480px) {
+    width: 115vw;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -38vh;
+    width: 25vw;
+    bottom: 0;
+    left: -12vw;
+    background: $advantageWaveShadow;
+    -webkit-filter: blur(100%);
+    filter: blur(42px);
+    border-radius: inherit;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      left: -6vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      left: 0vw;
+    }
+
+    @media all and (max-width: 480px) {
+      width: 100vw;
+      left: -60vw;
+    }
+  }
+
+  &.first {
+    background: $block3FirstGradient;
+  }
+
+  &.second {
+    background: $block3SecondGradient;
+  }
+
+  &.third {
+    background: $block3ThirdGradient;
+  }
+
+
+  -webkit-mask: $advantageWaveMask;
+  mask: $advantageWaveMask;
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+
+  &__open {
+    left: 20vw;
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      left: 15vw;
+    }
+
+    @media all and (min-width: 480px) and (max-width: 768px) {
+      left: 5vw;
+    }
+
+    @media all and (max-width: 480px) {
+      left: -10vw;
+    }
+
+    &:global(body) {
+      overflow: hidden;
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  bottom: 37%;
+  left: 15%;
+  width: 16%;
+  transition: transform 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateX(-5%);
+      cursor: pointer;
+    }
+  }
+}

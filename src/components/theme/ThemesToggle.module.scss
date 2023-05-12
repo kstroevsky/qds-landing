@@ -1,0 +1,140 @@
+.theme {
+  position: fixed;
+  display: flex;
+  z-index: 11001;
+  height: 96px;
+  width: 96px;
+  right: 1.5vw;
+  top: 85vh;
+  cursor: pointer;
+  transition: .4s ease-in-out;
+
+
+  @media all and (min-width: 480px) and (max-width: 1024px) {
+    top: 0%;
+    position: absolute;
+    left: -13%;
+    margin: auto;
+    height: 73px;
+    width: 80px;
+  }
+
+  @media all and (max-width: 480px) {
+    top: inherit;
+    z-index: 100000;
+    margin: inherit;
+    left: 26%;
+    height: 8.2%;
+    width: 20%;
+  }
+
+  &:before {
+    opacity: 0;
+    content: "D";
+    color: white;
+    position: absolute;
+    transition: opacity .4s;
+    top: 22%;
+    left: 43%;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transition: .4s ease-in-out;
+      top: 84vh;
+
+      @media all and (max-width: 1024px) {
+        top: 68vh;
+      }
+
+      @media all and (max-width: 480px) {
+        top: 49vh;
+      }
+
+      &>.line {
+        height: 125%;
+        top: 16%;
+        left: 23%;
+      }
+
+      &:before {
+        opacity: 1;
+        transition: all .4s;
+        z-index: 1010;
+        font-size: 40px;
+        bottom: 75%;
+        right: 50%;
+      }
+    }
+  }
+
+  .line {
+    position: absolute;
+    width: 2px;
+    height: 0%;
+    top: 76%;
+    left: 24%;
+    background-color: white;
+    transition: .4s ease-in-out;
+    transform: rotate(45deg) translateY(-40px);
+    z-index: 1000;
+  }
+
+  .dark,
+  .light {
+    width: 80%;
+    height: 43%;
+    position: absolute;
+    cursor: pointer;
+    z-index: 600;
+  }
+
+  .dark {
+    left: 2%;
+    top: 8%;
+    background: linear-gradient(225deg, #7763E7 0%, #FC686E 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
+    border-radius: 0 0 100px 100px;
+    transform: rotate(-225deg);
+  }
+
+  .light {
+    background: linear-gradient(225deg, #67D7D3 0%, #84C5F7 100%), linear-gradient(225deg, rgba(217, 217, 217, 0) 50.52%, #D9D9D9 0%);
+    border-radius: 0 0 100px 100px;
+    transform: rotate(-45deg);
+    position: absolute;
+    bottom: 10%;
+    right: -4%;
+  }
+
+  &.light_checked {
+    transform: rotate(-180deg);
+
+    .light,
+    .dark {
+      -webkit-filter: drop-shadow(0px -1px 0px gray);
+      filter: drop-shadow(0px -1px 0px gray);
+    }
+
+    .line {
+      background-color: black;
+    }
+
+    &:before {
+      content: "L";
+      opacity: 0;
+      color: black;
+      position: absolute;
+    }
+
+    @media (hover: hover) {
+      &:hover:before {
+        transition: all .4s;
+        opacity: 1;
+        transform: rotate(180deg);
+        position: absolute;
+        top: 75%;
+        right: 38%;
+      }
+    }
+  }
+}

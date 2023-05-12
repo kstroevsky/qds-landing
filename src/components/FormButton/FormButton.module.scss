@@ -1,0 +1,17 @@
+@import "../../../src/shared/styles/vars";
+
+.button {
+  height: 3vw;
+  width: 15vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: $darkPurple;
+
+  @media all and (min-width: 360px) and (max-width: 1024px) {
+    height: 40%;
+    width: 50%;
+    font-size: 5vw;
+  }
+}

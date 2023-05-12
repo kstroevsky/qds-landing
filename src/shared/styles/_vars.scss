@@ -1,0 +1,48 @@
+@import url('../../index.css');
+
+@mixin title {
+	font-weight: 700;
+	font-size: 5.5vw;
+	z-index: 1;
+	position: relative;
+}
+
+$show-block: (
+	to: (opacity: 1,
+		transform: translateY(0))
+);
+
+$red: #950000;
+$green: #02740D;
+$blue: #00288E;
+$darkPurple: #2E0249;
+$inputsPurple: rgba(46, 2, 73, 0.3);
+$whiteBG: #eeeeee;
+$inputsColor: #A91079;
+$titlePurple: #A171E9;
+$hoverPurpleLite: rgba(168, 122, 252, 0.4);
+$hoverPurpleDark: rgba(111, 67, 191, 0.3);
+
+$mainBg: var(--mainBg);
+$mainColor: var(--mainColor);
+$mainHover: var(--mainHover);
+$secondBg: var(--secondBg);
+$secondColor: var(--secondColor);
+$thirdColor: var(--thirdColor);
+$BgImage: var(--BgImage);
+$leftBg: var(--leftBg);
+$rightBg: var(--rightBg);
+$dropBg: var(--dropBg);
+$dropBgMobile: var(--dropBgMobile);
+
+$downBlockPurpleGradient: linear-gradient(90deg, rgb(168, 122, 252) 0%, rgb(111, 67, 191) 100%);
+$activePurpleGradient: linear-gradient(90deg, rgba(168, 122, 252, 0.4) 0%, rgba(111, 67, 191, 0.4) 100%);
+$block3FirstGradient: linear-gradient(90deg, #69B7D8 0%, rgba(105, 183, 216, 0) 93.75%, rgba(105, 183, 216, 0) 100%);
+$block3SecondGradient: linear-gradient(90deg, rgba(123, 136, 188, 0) 0%, #7B88BC 100%);
+$block3ThirdGradient: linear-gradient(90deg, #CBCACE 0%, #D9D7D7 60.42%, #D9D8D9 68.23%, rgba(216, 214, 216, 0) 100%);
+
+$advantageWaveMask: radial-gradient(22.36vh at 30.00vh 50%, #000 99%, #0000 101%) 0 calc(50% - 20vh)/100% 40vh,
+	radial-gradient(22.36vh at -20vh 50%, #0000 99%, #000 101%) 10vh 50%/100% 40vh repeat-y;
+
+$advantageWaveShadow: radial-gradient(22.36vh at calc(100% - 30.00vh) 50%, #000 99%, #0000 101%) 0 calc(50% - 20vh)/100% 40vh,
+	radial-gradient(22.36vh at calc(100% + 20.00vh) 50%, #0000 99%, #000 101%) calc(100% - 10vh) 50%/100% 40vh repeat-y;

@@ -1,0 +1,72 @@
+@import "../../shared/styles/vars";
+
+.fixHeader {
+  opacity: 0;
+  width: 100%;
+  height: 4vw;
+  background-color: $secondBg;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -100%;
+  z-index: 500;
+  transition: opacity 0.4s ease-in-out;
+
+  &.fadeIn {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+  }
+
+  .titleDiv {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    padding-left: 3%;
+    position: relative;
+    color: $mainColor;
+    left: 0;
+    font-size: 1.5vw;
+  }
+
+  .fixNav {
+    display: flex;
+    width: 43%;
+    position: relative;
+    right: calc(6vw + 2%);
+
+    @media all and (min-width: 300px) and (max-width: 1024px) {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &__menu {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media all and (min-width: 300px) and (max-width: 1024px) {
+        justify-content: space-evenly;
+      }
+
+      &_item {
+        color: $mainColor;
+        font-weight: bold;
+        font-size: 1.5vw;
+        transition: color 0.5s ease;
+        cursor: pointer;
+
+        @media (hover: hover) {
+          &:hover {
+            color: $mainHover;
+          }
+        }
+
+        @media all and (min-width: 300px) and (max-width: 1024px) {
+          font-size: 2.9vw;
+        }
+      }
+    }
+  }
+}

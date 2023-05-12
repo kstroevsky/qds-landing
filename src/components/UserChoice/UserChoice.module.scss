@@ -1,0 +1,18 @@
+@import '../../shared/styles/vars';
+
+.userChoice {
+  width: 90%;
+  margin-top: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 2.5vh;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+}

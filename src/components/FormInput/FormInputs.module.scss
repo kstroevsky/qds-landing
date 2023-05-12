@@ -1,0 +1,39 @@
+@import '../../shared/styles/vars';
+
+.item {
+  height: 3vw;
+  border: none;
+  border-bottom: 1px solid $inputsPurple;
+  outline: none;
+  color: $inputsPurple;
+  margin-bottom: 15px;
+  font-size: 1.5vw;
+  background-color: transparent;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    height: 80px;
+    font-size: 5.5vw;
+  }
+
+  @media all and (max-width: 768px) {
+    height: 70px;
+    font-size: 6.5vw;
+  }
+
+  &:focus {
+    border-bottom: 1px solid $inputsColor;
+    color: $inputsColor;
+
+    &::-webkit-input-placeholder {
+      color: $inputsColor;
+    }
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &::-ms-input-placeholder,
+    &::-ms-input-placeholder,
+    &::placeholder {
+      color: $inputsColor;
+    }
+  }
+}

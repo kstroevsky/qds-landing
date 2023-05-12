@@ -1,0 +1,91 @@
+@import '../../shared/styles/vars';
+
+.info {
+	padding: 5% 0 10% 6%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: 200;
+	position: absolute;
+
+	@media all and (max-width: 1024px) {
+		width: 100%;
+		justify-content: space-between;
+		padding: 2%;
+	}
+
+	@media all and (max-width: 480px) {
+		padding-top: 80px;
+	}
+
+	.title {
+		@include title;
+		width: 10%;
+
+		@media all and (max-width: 1024px) {
+			color: $mainColor;
+			width: 100%;
+			top: 4%;
+			font-size: 12vw;
+			text-align: center;
+		}
+
+		@media all and (max-width: 768px) {
+			top: 0%;
+			font-size: 12.5vw;
+		}
+	}
+
+	.button {
+		width: 21vw;
+		height: 4vw;
+		border: none;
+		border-radius: 92px;
+		font-size: 2vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		cursor: pointer;
+		background-color: $secondBg;
+		color: $secondColor;
+		transition: transform 0.2s ease-in-out;
+
+		@media (hover: hover) {
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+
+		@media all and (min-width: 768px) and (max-width: 1024px) {
+			width: 60vw;
+			height: 10.2vh;
+			font-size: 34px;
+			margin: 0 auto;
+			background-color: $thirdColor;
+			color: $secondBg;
+			position: relative;
+			bottom: 5%;
+		}
+
+		@media all and (max-width: 768px) {
+			font-size: 4.5vw;
+			width: 50vw;
+			bottom: 5%;
+			height: 12%;
+			background-color: $mainColor;
+			color: $secondBg;
+			position: relative;
+			margin: 0 auto;
+		}
+
+		@media all and (max-width: 480px) {
+			font-size: 7vw;
+			width: 60vw;
+			bottom: 6%;
+			margin: 0 auto;
+			position: relative;
+		}
+	}
+}

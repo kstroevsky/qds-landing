@@ -1,0 +1,64 @@
+@import "../../shared/styles/vars";
+
+.wrapper {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  @media all and (max-width: 480px) {
+    width: 84%;
+  }
+}
+
+.blockTwo {
+  padding-top: 80px;
+  height: inherit;
+  position: relative;
+
+  &>div {
+    position: relative;
+    width: 100%;
+
+    &:nth-child(2) {
+      bottom: 12vw;
+
+      @media all and (max-width: 480px) {
+        bottom: 135px;
+      }
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    padding-top: 0;
+    height: 45vh;
+  }
+}
+
+.top {
+  background-image: var(--dropBg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 44vw;
+  width: 100%;
+  position: relative;
+
+  @media all and (max-width: 480px) {
+    background-image: $dropBgMobile;
+    height: 72vh;
+  }
+}
+
+.titleTop {
+  @include title;
+  position: absolute;
+  padding-left: 3vw;
+
+  @media all and (max-width: 480px) {
+    font-size: 7.5vw;
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "navigate": {
+    "about": "ABOUT",
+    "advantages": "ADVANTAGES",
+    "technologies": "TECHNOLOGIES",
+    "contacts": "CONTACTS"
+  },
+  "contact_us": "Contact us",
+  "advantages": {
+    "who_we_are": "WHO WE ARE",
+    "speed": "SPEED UP DEVELOPMENT",
+    "increase": "INCREASE QUALITY",
+    "cost": "REDUCE COSTS",
+    "we_do": "WHAT WE DO",
+    "learn_more": "Learn more"
+  },
+  "form": {
+    "title": "I'm interested in...",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Your message",
+    "send": "Send"
+  }
+}

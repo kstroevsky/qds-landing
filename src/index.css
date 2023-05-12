@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700&display=swap');
 
 body {
   margin: 0;
   font-family: 'Kumbh Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+}
+
+#root {
+  position: relative;
+  transition: right .5s ease-out;
 }
 
 code {
@@ -14,6 +20,9 @@ code {
 
 html {
   box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  width: 100vw;
 }
 
 *,
@@ -65,4 +74,32 @@ select {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+:root {
+  --mainBg: #080A14;
+  --mainColor: white;
+  --mainHover: #d91717;
+  --secondBg: #14192B;
+  --secondColor: #D6DFEA;
+  --thirdColor: #faf6f2;
+  --BgImage: url('../images/bannerBlock/background.svg');
+  --leftBg: url('../images/bannerBlock/leftSide.svg');
+  --rightBg: url('../images/bannerBlock/rightSide.png');
+  --dropBg: url('../images/block2/drop.svg');
+  --dropBgMobile: url('../images/block2/mobile/dropMobile.svg');
+}
+
+[data-theme='light'] {
+  --mainBg: #D6DFEA;
+  --mainColor: black;
+  --mainHover: #8954ca;
+  --secondBg: white;
+  --secondColor: #14192B;
+  --thirdColor: #14192B;
+  --BgImage: url('../images/bannerBlock/backgroundLight.svg');
+  --leftBg: url('../images/bannerBlock/leftSideLight.svg');
+  --rightBg: url('../images/bannerBlock/rightSideLight.png');
+  --dropBg: url('../images/block2/dropLight.svg');
+  --dropBgMobile: url('../images/block2/mobile/DropForLight.svg');
 }

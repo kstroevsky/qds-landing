@@ -1,0 +1,196 @@
+@import '../../shared/styles/vars';
+
+.wrapper {
+  padding: 0 3vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    align-items: center;
+  }
+
+  @media all and (max-width: 768px) {
+    height: 100%;
+    align-items: center;
+    margin-top: 6vh;
+  }
+
+  .title {
+    @include title;
+    color: $mainColor;
+    text-align: right;
+    bottom: 2vw;
+    right: 1vw;
+
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      bottom: 1vw;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      text-align: center;
+    }
+
+    @media all and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  .formWrapper {
+    width: 41%;
+    right: 4vw;
+    bottom: 3vw;
+    position: relative;
+    margin-top: 6vw;
+    z-index: 1;
+
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      right: 3vw;
+      bottom: 3vw;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 1024px) {
+      right: 0;
+      width: 90%;
+    }
+
+    @media all and (max-width: 768px) {
+      background-image: none;
+      right: 0;
+      width: 100%;
+      margin: 2vh 0 0;
+    }
+
+    .__container_top,
+    .__container_bottom {
+      position: relative;
+    }
+
+    .__container_top .form {
+      background-color: $whiteBG;
+      border-radius: 6vw 6vw 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1vw;
+
+      .span {
+        color: $darkPurple;
+        font-weight: 500;
+        font-size: 2vw;
+        padding-top: 1vw;
+
+        @media all and (min-width: 768px) and (max-width: 1024px) {
+          font-size: 4vw;
+        }
+
+        @media all and (max-width: 768px) {
+          font-size: 5vw;
+        }
+      }
+
+      @media all and (min-width: 1024px) and (max-width: 1280px) {
+        padding: 0;
+      }
+
+      @media all and (max-width: 768px) {
+        height: 510px;
+      }
+    }
+
+    .__container_bottom {
+      transition: bottom .4s;
+      bottom: 0;
+
+      .__img {
+        position: relative;
+        height: 100%;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          bottom: 35px;
+        }
+      }
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        bottom: 38px;
+
+        @media (hover: hover) {
+          &:hover {
+            bottom: 38px;
+          }
+        }
+      }
+
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        bottom: 60px;
+
+        @media (hover: hover) {
+          &:hover {
+            bottom: 60px;
+          }
+        }
+      }
+
+      @media all and (max-width: 768px) {
+        bottom: 22px;
+
+        @media (hover: hover) {
+          &:hover {
+            bottom: 22px;
+          }
+        }
+      }
+
+      .downBlock {
+        height: 8vw;
+        background: $downBlockPurpleGradient;
+        border-radius: 0 0 80px 80px;
+        font-size: 2vw;
+        width: 100%;
+        bottom: 8px;
+        display: flex;
+        padding-top: 1vw;
+        position: relative;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        @media all and (min-width: 768px) and (max-width: 1024px) {
+          height: 20vw;
+        }
+
+        @media all and (max-width: 768px) {
+          height: 22vw;
+          bottom: 10px;
+        }
+
+        @media all and (max-width: 480px) {
+          bottom: 5px;
+        }
+
+        &__link {
+          text-decoration: underline;
+          font-weight: 500;
+          font-size: 1.5vw;
+          color: white;
+          position: relative;
+
+          @media all and (min-width: 768px) and (max-width: 1024px) {
+            font-size: 3vw;
+          }
+
+          @media all and (max-width: 768px) {
+            font-size: 5vw;
+          }
+        }
+      }
+    }
+  }
+
+  .bgImg {
+    position: absolute;
+  }
+}
